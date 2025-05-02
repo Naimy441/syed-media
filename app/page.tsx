@@ -95,12 +95,6 @@ export default function Home() {
                 >
                   Career
                 </Link>
-                <Link
-                  href="/hamza-syed"
-                  className="text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors"
-                >
-                  Hamza Syed
-                </Link>
               </nav>
             </motion.div>
           )}
