@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { AnimatedBackground } from "@/components/AnimatedBackground"
+import { ArrowRight } from "lucide-react"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -136,9 +137,9 @@ export default function Home() {
             >
               <Link
                 href="/services"
-                className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold tracking-wide hover:bg-orange-600 transition-colors"
+                className="inline-flex items-center bg-orange-500 text-white px-8 py-4 rounded-full font-bold tracking-wide hover:bg-orange-600 transition-colors group"
               >
-                SEE ALL SERVICES
+                SEE ALL SERVICES <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </motion.div>

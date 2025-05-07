@@ -129,11 +129,11 @@ function ServiceCard({
 
                 <Link href={buttonLink} className="mt-auto relative z-10">
                     <Button
-                        className={`w-full ${isAnimated ? "bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600" : ""}`}
+                        className={`w-full group ${isAnimated ? "bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600" : ""}`}
                         variant={isAnimated ? "default" : "default"}
                     >
                         {buttonText}
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                 </Link>
             </div>

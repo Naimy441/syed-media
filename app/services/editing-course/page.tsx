@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowLeft, CheckCircle, Sparkles, Laptop, DollarSign, Users, Star } from "lucide-react"
+import { ArrowLeft, CheckCircle, Sparkles, Laptop, DollarSign, Users, Star, Video, Wrench, Image, Phone, TrendingUp, Lock, RefreshCw, Briefcase, Mic } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
@@ -53,7 +53,13 @@ export default function EditingCourse() {
             </motion.div>
 
             <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-purple-400">
-              Digital Editing Course <span className="text-lg align-top bg-yellow-400 text-black px-2 py-1 rounded ml-2 mt-4 md:mt-0 inline-block">Coming Soon</span>
+              Digital Editing Course 
+              <span className="inline-flex items-center align-top ml-2 mt-4 md:mt-0">
+                <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  Coming Soon
+                </div>
+              </span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
@@ -67,17 +73,50 @@ export default function EditingCourse() {
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Laptop className="inline w-6 h-6 text-purple-400" /> What's Included</h2>
             <ul className="text-left space-y-4 text-lg">
-              <li>🎬 Step-by-step lessons using the exact tools Syed Media relies on</li>
-              <li>🛠️ Learn to edit from scratch — no experience needed</li>
-              <li>🖼️ Master thumbnail design that drives views</li>
-              <li>📞 Proven cold-call script to land your first client</li>
-              <li>📈 Strategy to scale your editing skills to $10K+/month</li>
-              <li>🔒 Exclusive member-only video drops</li>
-              <li>🔄 Regular updates to match evolving trends</li>
-              <li>🧑‍💼 Work with real brands to build your portfolio</li>
-              <li>✅ Opportunity to join Syed Media's editing team</li>
-              <li>🤝 Access to a thriving editor & entrepreneur community</li>
-              <li>🎤 Live virtual Q&As with Hamza Syed whenever you need editing support</li>
+              <li className="flex items-start gap-3">
+                <Video className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Step-by-step lessons using the exact tools Syed Media relies on</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Wrench className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Learn to edit from scratch — no experience needed</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Image className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Master thumbnail design that drives views</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Proven cold-call script to land your first client</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <TrendingUp className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Strategy to scale your editing skills to $10K+/month</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Lock className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Exclusive member-only video drops</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <RefreshCw className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Regular updates to match evolving trends</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Briefcase className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Work with real brands to build your portfolio</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Opportunity to join Syed Media's editing team</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Users className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Access to a thriving editor & entrepreneur community</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mic className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <span>Live virtual Q&As with Hamza Syed whenever you need editing support</span>
+              </li>
             </ul>
           </FadeInSection>
 
@@ -100,15 +139,16 @@ export default function EditingCourse() {
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Waitlist Today</h2>
                 </div>
                 <Link href="/waitlist-payment" className="w-full md:w-auto">
-                  <Button size="lg" className="flex items-center gap-3 text-lg md:text-xl px-8 py-5 bg-yellow-400 text-black font-bold rounded-xl shadow-lg hover:bg-yellow-300 transition-all mb-6">
-                    <Star className="h-6 w-6 text-orange-500" />
-                    <span>Reserve Now — $10</span>
+                  <Button
+                    size="lg"
+                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  >
+                    Reserve Now — $10
                   </Button>
                 </Link>
-                <div className="text-sm text-gray-300 mt-2 max-w-md">
-                  Please review the terms and conditions before purchasing.<br />
-                  We charge a $10 application fee to help us assess interest and allocate resources efficiently. This amount will be fully credited toward your course fee upon enrollment.<br />
-                  <span className="font-semibold text-white">Reserve your spot before our prices increase. Get on the waitlist now and be the first to know when we launch.</span>
+                <div className="text-sm text-gray-300 mt-4 max-w-md">
+                  <span className="font-semibold text-white">Get on the waitlist now before our prices increase, and be the first to know when we launch.</span><br />
+                  The $10 application fee will be credited toward your course fee upon enrollment.
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">

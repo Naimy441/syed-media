@@ -34,7 +34,12 @@ export default function CareerPage() {
 
         {/* Video Editor Position */}
         <FadeInSection>
-          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
+          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <div className="absolute top-4 right-4 z-10">
+              <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <span>Work from Home</span>
+              </div>
+            </div>
             <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
               <div className="mb-6">
                 <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
@@ -75,7 +80,12 @@ export default function CareerPage() {
 
         {/* Videographer Position */}
         <FadeInSection>
-          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
+          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <div className="absolute top-4 right-4 z-10">
+              <div className="bg-purple-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <span>On Site</span>
+              </div>
+            </div>
             <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
               <div className="mb-6">
                 <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
@@ -115,7 +125,12 @@ export default function CareerPage() {
 
         {/* On-Camera Actor Position */}
         <FadeInSection>
-          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
+          <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <div className="absolute top-4 right-4 z-10">
+              <div className="bg-purple-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <span>On Site</span>
+              </div>
+            </div>
             <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
               <div className="mb-6">
                 <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">

@@ -72,10 +72,22 @@ export default function MediaAffiliate() {
 
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><CheckCircle className="inline w-6 h-6 text-emerald-400" /> Earning Potential</h2>
-            <div className="space-y-3 text-lg">
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> Bring 5 clients = <span className="font-bold">$750/month</span></div>
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> Bring 10 clients = <span className="font-bold">$1,500/month</span></div>
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> <span className="font-bold">No cap</span> on your earnings</div>
+            <p className="text-lg text-gray-300 mb-6">Take it seriously and the numbers add up quickly.</p>
+            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+              <div className="space-y-4 text-lg">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span>Bring 5 clients = <span className="text-emerald-400 font-semibold">$750/month</span></span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span>Bring 10 clients = <span className="text-emerald-400 font-semibold">$1,500/month</span></span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span><span className="text-orange-400 font-semibold">No cap</span> on your earnings</span>
+                </div>
+              </div>
             </div>
           </FadeInSection>
 

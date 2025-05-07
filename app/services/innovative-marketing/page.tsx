@@ -87,32 +87,34 @@ export default function InnovativeMarketing() {
             <div className="grid md:grid-cols-3 gap-8">
               {/* Essential Plan */}
               <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-slate-700/50"
+                className="bg-slate-900/50 rounded-lg p-6 border border-white/50"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2">Essential</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white">Essential</h3>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>8 High-Quality Ads / Month</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Video Shoot included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Video Shoot included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Thumbnails included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Thumbnails included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Captions included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Captions included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Premium editing included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Premium editing included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">
+                      <span className="bg-gradient-to-r from-white/20 to-white/10 px-2 py-0.5 rounded-md font-semibold">8</span> High-Quality Ads / Month
+                    </span>
                   </li>
                 </ul>
               </motion.div>
@@ -126,96 +128,102 @@ export default function InnovativeMarketing() {
                   Most Popular
                 </div>
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2">Extra</h3>
+                  <h3 className="text-xl font-bold mb-2 text-purple-400">Extra</h3>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span>12 High-Quality Ads / Month</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Video Shoot included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Thumbnails included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Captions included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Premium editing included</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-400 mr-2">•</span>
-                    <span>Video Shoot included</span>
+                    <span className="text-purple-400">Custom series for your brand</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-400 mr-2">•</span>
-                    <span>Thumbnails included</span>
+                    <span className="text-purple-400">Social media page management</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-400 mr-2">•</span>
-                    <span>Captions included</span>
+                    <span className="text-purple-400">Actors & Ideas provided for skits</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-400 mr-2">•</span>
-                    <span>Premium editing included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span>Custom series for your brand</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span>Social media page management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span>Actors & Ideas provided for skits</span>
+                    <span className="text-purple-400">
+                      <span className="bg-gradient-to-r from-purple-500/30 to-purple-400/20 px-2 py-0.5 rounded-md font-semibold">12</span> High-Quality Ads / Month
+                    </span>
                   </li>
                 </ul>
               </motion.div>
 
               {/* Premium Plan */}
               <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-emerald-500/50"
+                className="bg-slate-900/50 rounded-lg p-6 border border-yellow-500/50"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2">Premium</h3>
+                  <h3 className="text-xl font-bold mb-2 text-yellow-400">Premium</h3>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>20 High-Quality Ads / Month</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Video Shoot included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Video Shoot included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Thumbnails included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Thumbnails included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Captions included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Captions included</span>
+                    <span className="text-white mr-2">•</span>
+                    <span className="text-white">Premium editing included</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Premium editing included</span>
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span className="text-purple-400">Custom series for your brand</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Custom series for your brand</span>
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span className="text-purple-400">Social media page management</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Social media page management</span>
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span className="text-purple-400">Actors & Ideas provided for skits</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Actors & Ideas provided for skits</span>
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span className="text-yellow-400">Brand Collaborations arranged</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Brand Collaborations arranged</span>
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span className="text-yellow-400">
+                      <span className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-2 py-0.5 rounded-md font-semibold">100,000+</span> views guaranteed in the first month
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Guaranteed 100,000+ views in the first month</span>
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span className="text-yellow-400">Web development & unlimited IT support</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-emerald-400 mr-2">•</span>
-                    <span>Web development & unlimited IT support</span>
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span className="text-yellow-400">
+                      <span className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-2 py-0.5 rounded-md font-semibold">20</span> High-Quality Ads / Month
+                    </span>
                   </li>
                 </ul>
               </motion.div>

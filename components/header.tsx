@@ -36,7 +36,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Syed Media Logo"
-              width={160}
+              width={120}
               height={60}
               className="object-contain object-left"
             />

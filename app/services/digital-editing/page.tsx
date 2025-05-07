@@ -69,22 +69,44 @@ export default function DigitalEditing() {
               <li>• Enjoy industry-leading turnaround times and the most responsive client support team in the business.</li>
               <li>• Empower your content with platform-ready videos, exactly the way you envision, with just a few clicks.</li>
             </ul>
-            <div className="text-sm text-gray-400 mt-6">
-              <strong>Please note:</strong> Each project is billed separately. The subscription gives you priority access to professional editing whenever you need it.
+            <div className="mt-6 bg-slate-900/50 border border-slate-700/50 rounded-lg p-4">
+              <div className="text-sm text-gray-300">
+                <span className="font-medium text-white">Please note:</span> Each project is billed separately. The subscription gives you priority access to professional editing whenever you need it.
+              </div>
             </div>
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Sparkles className="inline w-6 h-6 text-emerald-400" /> Unlock More Than Just an Editor</h2>
-            <div className="space-y-4 text-lg">
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> 24/7 Access to Your Personal Editor</div>
-              <div className="ml-8 text-gray-300">No delays. No time zones. Your editor is always within reach—ready when you are.</div>
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> Unlimited Revisions</div>
-              <div className="ml-8 text-gray-300">We don't stop until it's perfect. Refine your project as many times as needed until you're 100% satisfied.</div>
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> Direct & Consistent Communication</div>
-              <div className="ml-8 text-gray-300">Stay in the loop at every stage. Enjoy open, consistent updates and a collaborative editing process that puts you in control.</div>
-              <div className="flex items-center gap-3"><span className="text-emerald-400 text-2xl">✅</span> Vision-Driven Editing</div>
-              <div className="ml-8 text-gray-300">Your style. Your vision. Your ideas. Work with an editor who gets it—and makes it even better.</div>
+            <div className="space-y-6 text-lg">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">24/7 Access to Your Personal Editor</div>
+                  <div className="text-gray-300 mt-1">No delays. No time zones. Your editor is always within reach—ready when you are.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">Unlimited Revisions</div>
+                  <div className="text-gray-300 mt-1">We don't stop until it's perfect. Refine your project as many times as needed until you're 100% satisfied.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">Direct & Consistent Communication</div>
+                  <div className="text-gray-300 mt-1">Stay in the loop at every stage. Enjoy open, consistent updates and a collaborative editing process that puts you in control.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">Vision-Driven Editing</div>
+                  <div className="text-gray-300 mt-1">Your style. Your vision. Your ideas. Work with an editor who gets it—and makes it even better.</div>
+                </div>
+              </div>
             </div>
           </FadeInSection>
 
