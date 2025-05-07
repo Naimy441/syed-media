@@ -19,8 +19,11 @@ export function AnimatedBackground() {
     let scrollOffset = 0
     let targetScrollOffset = 0
 
+    // Reduce particles on mobile
+    const isMobile = window.innerWidth < 768
+    const particleCount = isMobile ? 30 : 70
+
     const particles: Particle[] = []
-    const particleCount = 70
 
     class Particle {
       x: number

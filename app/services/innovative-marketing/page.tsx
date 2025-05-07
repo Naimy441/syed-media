@@ -59,92 +59,7 @@ export default function InnovativeMarketing() {
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
               Perfect for profitable companies ready to amplify their social media presence
             </p>
-
-            {/* Cool price animation */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: isVisible ? 1 : 0.8, opacity: isVisible ? 1 : 0 }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 200, 
-                damping: 15, 
-                delay: 0.5 
-              }}
-              className="relative my-14 mx-auto w-fit"
-            >
-              <motion.div 
-                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/30 to-emerald-500/30 blur-xl"
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, 0, -2, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-              <div className="relative  rounded-xl px-8 py-5 text-center">
-                <p className="text-gray-400 font-medium">Ideal budget</p>
-                <div className="flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white mr-1">$</span>
-                  <motion.span 
-                    className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400"
-                    animate={{ 
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    999
-                  </motion.span>
-                  <span className="text-2xl font-bold text-white">/month</span>
-                </div>
-              </div>
-            </motion.div>
           </div>
-
-          <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4">What's Included</h2>
-            <ul className="text-left space-y-4">
-              <li className="flex items-start">
-                <div className="mr-4 mt-1 bg-purple-500/20 p-1 rounded-full">
-                  <Sparkles className="h-5 w-5 text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Strategic Social Media Management</h3>
-                  <p className="text-gray-300">
-                    Comprehensive management of your social media platforms with data-driven strategies.
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="mr-4 mt-1 bg-emerald-500/20 p-1 rounded-full">
-                  <Sparkles className="h-5 w-5 text-emerald-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Content Creation & Curation</h3>
-                  <p className="text-gray-300">
-                    Professional content tailored to your brand voice and audience preferences.
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="mr-4 mt-1 bg-blue-500/20 p-1 rounded-full">
-                  <Sparkles className="h-5 w-5 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Performance Analytics</h3>
-                  <p className="text-gray-300">
-                    Detailed reports and insights to track growth and optimize your marketing strategy.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </FadeInSection>
 
           <FadeInSection className="relative z-10 p-8 md:p-10 rounded-xl">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Why you should buy</h2>
@@ -168,56 +83,141 @@ export default function InnovativeMarketing() {
           </FadeInSection>
 
           <FadeInSection className="p-8 md:p-10 rounded-xl mb-12 relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">What you get</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Choose Your Plan</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Essential Plan */}
               <motion.div 
                 className="bg-slate-900/50 rounded-lg p-6 border border-slate-700/50"
-                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 mt-1 bg-purple-500/20 p-2 rounded-full">
-                    <Video className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <h3 className="font-semibold text-xl">Premium Content Creation</h3>
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2">Essential</h3>
                 </div>
-                <ul className="space-y-3 text-gray-300 pl-12">
-                  <li className="list-disc">8-20 high-quality ads created every month</li>
-                  <li className="list-disc">Video Shoot included</li>
-                  <li className="list-disc">Thumbnails included</li>
-                  <li className="list-disc">Captions included</li>
-                  <li className="list-disc">Premium editing included</li>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>8 High-Quality Ads / Month</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Video Shoot included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Thumbnails included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Captions included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Premium editing included</span>
+                  </li>
                 </ul>
               </motion.div>
 
+              {/* Extra Plan */}
               <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-slate-700/50"
-                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                className="bg-slate-900/50 rounded-lg p-6 border border-purple-500/50 relative"
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 mt-1 bg-emerald-500/20 p-2 rounded-full">
-                    <BarChart3 className="h-5 w-5 text-emerald-400" />
-                  </div>
-                  <h3 className="font-semibold text-xl">Strategy & Management</h3>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-sm font-bold px-4 py-1 rounded-full">
+                  Most Popular
                 </div>
-                <ul className="space-y-3 text-gray-300 pl-12">
-                  <li className="list-disc">Our proven marketing model</li>
-                  <li className="list-disc">Social media page management</li>
-                  <li className="list-disc">Actors & Ideas provided for skits</li>
-                  <li className="list-disc">Collaborations with other brands</li>
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2">Extra</h3>
+                </div>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>12 High-Quality Ads / Month</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Video Shoot included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Thumbnails included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Captions included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Premium editing included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Custom series for your brand</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Social media page management</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 mr-2">•</span>
+                    <span>Actors & Ideas provided for skits</span>
+                  </li>
                 </ul>
               </motion.div>
-            </div>
 
-            <div className="mt-12 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="p-6 rounded-lg relative z-10 inline-block max-w-2xl"
+              {/* Premium Plan */}
+              <motion.div 
+                className="bg-slate-900/50 rounded-lg p-6 border border-emerald-500/50"
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <p className="text-blue-300">
-                  <span className="font-semibold">Located outside of Houston or don't need on-site filming?</span> No problem — we offer remote ad campaigns too! Contact us below to see how we can bring your vision to life from anywhere.
-                </p>
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2">Premium</h3>
+                </div>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>20 High-Quality Ads / Month</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Video Shoot included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Thumbnails included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Captions included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Premium editing included</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Custom series for your brand</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Social media page management</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Actors & Ideas provided for skits</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Brand Collaborations arranged</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Guaranteed 100,000+ views in the first month</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 mr-2">•</span>
+                    <span>Web development & unlimited IT support</span>
+                  </li>
+                </ul>
               </motion.div>
             </div>
           </FadeInSection>

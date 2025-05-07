@@ -64,7 +64,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/growth.png"
+                src="/career-editor.png"
                 alt="Video Editor Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
@@ -104,7 +104,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/jackpot.png"
+                src="/career-videographer.png"
                 alt="Videographer Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
@@ -144,7 +144,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/digital-editing.png"
+                src="/career-actor.png"
                 alt="On-Camera Actor Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
