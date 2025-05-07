@@ -111,8 +111,8 @@ export default function DigitalEditing() {
                   <FaFacebook className="h-8 w-8 text-blue-600" />
                 </div>
               </div>
-              <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-                <Sparkles className="w-full max-w-xs h-auto text-purple-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <Sparkles className="w-full max-w-[260px] md:max-w-md h-auto text-purple-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
               </div>
             </section>
           </FadeInSection>

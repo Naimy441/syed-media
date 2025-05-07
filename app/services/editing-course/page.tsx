@@ -53,14 +53,14 @@ export default function EditingCourse() {
             </motion.div>
 
             <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-purple-400">
-              Digital Editing Course <span className="text-lg align-top bg-yellow-400 text-black px-2 py-1 rounded ml-2">Coming Soon</span>
+              Digital Editing Course <span className="text-lg align-top bg-yellow-400 text-black px-2 py-1 rounded ml-2 mt-4 md:mt-0 inline-block">Coming Soon</span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
               Learn to edit and immediately start earning. Only <span className="text-white font-bold">$150/month</span> — No experience needed. Just a smartphone.
             </p>
             <div className="flex justify-center gap-6 mt-8">
-              <img src="/editing-course.png" alt="Jackpot" className="max-w-xl h-auto object-contain rounded-xl shadow-lg bg-black/10" />
+              <img src="/editing-course.png" alt="Jackpot" className="max-w-[330px] md:max-w-xl h-auto object-contain rounded-xl shadow-lg bg-black/10" />
             </div>
           </div>
 

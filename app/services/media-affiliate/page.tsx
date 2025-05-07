@@ -104,7 +104,7 @@ export default function MediaAffiliate() {
                   </Button>
                 </Link>
               </div>
-              <div className="flex-1 flex items-center justify-center p-4 md:p-8">
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
                 <Users className="w-full max-w-xs h-auto text-orange-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
               </div>
             </section>
