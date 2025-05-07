@@ -37,11 +37,11 @@ export default function DigitalEditing() {
             <motion.div
               animate={{
                 background: [
-                  "linear-gradient(90deg, #6366f1, #10b981)",
-                  "linear-gradient(180deg, #10b981, #6366f1)",
-                  "linear-gradient(270deg, #6366f1, #10b981)",
-                  "linear-gradient(0deg, #10b981, #6366f1)",
-                  "linear-gradient(90deg, #6366f1, #10b981)",
+                  "linear-gradient(90deg, #f59e42, #3b82f6)",
+                  "linear-gradient(180deg, #3b82f6, #f59e42)",
+                  "linear-gradient(270deg, #f59e42, #3b82f6)",
+                  "linear-gradient(0deg, #3b82f6, #f59e42)",
+                  "linear-gradient(90deg, #f59e42, #3b82f6)",
                 ],
               }}
               transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
@@ -53,7 +53,7 @@ export default function DigitalEditing() {
               </div>
             </motion.div>
 
-            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-blue-500">
               Premium Video Editing Services, At Your Fingertips
             </h1>
 

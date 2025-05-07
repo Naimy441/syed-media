@@ -257,7 +257,7 @@ export default function InnovativeMarketing() {
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
                 <img
-                  src="/marketing2.png"
+                  src="/growth2.png"
                   alt="Digital Launchpad Visual"
                   className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                   style={{ minHeight: '260px' }}

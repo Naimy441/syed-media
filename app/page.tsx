@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { AnimatedBackground } from "@/components/AnimatedBackground"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,6 +15,24 @@ export default function Home() {
 
   return (
     <>
+      {/* Mobile-only background image for home page */}
+      <div
+        className="fixed inset-0 z-0 block md:hidden"
+        style={{
+          backgroundImage: "url('/growth2-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      {/* Mobile-only blue gradient overlay */}
+      <div className="fixed inset-0 pointer-events-none md:hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0a2a66_0%,_#050530_40%,_transparent_100%)]" />
+      </div>
+      {/* Mobile-only animated background */}
+      <div className="block md:hidden">
+        <AnimatedBackground />
+      </div>
       {/* Floating centerpiece image */}
       <motion.div
         initial={{ opacity: 0, x: 200, rotate: 5, scale: 1.1 }}
@@ -41,7 +60,7 @@ export default function Home() {
         >
           <div className="rounded-3xl overflow-hidden mix-blend-lighten bg-black/10 backdrop-blur-sm">
             <img
-              src="/marketing2.png"
+              src="/growth2.png"
               alt="Marketing Visual"
               width={500}
               height={500}

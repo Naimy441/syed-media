@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
-import { AnimatedBackground } from "@/components/animated-background"
+import { AnimatedBackground } from "@/components/AnimatedBackground"
+import { motion } from "framer-motion"
 
 export default function CareerPage() {
   return (
@@ -11,12 +12,24 @@ export default function CareerPage() {
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col gap-20">
         {/* Hero Section */}
         <FadeInSection className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
-            Career
+        <motion.div
+            animate={{
+              background: [
+                "linear-gradient(90deg, #8b5cf6, #10b981)",
+                "linear-gradient(180deg, #10b981, #8b5cf6)",
+                "linear-gradient(270deg, #8b5cf6, #10b981)",
+                "linear-gradient(0deg, #10b981, #8b5cf6)",
+                "linear-gradient(90deg, #8b5cf6, #10b981)",
+              ],
+            }}
+            transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+            className="inline-block px-4 py-2 rounded-full mb-6"
+          >
+            <span className="font-medium py-1">Career</span>
+          </motion.div>
+          <h1 className="text-4xl md:text-6xl font-bold  bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+          Help Create, Capture, and Elevate Content for Brands and Creators Worldwide
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Join the Syed Media team and help us create, capture, and elevate content for brands and creators worldwide.
-          </p>
         </FadeInSection>
 
         {/* Video Editor Position */}
@@ -51,7 +64,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/marketing1.png"
+                src="/growth.png"
                 alt="Video Editor Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
@@ -91,7 +104,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/marketing4.png"
+                src="/jackpot.png"
                 alt="Videographer Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
@@ -131,7 +144,7 @@ export default function CareerPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/marketing3.png"
+                src="/digital-editing.png"
                 alt="On-Camera Actor Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}

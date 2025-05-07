@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { AnimatedBackground } from "@/components/animated-background"
+import { AnimatedBackground } from "@/components/AnimatedBackground"
 import FadeInSection from "@/components/FadeInSection"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
@@ -166,7 +166,7 @@ export default function MissionPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/marketing2.png"
+                src="/growth2.png"
                 alt="Syed Media CTA Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}
@@ -201,7 +201,7 @@ export default function MissionPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/marketing3.png"
+                src="/digital-editing.png"
                 alt="Collaboration Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px' }}

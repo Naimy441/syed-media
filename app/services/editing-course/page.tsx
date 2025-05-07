@@ -60,7 +60,7 @@ export default function EditingCourse() {
               Learn to edit and immediately start earning. Only <span className="text-white font-bold">$150/month</span> — No experience needed. Just a smartphone.
             </p>
             <div className="flex justify-center gap-6 mt-8">
-              <img src="/marketing3.png" alt="Jackpot" className="max-w-md h-auto object-contain rounded-xl shadow-lg bg-black/10" />
+              <img src="/digital-editing.png" alt="Jackpot" className="max-w-md h-auto object-contain rounded-xl shadow-lg bg-black/10" />
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export default function EditingCourse() {
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-                <img src="/marketing4.png" alt="Lambo and money" className="w-full max-w-md h-auto rounded-2xl shadow-xl bg-black/10" />
+                <img src="/jackpot.png" alt="Lambo and money" className="w-full max-w-md h-auto rounded-2xl shadow-xl bg-black/10" />
               </div>
             </section>
           </FadeInSection>

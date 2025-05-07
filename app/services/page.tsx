@@ -101,7 +101,7 @@ function ServiceCard({
 
             <div className="relative p-6 md:p-8 z-10 h-full flex flex-col">
                 {isComingSoon && (
-                    <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
+                    <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs md:text-sm font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full flex items-center">
                         <Sparkles className="w-3 h-3 mr-1" />
                         Coming Soon
                     </div>
