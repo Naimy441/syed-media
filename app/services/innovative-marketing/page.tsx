@@ -15,7 +15,7 @@ export default function InnovativeMarketing() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-gradient-to-br text-white overflow-x-hidden pb-20">
+    <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
@@ -52,7 +52,7 @@ export default function InnovativeMarketing() {
               </div>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+            <h1 className="pb-2  text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
               Innovative Marketing Membership
             </h1>
 
@@ -223,7 +223,7 @@ export default function InnovativeMarketing() {
           </FadeInSection>
 
           <FadeInSection>
-            {/* CTA Section - Inspired by provided image */}
+            {/* CTA Section */}
             <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
               {/* Left: Text and Button */}
               <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
@@ -255,7 +255,6 @@ export default function InnovativeMarketing() {
                   </Link>
                 </div>
               </div>
-              {/* Right: Image */}
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
                 <img
                   src="/marketing2.png"

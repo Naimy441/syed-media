@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import Image from "next/image"
 import { Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
 
@@ -34,13 +33,12 @@ export default function Header() {
           className="w-40 overflow-hidden"
         >
           <Link href="/" aria-label="Home">
-            <Image
+            <img
               src="/logo.png"
               alt="Syed Media Logo"
               width={160}
               height={60}
               className="object-contain object-left"
-              priority
             />
           </Link>
         </motion.div>

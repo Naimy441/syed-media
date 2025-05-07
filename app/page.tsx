@@ -3,9 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import Image from "next/image"
-import { Menu } from "lucide-react"
-import Header from "@/components/header"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Floating centerpiece image - scaled and positioned based on screen size */}
+      {/* Floating centerpiece image */}
       <motion.div
         initial={{ opacity: 0, x: 200, rotate: 5, scale: 1.1 }}
         animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 200, rotate: 0, scale: 1 }}
@@ -43,20 +40,19 @@ export default function Home() {
           }}
         >
           <div className="rounded-3xl overflow-hidden mix-blend-lighten bg-black/10 backdrop-blur-sm">
-            <Image
+            <img
               src="/marketing2.png"
               alt="Marketing Visual"
               width={500}
               height={500}
               className="object-contain drop-shadow-2xl rounded-3xl"
-              priority
             />
           </div>
         </motion.div>
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 w-full flex-1 flex flex-col">
+      <div className="relative z-20 w-full flex flex-col">
         {/* Header */}
         {/* <Header /> */}
 
@@ -100,13 +96,13 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* Hero Content - Positioned higher in z-index to stay above the image */}
-        <div className="flex-1 flex flex-col justify-end p-6">
+        {/* Hero Content */}
+        <div className="min-h-[calc(100vh-180px)] flex flex-col justify-end p-6">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
             transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-            className="max-w-xl md:max-w-2xl lg:max-w-3xl mb-[10vh] relative z-30"
+            className="max-w-xl md:max-w-2xl lg:max-w-3xl relative z-30"
           >
             <h2 className="text-white text-5xl md:text-6xl font-bold leading-tight mb-6">
               Where Ideas Meet Reality.

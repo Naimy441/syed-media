@@ -5,6 +5,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AnimatedBackground } from "@/components/animated-background"
 import Header from "@/components/header"
+import SmoothScroll from "@/components/SmoothScroll"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+    <SmoothScroll>
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
@@ -33,12 +35,14 @@ export default function RootLayout({
           <AnimatedBackground />
 
           {/* Page Layout */}
-          <main className="h-screen flex flex-col relative overflow-hidden z-20 w-full flex-1">
+          <main className="flex flex-col relative z-20 w-full flex-1">
             <Header />
-            {children}
+            
+              {children}
           </main>
         </ThemeProvider>
       </body>
     </html>
+    </SmoothScroll>
   )
 }

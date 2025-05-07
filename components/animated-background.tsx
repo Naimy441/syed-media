@@ -11,7 +11,7 @@ export function AnimatedBackground() {
     if (!ctx) return
 
     let width = window.innerWidth
-    let height = window.innerHeight
+    let height = document.documentElement.scrollHeight * 2
 
     canvas.width = width
     canvas.height = height
@@ -20,7 +20,7 @@ export function AnimatedBackground() {
     let targetScrollOffset = 0
 
     const particles: Particle[] = []
-    const particleCount = 50
+    const particleCount = 70
 
     class Particle {
       x: number
@@ -55,7 +55,7 @@ export function AnimatedBackground() {
         if (this.baseY > height) this.baseY = 0
         else if (this.baseY < 0) this.baseY = height
 
-        this.y = this.baseY + scrollOffset * 0.2
+        this.y = this.baseY - scrollOffset * 0.2
       }
 
       draw() {
@@ -102,7 +102,7 @@ export function AnimatedBackground() {
 
     const handleResize = () => {
       const newWidth = window.innerWidth
-      const newHeight = window.innerHeight
+      const newHeight = document.documentElement.scrollHeight * 2
 
       // Scale existing particle positions proportionally
       const scaleX = newWidth / width
@@ -111,8 +111,14 @@ export function AnimatedBackground() {
       particles.forEach(p => {
         p.x *= scaleX
         p.baseY *= scaleY
-        p.y = p.baseY + scrollOffset * 0.2
+        p.y = p.baseY - scrollOffset * 0.2
       })
+
+      // Add more particles if needed to maintain density
+      const desiredCount = Math.round((particleCount / height) * newHeight)
+      while (particles.length < desiredCount) {
+        particles.push(new Particle())
+      }
 
       width = newWidth
       height = newHeight

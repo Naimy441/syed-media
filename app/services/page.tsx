@@ -14,7 +14,7 @@ export default function Home() {
     }, [])
 
     return (
-        <main className="min-h-screen text-white">
+        <main className=" text-white">
             <div className="container mx-auto px-4 py-12 md:py-20">
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -35,7 +35,7 @@ export default function Home() {
                         title="Become a Syed Media Affiliate"
                         description="Earn $150/month for every client you bring us. That's $1,500/month just for finding 10 businesses. Ready to start?"
                         buttonText="Start earning"
-                        buttonLink="/media-affiliate"
+                        buttonLink="/services/media-affiliate"
                         isLoaded={isLoaded}
                     />
 
@@ -45,7 +45,7 @@ export default function Home() {
                         title="Personal Digital Editing"
                         description="Premium Video Editing Services, At Your Fingertips — 24/7 Access, worldwide."
                         buttonText="Subscribe Now"
-                        buttonLink="/digital-editing"
+                        buttonLink="/services/digital-editing"
                         isLoaded={isLoaded}
                     />
 
@@ -55,7 +55,7 @@ export default function Home() {
                         title="Digital Editing Course"
                         description="Learn to edit and immediately start earning money."
                         buttonText="Learn more"
-                        buttonLink="/editing-course"
+                        buttonLink="/services/editing-course"
                         isComingSoon={true}
                         isLoaded={isLoaded}
                     />
