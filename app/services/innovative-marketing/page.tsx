@@ -92,6 +92,10 @@ export default function InnovativeMarketing() {
               >
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold mb-2 text-white">Essential</h3>
+                  <div className="bg-gradient-to-r from-white/20 to-white/10 px-4 py-2 rounded-lg mb-4">
+                    <span className="text-2xl font-bold text-white">8</span>
+                    <span className="text-white ml-2">High-Quality Ads / Month</span>
+                  </div>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
@@ -110,12 +114,6 @@ export default function InnovativeMarketing() {
                     <span className="text-white mr-2">•</span>
                     <span className="text-white">Premium editing included</span>
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">
-                      <span className="bg-gradient-to-r from-white/20 to-white/10 px-2 py-0.5 rounded-md font-semibold">8</span> High-Quality Ads / Month
-                    </span>
-                  </li>
                 </ul>
               </motion.div>
 
@@ -129,6 +127,10 @@ export default function InnovativeMarketing() {
                 </div>
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold mb-2 text-purple-400">Extra</h3>
+                  <div className="bg-gradient-to-r from-purple-500/30 to-purple-400/20 px-4 py-2 rounded-lg mb-4">
+                    <span className="text-2xl font-bold text-purple-400">12</span>
+                    <span className="text-purple-400 ml-2">High-Quality Ads / Month</span>
+                  </div>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
@@ -159,12 +161,6 @@ export default function InnovativeMarketing() {
                     <span className="text-purple-400 mr-2">•</span>
                     <span className="text-purple-400">Actors & Ideas provided for skits</span>
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">
-                      <span className="bg-gradient-to-r from-purple-500/30 to-purple-400/20 px-2 py-0.5 rounded-md font-semibold">12</span> High-Quality Ads / Month
-                    </span>
-                  </li>
                 </ul>
               </motion.div>
 
@@ -175,6 +171,10 @@ export default function InnovativeMarketing() {
               >
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold mb-2 text-yellow-400">Premium</h3>
+                  <div className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-4 py-2 rounded-lg mb-4">
+                    <span className="text-2xl font-bold text-yellow-400">20</span>
+                    <span className="text-yellow-400 ml-2">High-Quality Ads / Month</span>
+                  </div>
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
@@ -218,12 +218,6 @@ export default function InnovativeMarketing() {
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span className="text-yellow-400">Web development & unlimited IT support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span className="text-yellow-400">
-                      <span className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-2 py-0.5 rounded-md font-semibold">20</span> High-Quality Ads / Month
-                    </span>
                   </li>
                 </ul>
               </motion.div>
