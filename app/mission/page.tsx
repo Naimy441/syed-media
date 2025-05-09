@@ -99,13 +99,17 @@ export default function MissionPage() {
             </CardHeader>
             <CardContent>
               <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/Sg0GcFvL1_g?autoplay=1&mute=1"
-                  title="Asim Dar Testimonial"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                <video
+                  className="absolute top-0 left-0 w-full h-full rounded-lg object-cover"
+                  src="/testimonial.mp3"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  autoPlay
+                  loop
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </CardContent>
           </Card>
