@@ -20,7 +20,7 @@ export default function DigitalEditing() {
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="ghost" className="mb-8 hover:bg-white/10">
+            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>

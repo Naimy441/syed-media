@@ -92,50 +92,63 @@ export default function MissionPage() {
         </FadeInSection>
 
         {/* Testimonial Section */}
-        <FadeInSection className="max-w-4xl mx-auto">
+        <FadeInSection className="max-w-4xl mx-auto px-4">
           <Card className="bg-slate-900/70 border-slate-700">
-            <CardHeader>
-              <CardTitle>Let's hear what Asim Dar, co-owner of Crypto Burger, wants to share about how Syed Media helped elevate his brand.</CardTitle>
+            <CardHeader className="p-4 md:p-6">
+              <CardTitle className="text-xl md:text-2xl">Let's hear what Asim Dar, Founder of Crypto Burger, wants to share about how Syed Media helped elevate his brand.</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-0 md:p-6">
               <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-                <video
-                  className="absolute top-0 left-0 w-full h-full rounded-lg object-cover"
-                  src="/testimonial.mp3"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  autoPlay
-                  loop
-                >
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/fwPMD_BhP_o"
+                  title="Asim Dar Testimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </CardContent>
           </Card>
         </FadeInSection>
 
         {/* Marketing on Autopilot Section */}
-        <FadeInSection className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Placeholder for autopilot icon */}
-            <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple-400 to-emerald-400 rounded-full flex items-center justify-center text-4xl">
-            <Sparkles/>
+        <FadeInSection className="max-w-4xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-400 to-emerald-400 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto md:mx-0">
+              <Sparkles className="w-8 h-8 md:w-10 md:h-10" />
             </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Marketing on Autopilot</h2>
-              <p className="text-lg text-gray-300 mb-4">We designed a model that takes media off your plate — so you can focus on your business.</p>
-              <p className="text-lg text-gray-300 mb-4">With one flat, affordable monthly fee, we deliver:</p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
-                <li>High-performing ad campaigns that drive results</li>
-                <li>Scroll-stopping thumbnails designed to convert</li>
-                <li>Sustainable, organic audience growth</li>
-                <li>Premium, studio-quality editing</li>
-                <li>Content aligned with the latest digital trends</li>
-                <li>Strategic presence across all major platforms</li>
+            <div className="flex-1">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center md:text-left">Marketing on Autopilot</h2>
+              <p className="text-base md:text-lg text-gray-300 mb-4">We designed a model that takes media off your plate — so you can focus on your business.</p>
+              <p className="text-base md:text-lg text-gray-300 mb-4">With one flat, affordable monthly fee, we deliver:</p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">High-performing ad campaigns that drive results</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">Scroll-stopping thumbnails designed to convert</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">Sustainable, organic audience growth</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">Premium, studio-quality editing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">Content aligned with the latest digital trends</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2.5 flex-shrink-0"></span>
+                  <span className="text-base md:text-lg text-gray-300">Strategic presence across all major platforms</span>
+                </li>
               </ul>
-              <p className="text-gray-400 mb-2">All managed by our team. All done for you.</p>
-              <p className="text-gray-400 mb-2">Cancel anytime. No pressure. Just results.</p>
+              <p className="text-base md:text-lg text-gray-400 mb-2">All managed by our team. All done for you.</p>
+              <p className="text-base md:text-lg text-gray-400">Cancel anytime. No pressure. Just results.</p>
             </div>
           </div>
         </FadeInSection>
@@ -232,10 +245,10 @@ export default function MissionPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/growth2.png"
+                src="/mission1.png"
                 alt="Syed Media CTA Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
-                style={{ minHeight: '260px' }}
+                style={{ minHeight: '260px', maxHeight: '512px' }}
               />
             </div>
           </section>
@@ -267,10 +280,10 @@ export default function MissionPage() {
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
-                src="/digital-editing.png"
+                src="/mission2.png"
                 alt="Collaboration Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
-                style={{ minHeight: '260px' }}
+                style={{ minHeight: '260px', maxHeight: '512px' }}
               />
             </div>
           </section>

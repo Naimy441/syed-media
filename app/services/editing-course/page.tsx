@@ -19,7 +19,7 @@ export default function EditingCourse() {
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="ghost" className="mb-8 hover:bg-white/10">
+            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -53,7 +53,7 @@ export default function EditingCourse() {
             </motion.div>
 
             <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-purple-400">
-              Digital Editing Course 
+              Digital Editing Course
               <span className="inline-flex items-center align-top ml-2 mt-4 md:mt-0">
                 <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
                   <Sparkles className="w-3 h-3 mr-1" />
@@ -72,52 +72,197 @@ export default function EditingCourse() {
 
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Laptop className="inline w-6 h-6 text-purple-400" /> What's Included</h2>
-            <ul className="text-left space-y-4 text-lg">
-              <li className="flex items-start gap-3">
-                <Video className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Step-by-step lessons using the exact tools Syed Media relies on</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Wrench className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Learn to edit from scratch — no experience needed</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Image className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Master thumbnail design that drives views</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Proven cold-call script to land your first client</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <TrendingUp className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Strategy to scale your editing skills to $10K+/month</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Lock className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Exclusive member-only video drops</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <RefreshCw className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Regular updates to match evolving trends</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Briefcase className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Work with real brands to build your portfolio</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Opportunity to join Syed Media's editing team</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Users className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Access to a thriving editor & entrepreneur community</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mic className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                <span>Live virtual Q&As with Hamza Syed whenever you need editing support</span>
-              </li>
-            </ul>
+            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+              <div className="space-y-4 text-lg">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Video className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Step-by-step lessons using the exact tools Syed Media relies on</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Wrench className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Learn to edit from scratch — no experience needed</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Image className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Master thumbnail design that drives views</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Phone className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Proven cold-call script to land your first client</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <TrendingUp className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Strategy to scale your editing skills to $10K+/month</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Lock className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Exclusive member-only video drops</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <RefreshCw className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Regular updates to match evolving trends</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Briefcase className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Work with real brands to build your portfolio</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <CheckCircle className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Opportunity to join Syed Media's editing team</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Users className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Access to a thriving editor & entrepreneur community</span>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-start gap-3 relative overflow-hidden"
+                >
+                  <motion.div
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  />
+                  <Mic className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <span>Live virtual Q&As with Hamza Syed whenever you need editing support</span>
+                </motion.div>
+              </div>
+            </div>
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
@@ -152,7 +297,9 @@ export default function EditingCourse() {
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-                <img src="/digital-editing.png" alt="Lambo and money" className="w-full max-w-md h-auto rounded-2xl shadow-xl bg-black/10" />
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <Video className="w-full max-w-xs h-auto text-emerald-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+              </div>
               </div>
             </section>
           </FadeInSection>

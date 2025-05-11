@@ -19,7 +19,7 @@ export default function MediaAffiliate() {
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="ghost" className="mb-8 hover:bg-white/10">
+            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -63,11 +63,23 @@ export default function MediaAffiliate() {
 
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-emerald-400" /> How It Works</h2>
-            <ul className="text-left space-y-4 text-lg">
-              <li>1. Refer a business to us.</li>
-              <li>2. If we close the deal, you earn <span className="text-emerald-400 font-semibold">$150/month</span> for each active client — every single month they stay subscribed.</li>
-              <li>3. Our current cancellation rate is <span className="text-orange-400 font-semibold">0%</span>, which means long-term, recurring income for you.</li>
-            </ul>
+            <p className="text-lg text-gray-300 mb-6">A passive income referral program that you can trust — in 3 easy steps.</p>
+            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+              <div className="space-y-4 text-lg">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span>1. Refer a business to us.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span>2. If we close the deal, you earn <span className="text-emerald-400 font-semibold">$150/month</span> for each active client — every single month they stay subscribed.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <span>3. Our current cancellation rate is <span className="text-orange-400 font-semibold">0%</span>, which means long-term, recurring income for you.</span>
+                </div>
+              </div>
+            </div>
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
