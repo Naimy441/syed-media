@@ -7,6 +7,39 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
 
+function GlowingParticles({ count = 18 }) {
+  const particles = Array.from({ length: count }).map((_, i) => ({
+    left: Math.random() * 100,
+    size: 4 + Math.random() * 2,
+    delay: Math.random() * 2,
+    duration: (2.5 + Math.random() * 2) * 2,
+    opacity: 0.3 + Math.random() * 0.5,
+    blur: 0.5 + Math.random() * 1.5,
+  }));
+  return (
+    <div className="absolute left-0 right-0 bottom-0 top-0 pointer-events-none z-20">
+      {particles.map((p, i) => (
+        <span
+          key={i}
+          className="absolute rounded-full animate-rise"
+          style={{
+            left: `${p.left}%`,
+            bottom: 0,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            opacity: p.opacity,
+            background: "radial-gradient(circle, #a855f7 60%, #7c3aed 100%)",
+            filter: `blur(${p.blur}px)` ,
+            animationDelay: `${p.delay}s`,
+            animationDuration: `${p.duration}s`,
+            boxShadow: `0 0 8px 2px #a855f7, 0 0 16px 4px #7c3aed` ,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function EditingCourse() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -296,10 +329,11 @@ export default function EditingCourse() {
                   The $10 application fee will be credited toward your course fee upon enrollment.
                 </div>
               </div>
-              <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Video className="w-full max-w-xs h-auto text-emerald-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
-              </div>
+              <div className="relative flex-1 flex items-center justify-center p-4 md:p-8">
+                <div className="relative w-full max-w-md">
+                  <img src="/digital-editing.png" alt="Digital Editing" className="w-full h-auto rounded-2xl shadow-xl bg-black/10" />
+                  <GlowingParticles count={24} />
+                </div>
               </div>
             </section>
           </FadeInSection>
