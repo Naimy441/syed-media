@@ -6,7 +6,7 @@ import { AnimatedBackground } from "@/components/AnimatedBackground"
 import FadeInSection from "@/components/FadeInSection"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Sparkles } from "lucide-react"
+import { Sparkles, Send, BicepsFlexed } from "lucide-react"
 // import { AutopilotIcon } from "@/components/icons/autopilot" // Placeholder for autopilot icon
 
 function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: number }) {
@@ -101,7 +101,7 @@ export default function MissionPage() {
               <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/fwPMD_BhP_o"
+                  src="https://www.youtube.com/embed/fwPMD_BhP_o?autoplay=1&mute=1"
                   title="Asim Dar Testimonial"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -244,12 +244,15 @@ export default function MissionPage() {
               </div>
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-              <img
+              {/* <img
                 src="/mission1.png"
                 alt="Syed Media CTA Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px', maxHeight: '512px' }}
-              />
+              /> */}
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <BicepsFlexed className="w-full max-w-xs h-auto text-red-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+              </div>
             </div>
           </section>
         </FadeInSection>
@@ -278,14 +281,17 @@ export default function MissionPage() {
                 </Button>
               </a>
             </div>
-            <div className="flex-1 flex items-center justify-center p-4 md:p-8">
+            <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <Send className="w-full max-w-xs h-auto text-purple-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+              </div>
+            {/* <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
                 src="/mission2.png"
                 alt="Collaboration Visual"
                 className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
                 style={{ minHeight: '260px', maxHeight: '512px' }}
               />
-            </div>
+            </div> */}
           </section>
         </FadeInSection>
       </div>

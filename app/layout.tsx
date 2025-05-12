@@ -12,9 +12,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Syed Media - Where Ideas Meet Reality",
   description: "A practical solution to affordable digital brand scaling.",
-  generator: 'v0.dev',
   icons: {
-    icon: '/logo.ico'
+    icon: '/favicon.ico',
+    apple: "/apple-touch-icon.png",
   }
 }
 

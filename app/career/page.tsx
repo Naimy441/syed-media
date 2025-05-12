@@ -11,7 +11,7 @@ export default function CareerPage() {
   const jobs = [
     {
       key: "editor",
-      title: "VLOG EDITOR",
+      title: "VIDEO EDITOR",
       image: "/career-editor.png",
       location: "Remote",
       badge: "Work from Home",

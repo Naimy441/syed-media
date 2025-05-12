@@ -225,7 +225,6 @@ export default function InnovativeMarketing() {
           </FadeInSection>
 
           <FadeInSection>
-            {/* CTA Section */}
             <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
               {/* Left: Text and Button */}
               <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
@@ -258,12 +257,9 @@ export default function InnovativeMarketing() {
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-                <img
-                  src="/growth2.png"
-                  alt="Digital Launchpad Visual"
-                  className="rounded-2xl w-full max-w-md md:max-w-lg object-cover shadow-xl"
-                  style={{ minHeight: '260px' }}
-                />
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <Video className="w-full max-w-xs h-auto text-blue-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+              </div>
               </div>
             </section>
           </FadeInSection>
