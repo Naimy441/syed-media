@@ -48,14 +48,14 @@ export default function Header() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -10 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="hidden lg:flex gap-8 text-sm"
+          className="hidden lg:flex gap-8 text-sm bg-black/20 backdrop-blur-sm px-8 py-4 rounded-full"
         >
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-white hover:text-orange-400 transition-colors relative pb-1 ${
-                pathname === item.href ? "text-orange-500 font-medium" : ""
+              className={`text-white hover:text-orange-400 transition-colors relative pb-1 font-medium ${
+                pathname === item.href ? "text-orange-500" : ""
               }`}
             >
               {item.name}
