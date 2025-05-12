@@ -13,29 +13,18 @@ const navItems = [
   { name: "Career", href: "/career" },
 ]
 
-export default function Header() {
+export default function RegularHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
     <>
-      <header className={`flex justify-between items-center px-6 py-6 transition-all duration-300 ${
-        isScrolled ? "bg-black/50 backdrop-blur-md" : ""
-      }`}>
+      <header className="flex justify-between items-center px-6 pt-6 relative z-10 bg-black">
         {/* Logo on left */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -123,4 +112,4 @@ export default function Header() {
       </AnimatePresence>
     </>
   )
-}
+} 

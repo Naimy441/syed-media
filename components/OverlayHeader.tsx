@@ -43,15 +43,27 @@ export default function Header() {
           transition={{ duration: 0.8 }}
           className="w-40 overflow-hidden"
         >
-          <Link href="/" aria-label="Home">
-            <img
-              src="/logo.png"
-              alt="Syed Media Logo"
-              width={120}
-              height={60}
-              className="object-contain object-left"
-            />
-          </Link>
+          {pathname === "/" ? (
+            <div>
+              <img
+                src="/logo.png"
+                alt="Syed Media Logo"
+                width={120}
+                height={60}
+                className="object-contain object-left"
+              />
+            </div>
+          ) : (
+            <Link href="/" aria-label="Home">
+              <img
+                src="/logo.png"
+                alt="Syed Media Logo"
+                width={120}
+                height={60}
+                className="object-contain object-left"
+              />
+            </Link>
+          )}
         </motion.div>
 
         {/* Desktop menu with animation */}
