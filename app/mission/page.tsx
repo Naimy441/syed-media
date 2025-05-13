@@ -6,7 +6,9 @@ import { AnimatedBackground } from "@/components/AnimatedBackground"
 import FadeInSection from "@/components/FadeInSection"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Sparkles, Send, BicepsFlexed } from "lucide-react"
+import { Sparkles, Send, BicepsFlexed, CreditCard, MailCheckIcon, Mail } from "lucide-react"
+import { ContactModal } from "@/components/modals/contact-modal"
+import { MarketingModal } from "@/components/modals/marketing-modal"
 // import { AutopilotIcon } from "@/components/icons/autopilot" // Placeholder for autopilot icon
 
 function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: number }) {
@@ -35,6 +37,15 @@ function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: 
 }
 
 export default function MissionPage() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const [isMarketingModalOpen, setIsMarketingModalOpen] = useState(false)
+  const [modalType, setModalType] = useState<'strategy' | 'collaboration'>('strategy')
+
+  const openContactModal = (type: 'strategy' | 'collaboration') => {
+    setModalType(type)
+    setIsContactModalOpen(true)
+  }
+
   return (
     <main className="relative min-h-screen text-white overflow-x-hidden">
       <AnimatedBackground />
@@ -222,25 +233,14 @@ export default function MissionPage() {
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">READY TO GROW?</h2>
               </div>
               <div className="flex flex-col md:flex-row gap-4 w-full">
-                <a href="mailto:hello@syedmedia.com?subject=Free%20Strategy%20Call" className="w-full md:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full text-lg h-14 border-purple-500/50 hover:bg-purple-500/10 text-purple-300"
-                  >
-                    {/* You can import and use the Mail icon if desired */}
-                    Book a Free Strategy Call
-                  </Button>
-                </a>
-                <a href="/payment" className="w-full md:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                  >
-                    {/* You can import and use the CreditCard icon if desired */}
-                    Get Started Today
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setIsMarketingModalOpen(true)}
+                >
+                  <CreditCard className="mr-2 h-5 w-5" />
+                  Get Started Today
+                </Button>
               </div>
             </div>
             <div className="flex-1 flex items-center justify-center p-4 md:p-8">
@@ -272,18 +272,18 @@ export default function MissionPage() {
                 We're not just a media agency. We're a network of passionate entrepreneurs who genuinely love marketing and innovation. If you're looking to collaborate, sponsor, or build something powerful together, we'd love to hear from you.
               </p>
               <p className="text-lg text-gray-300 mb-8">Let's create something that leaves a mark.</p>
-              <a href="mailto:hello@syedmedia.com?subject=Collaboration" className="w-full md:w-auto">
-                <Button
-                  size="lg"
-                  className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                >
-                  Email Us
-                </Button>
-              </a>
+              <Button
+                size="lg"
+                className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                onClick={() => openContactModal('collaboration')}
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Contact Us
+              </Button>
             </div>
             <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Send className="w-full max-w-xs h-auto text-purple-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
-              </div>
+              <Send className="w-full max-w-xs h-auto text-purple-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+            </div>
             {/* <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img
                 src="/mission2.png"
@@ -294,6 +294,18 @@ export default function MissionPage() {
             </div> */}
           </section>
         </FadeInSection>
+
+        {/* Contact Modal */}
+        <ContactModal 
+          isOpen={isContactModalOpen} 
+          onClose={() => setIsContactModalOpen(false)} 
+        />
+
+        {/* Marketing Modal */}
+        <MarketingModal
+          isOpen={isMarketingModalOpen}
+          onClose={() => setIsMarketingModalOpen(false)}
+        />
       </div>
     </main>
   )

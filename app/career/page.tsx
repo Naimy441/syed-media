@@ -5,9 +5,11 @@ import FadeInSection from "@/components/FadeInSection"
 import { AnimatedBackground } from "@/components/AnimatedBackground"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
+import { CareerModal } from "@/components/modals/career-modal"
 
 export default function CareerPage() {
   const [expanded, setExpanded] = useState<string | null>(null)
+  const [selectedJob, setSelectedJob] = useState<string | null>(null)
   const jobs = [
     {
       key: "editor",
@@ -29,14 +31,13 @@ export default function CareerPage() {
             <li>Must be able to work efficiently and meet quick turnaround times</li>
           </ul>
           <p className="text-gray-400 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
-          <a href="/apply" className="w-full md:w-auto">
-            <Button
-              size="lg"
-              className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-            >
-              Apply Now
-            </Button>
-          </a>
+          <Button
+            size="lg"
+            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            onClick={() => setSelectedJob("Video Editor")}
+          >
+            Apply Now
+          </Button>
         </>
       ),
     },
@@ -59,14 +60,13 @@ export default function CareerPage() {
             <li>Strong understanding of framing, lighting, and visual storytelling is a plus</li>
           </ul>
           <p className="text-gray-400 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
-          <a href="/apply" className="w-full md:w-auto">
-            <Button
-              size="lg"
-              className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-            >
-              Apply Now
-            </Button>
-          </a>
+          <Button
+            size="lg"
+            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            onClick={() => setSelectedJob("Videographer")}
+          >
+            Apply Now
+          </Button>
         </>
       ),
     },
@@ -89,14 +89,13 @@ export default function CareerPage() {
             <li>Prior acting or public speaking experience is a plus, but not required</li>
           </ul>
           <p className="text-gray-400 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
-          <a href="/apply" className="w-full md:w-auto">
-            <Button
-              size="lg"
-              className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-            >
-              Apply Now
-            </Button>
-          </a>
+          <Button
+            size="lg"
+            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            onClick={() => setSelectedJob("On-Camera Actor")}
+          >
+            Apply Now
+          </Button>
         </>
       ),
     },
@@ -108,7 +107,7 @@ export default function CareerPage() {
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col gap-20">
         {/* Hero Section */}
         <FadeInSection className="text-center max-w-4xl mx-auto">
-        <motion.div
+          <motion.div
             animate={{
               background: [
                 "linear-gradient(90deg, #8b5cf6, #10b981)",
@@ -123,8 +122,8 @@ export default function CareerPage() {
           >
             <span className="font-medium py-1">Career</span>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold  bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
-          Help Create, Capture, and Elevate Content for Brands and Creators Worldwide
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+            Help Create, Capture, and Elevate Content for Brands and Creators Worldwide
           </h1>
         </FadeInSection>
 
@@ -176,7 +175,7 @@ export default function CareerPage() {
           ))}
         </div>
 
-        {/* Desktop Sections (unchanged) */}
+        {/* Desktop Sections */}
         <div className="hidden md:flex flex-col gap-20">
           {/* Video Editor Position */}
           <FadeInSection>
@@ -211,14 +210,13 @@ export default function CareerPage() {
                   <li>Must be able to work efficiently and meet quick turnaround times</li>
                 </ul>
                 <p className="text-gray-400 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
-                <a href="/apply" className="w-full md:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                  >
-                    Apply Now
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setSelectedJob("Video Editor")}
+                >
+                  Apply Now
+                </Button>
               </div>
               <div className="hidden md:flex flex-1 items-center justify-center p-4 md:p-8">
                 <img
@@ -263,14 +261,13 @@ export default function CareerPage() {
                   <li>Strong understanding of framing, lighting, and visual storytelling is a plus</li>
                 </ul>
                 <p className="text-gray-400 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
-                <a href="/apply" className="w-full md:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                  >
-                    Apply Now
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setSelectedJob("Videographer")}
+                >
+                  Apply Now
+                </Button>
               </div>
               <div className="hidden md:flex flex-1 items-center justify-center p-4 md:p-8">
                 <img
@@ -315,14 +312,13 @@ export default function CareerPage() {
                   <li>Prior acting or public speaking experience is a plus, but not required</li>
                 </ul>
                 <p className="text-gray-400 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
-                <a href="/apply" className="w-full md:w-auto">
-                  <Button
-                    size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                  >
-                    Apply Now
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setSelectedJob("On-Camera Actor")}
+                >
+                  Apply Now
+                </Button>
               </div>
               <div className="hidden md:flex flex-1 items-center justify-center p-4 md:p-8">
                 <img
@@ -336,6 +332,13 @@ export default function CareerPage() {
           </FadeInSection>
         </div>
       </div>
+
+      {/* Career Modal */}
+      <CareerModal
+        isOpen={selectedJob !== null}
+        onClose={() => setSelectedJob(null)}
+        jobTitle={selectedJob || ""}
+      />
     </main>
   )
 }

@@ -6,9 +6,13 @@ import { ArrowLeft, Sparkles, Video, Users, BarChart3, Mail, CreditCard } from "
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
+import { ContactModal } from "@/components/modals/contact-modal"
+import { MarketingModal } from "@/components/modals/marketing-modal"
 
 export default function InnovativeMarketing() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const [isMarketingModalOpen, setIsMarketingModalOpen] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -230,41 +234,40 @@ export default function InnovativeMarketing() {
               <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
                 <div className="mb-6">
                   <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                    <span className="text-lg font-semibold tracking-wide text-white">INNOVATIVE MARKETING</span>
+                    <span className="text-lg font-semibold tracking-wide text-white">SYED MEDIA</span>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">READY TO START<br />YOUR JOURNEY?</h2>
+                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">READY TO SCALE?</h2>
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 w-full">
-                  <Link href="mailto:contact@syedmedia.com" className="w-full md:w-auto">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="w-full text-lg h-14 border-purple-500/50 hover:bg-purple-500/10 text-purple-300"
-                    >
-                      <Mail className="mr-2 h-5 w-5" />
-                      Email us
-                    </Button>
-                  </Link>
-                  <Link href="mailto:contact@syedmedia.com?subject=Start%20Scaling%20-%20Payment%20Request" className="w-full md:w-auto">
-                    <Button
-                      size="lg"
-                      className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                    >
-                      <CreditCard className="mr-2 h-5 w-5" />
-                      Start Scaling Now
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                    onClick={() => setIsMarketingModalOpen(true)}
+                  >
+                    <CreditCard className="mr-2 h-5 w-5" />
+                    Start Scaling Now
+                  </Button>
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Video className="w-full max-w-xs h-auto text-blue-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
-              </div>
+                <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                  <Video className="w-full max-w-xs h-auto text-blue-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
+                </div>
               </div>
             </section>
           </FadeInSection>
         </motion.div>
       </div>
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
+
+      <MarketingModal 
+        isOpen={isMarketingModalOpen} 
+        onClose={() => setIsMarketingModalOpen(false)} 
+      />
     </main>
   )
 }

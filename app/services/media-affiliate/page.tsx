@@ -6,9 +6,11 @@ import { ArrowLeft, Users, DollarSign, CheckCircle, CreditCard } from "lucide-re
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
+import { AffiliateModal } from "@/components/modals/affiliate-modal"
 
 export default function MediaAffiliate() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isAffiliateModalOpen, setIsAffiliateModalOpen] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -122,15 +124,14 @@ export default function MediaAffiliate() {
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Ready to Start Earning?</h2>
                 </div>
-                <Link href="mailto:contact@syedmedia.com?subject=Affiliate%20Sign%20Up">
                 <Button
-                      size="lg"
-                      className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                    >
-                      <CreditCard className="mr-2 h-5 w-5" />
-                      Start Earning Now
-                    </Button>
-                </Link>
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setIsAffiliateModalOpen(true)}
+                >
+                  <CreditCard className="mr-2 h-5 w-5" />
+                  Start Earning Now
+                </Button>
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
                 <Users className="w-full max-w-xs h-auto text-orange-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
@@ -139,6 +140,12 @@ export default function MediaAffiliate() {
           </FadeInSection>
         </motion.div>
       </div>
+
+      {/* Affiliate Modal */}
+      <AffiliateModal 
+        isOpen={isAffiliateModalOpen} 
+        onClose={() => setIsAffiliateModalOpen(false)} 
+      />
     </main>
   )
 }
