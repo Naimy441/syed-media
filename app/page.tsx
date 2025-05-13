@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { AnimatedBackground } from "@/components/AnimatedBackground"
 import { ArrowRight } from "lucide-react"
 import { TestimonialMarquee } from "@/components/TestimonialMarquee"
 
