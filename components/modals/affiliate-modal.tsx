@@ -19,7 +19,7 @@ interface AffiliateModalProps {
 }
 
 export function AffiliateModal({ isOpen, onClose }: AffiliateModalProps) {
-    const [state, handleSubmit] = useForm("movdkbjj")
+    const [state, handleSubmit] = useForm("mkgrqlrk")
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [hasLead, setHasLead] = useState("")
 
