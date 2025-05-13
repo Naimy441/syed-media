@@ -316,7 +316,7 @@ export default function EditingCourse() {
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Waitlist Today</h2>
                 </div>
-                <Link href="/waitlist-payment" className="w-full md:w-auto">
+                <Link href="https://buy.stripe.com/cN27tkfascJ8gxy8wx" className="w-full md:w-auto">
                   <Button
                     size="lg"
                     className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"

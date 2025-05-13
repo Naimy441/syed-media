@@ -120,7 +120,7 @@ export default function DigitalEditing() {
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Ready to Unlock Premium Editing?</h2>
                 </div>
-                <Link href="/payment" className="w-full md:w-auto">
+                <Link href="https://buy.stripe.com/28oeVMfas4cCa9a7ss" className="w-full md:w-auto">
                   <Button size="lg" className="flex items-center gap-3 text-lg md:text-xl px-8 py-5 bg-white text-black font-bold rounded-xl shadow-lg hover:bg-purple-200 transition-all mb-6">
                     <FaApplePay className="h-8 w-16" />
                     <span>Subscribe with Apple Pay</span>
