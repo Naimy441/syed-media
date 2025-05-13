@@ -154,32 +154,32 @@ export function TestimonialMarquee() {
               "translateX(50px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
           }}
         >
-          <Marquee pauseOnHover vertical className="[--duration:35s] hidden md:block">
+          <Marquee pauseOnHover vertical className="[--duration:60s] hidden md:block">
             {firstRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:35s]" vertical>
+          <Marquee reverse pauseOnHover className="[--duration:120s]" vertical>
             {secondRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee pauseOnHover className="[--duration:35s]" vertical>
+          <Marquee pauseOnHover className="[--duration:120s]" vertical>
             {thirdRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:35s]" vertical>
+          <Marquee reverse pauseOnHover className="[--duration:120s]" vertical>
             {fourthRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee pauseOnHover className="[--duration:35s] hidden md:block" vertical>
+          <Marquee pauseOnHover className="[--duration:120s] hidden md:block" vertical>
             {fifthRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:35s] hidden md:block" vertical>
+          <Marquee reverse pauseOnHover className="[--duration:120s] hidden md:block" vertical>
             {sixthRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}

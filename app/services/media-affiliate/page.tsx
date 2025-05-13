@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowLeft, Users, DollarSign, CheckCircle } from "lucide-react"
+import { ArrowLeft, Users, DollarSign, CheckCircle, CreditCard } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
@@ -123,9 +123,13 @@ export default function MediaAffiliate() {
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Ready to Start Earning?</h2>
                 </div>
                 <Link href="mailto:contact@syedmedia.com?subject=Affiliate%20Sign%20Up">
-                  <Button size="lg" className="text-lg md:text-xl px-8 py-5 bg-white text-black font-bold rounded-xl shadow-lg hover:bg-orange-200 transition-all mb-6">
-                    Start Earning
-                  </Button>
+                <Button
+                      size="lg"
+                      className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                    >
+                      <CreditCard className="mr-2 h-5 w-5" />
+                      Start Earning Now
+                    </Button>
                 </Link>
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
