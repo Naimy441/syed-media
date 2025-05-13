@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import { AnimatedBackground } from "@/components/AnimatedBackground"
 import Header from "@/components/header"
 import SmoothScroll from "@/components/SmoothScroll"
+import { CreatorHeart } from "@/components/3ata-heart"
+import { Copyright } from "@/components/copyright"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -40,6 +42,8 @@ export default function RootLayout({
             
               {children}
           </main>
+          <CreatorHeart />
+          <Copyright />
         </ThemeProvider>
       </body>
     </html>
