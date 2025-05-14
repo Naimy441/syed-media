@@ -67,7 +67,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Hero Content */}
-        <div className="min-h-[calc(100vh-180px)] flex flex-col justify-end p-6">
+        <div className="min-h-[calc(100vh-190px)] md:min-h-[calc(100vh-180px)] flex flex-col justify-end p-6">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
