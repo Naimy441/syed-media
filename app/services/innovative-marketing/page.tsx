@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
 import { ContactModal } from "@/components/modals/contact-modal"
 import { MarketingModal } from "@/components/modals/marketing-modal"
+import GlowingParticles from "@/components/GlowingParticles"
 
 export default function InnovativeMarketing() {
   const [isVisible, setIsVisible] = useState(false)
@@ -170,9 +171,16 @@ export default function InnovativeMarketing() {
 
               {/* Premium Plan */}
               <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-yellow-500/50"
+                className="bg-slate-900/50 rounded-lg p-6 border border-yellow-500/50 relative"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
+                <GlowingParticles 
+                  count={24} 
+                  colors={{
+                    primary: "#fbbf24",
+                    secondary: "#d97706"
+                  }}
+                />
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold mb-2 text-yellow-400">Premium</h3>
                   <div className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-4 py-2 rounded-lg mb-4">

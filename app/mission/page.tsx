@@ -6,9 +6,10 @@ import { AnimatedBackground } from "@/components/AnimatedBackground"
 import FadeInSection from "@/components/FadeInSection"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Sparkles, Send, BicepsFlexed, CreditCard, MailCheckIcon, Mail } from "lucide-react"
+import { Sparkles, Send, BicepsFlexed, CreditCard, MailCheckIcon, Mail, Copyright } from "lucide-react"
 import { ContactModal } from "@/components/modals/contact-modal"
 import { MarketingModal } from "@/components/modals/marketing-modal"
+import { CreatorHeart } from "@/components/3ata-heart"
 // import { AutopilotIcon } from "@/components/icons/autopilot" // Placeholder for autopilot icon
 
 function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: number }) {
@@ -307,6 +308,8 @@ export default function MissionPage() {
           onClose={() => setIsMarketingModalOpen(false)}
         />
       </div>
+      <CreatorHeart />
+      <Copyright />
     </main>
   )
 }

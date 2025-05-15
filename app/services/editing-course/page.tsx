@@ -6,39 +6,7 @@ import { ArrowLeft, CheckCircle, Sparkles, Laptop, DollarSign, Users, Star, Vide
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
-
-function GlowingParticles({ count = 18 }) {
-  const particles = Array.from({ length: count }).map((_, i) => ({
-    left: Math.random() * 100,
-    size: 4 + Math.random() * 2,
-    delay: Math.random() * 2,
-    duration: (2.5 + Math.random() * 2) * 2,
-    opacity: 0.3 + Math.random() * 0.5,
-    blur: 0.5 + Math.random() * 1.5,
-  }));
-  return (
-    <div className="absolute left-0 right-0 bottom-0 top-0 pointer-events-none z-20">
-      {particles.map((p, i) => (
-        <span
-          key={i}
-          className="absolute rounded-full animate-rise"
-          style={{
-            left: `${p.left}%`,
-            bottom: 0,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            opacity: p.opacity,
-            background: "radial-gradient(circle, #a855f7 60%, #7c3aed 100%)",
-            filter: `blur(${p.blur}px)` ,
-            animationDelay: `${p.delay}s`,
-            animationDuration: `${p.duration}s`,
-            boxShadow: `0 0 8px 2px #a855f7, 0 0 16px 4px #7c3aed` ,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+import GlowingParticles from "@/components/GlowingParticles"
 
 export default function EditingCourse() {
   const [isVisible, setIsVisible] = useState(false)
@@ -96,7 +64,7 @@ export default function EditingCourse() {
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Learn to edit and immediately start earning. Only <span className="text-white font-bold">$150/month</span> — No experience needed. Just a smartphone.
+              Learn to edit and immediately start earning. No experience needed. Just a smartphone.
             </p>
             <div className="flex justify-center gap-6 mt-8">
               <img src="/editing-course.png" alt="Jackpot" className="max-w-[330px] md:max-w-xl h-auto object-contain rounded-xl shadow-lg bg-black/10" />

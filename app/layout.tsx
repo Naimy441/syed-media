@@ -42,7 +42,6 @@ export default function RootLayout({
             
               {children}
           </main>
-          <CreatorHeart />
           <Copyright />
         </ThemeProvider>
       </body>

@@ -76,7 +76,7 @@ export function CreatorHeart() {
               }}
               className="text-xs text-white/70"
             >
-              made with
+              powered
             </motion.span>
           )}
         </AnimatePresence>

@@ -26,48 +26,8 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-20 w-full flex flex-col">
-        {/* Menu Overlay */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="absolute top-0 left-0 right-0 bg-gray-900/70 backdrop-blur-md rounded-xl z-40 mt-28 mx-4"
-            >
-              <nav className="flex flex-col p-4 text-[0.82em]">
-                <Link
-                  href="/"
-                  className="text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/services"
-                  className="text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors"
-                >
-                  Services
-                </Link>
-                <Link
-                  href="/mission"
-                  className="text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors"
-                >
-                  Our Mission
-                </Link>
-                <Link
-                  href="/career"
-                  className="text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors"
-                >
-                  Career
-                </Link>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Hero Content */}
-        <div className="min-h-[calc(100vh-190px)] md:min-h-[calc(100vh-180px)] flex flex-col justify-end p-6">
+        <div className="min-h-[calc(100vh-200px)] md:min-h-[calc(100vh-180px)] flex flex-col justify-end p-6">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
