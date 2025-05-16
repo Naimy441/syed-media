@@ -90,7 +90,7 @@ export default function EditingCourse() {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
                   <Video className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                  <span>Step-by-step lessons using the exact tools Syed Media relies on</span>
+                  <span>Step-by-step video tutorials using the exact tools Syed Media relies on</span>
                 </motion.div>
                 <motion.div 
                   initial={{ opacity: 0 }}
@@ -269,7 +269,7 @@ export default function EditingCourse() {
           <FadeInSection className="p-8 mb-8 relative z-10">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-emerald-400" /> Why This Course?</h2>
             <div className="text-gray-300 space-y-4 text-lg">
-              <p>Unlock the skills to turn editing into a real income stream. Whether you're starting from zero or looking to sharpen your craft, this course — led by Hamza Syed — gives you everything you need to succeed.</p>
+              <p>Unlock the skills to turn editing into a real income stream. Whether you're starting from zero or looking to sharpen your craft, this course gives you everything you need to succeed.</p>
               <p>If you want a real course that gets straight to the point, exposes all the shortcuts, and takes you from beginner to seasoned editor, this is the right place to be. You've hit a jackpot.</p>
             </div>
           </FadeInSection>
