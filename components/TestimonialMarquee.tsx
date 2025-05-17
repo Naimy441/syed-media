@@ -100,7 +100,7 @@ const reviews = [
     img: "https://avatar.vercel.sh/moeztrades",
   },
   {
-    name: "RealEstateQueen Kelly",
+    name: "EstateQueenKelly",
     body: "I’m an affiliate with Syed Media, and their program is so easy. They give you all the tools you need to earn commissions, and I’ve already made a couple of hundred bucks.",
     img: "https://avatar.vercel.sh/realestatequeenkelly",
   },
