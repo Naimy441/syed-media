@@ -74,7 +74,7 @@ export default function Header() {
           </div>
           <button
             onClick={() => setIsContactModalOpen(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full transition-colors font-medium shadow-lg shadow-orange-500/20"
+            className="flex items-center gap-2 px-6 py-3 bg-[#f25823] hover:bg-orange-600 text-white rounded-full transition-colors font-medium shadow-lg shadow-orange-500/20"
           >
             <Mail className="w-4 h-4" />
             Contact Us
@@ -122,7 +122,7 @@ export default function Header() {
                   setIsMenuOpen(false)
                   setIsContactModalOpen(true)
                 }}
-                className="flex items-center gap-2 py-4 px-4 mt-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md transition-colors font-medium"
+                className="flex items-center gap-2 py-4 px-4 mt-2 bg-[#f25823] hover:bg-orange-600 text-white rounded-md transition-colors font-medium"
               >
                 <Mail className="w-4 h-4" />
                 Contact Us
