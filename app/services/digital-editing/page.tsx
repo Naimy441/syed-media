@@ -111,6 +111,91 @@ export default function DigitalEditing() {
           </FadeInSection>
 
           <FadeInSection>
+            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] p-8 shadow-2xl">
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-2xl font-semibold text-white mb-8 text-center">Generate Content On Any Platform</h3>
+                <div className="grid grid-cols-4 gap-8">
+                  <motion.div 
+                    className="flex flex-col items-center gap-3"
+                    animate={{
+                      y: [0, -5, 0],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      delay: 0
+                    }}
+                  >
+                    <div className="bg-red-500/10 p-4 rounded-full">
+                      <FaYoutube className="h-10 w-10 text-red-500" />
+                    </div>
+                    <span className="text-base text-gray-300">YouTube</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex flex-col items-center gap-3"
+                    animate={{
+                      y: [0, -5, 0],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      delay: 0.75
+                    }}
+                  >
+                    <div className="bg-white/10 p-4 rounded-full">
+                      <FaTiktok className="h-10 w-10 text-white" />
+                    </div>
+                    <span className="text-base text-gray-300">TikTok</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex flex-col items-center gap-3"
+                    animate={{
+                      y: [0, -5, 0],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      delay: 1.5
+                    }}
+                  >
+                    <div className="bg-pink-500/10 p-4 rounded-full">
+                      <FaInstagram className="h-10 w-10 text-pink-500" />
+                    </div>
+                    <span className="text-base text-gray-300">Instagram</span>
+                  </motion.div>
+                  <motion.div 
+                    className="flex flex-col items-center gap-3"
+                    animate={{
+                      y: [0, -5, 0],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      delay: 2.25
+                    }}
+                  >
+                    <div className="bg-blue-600/10 p-4 rounded-full">
+                      <FaFacebook className="h-10 w-10 text-blue-600" />
+                    </div>
+                    <span className="text-base text-gray-300">Facebook</span>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+          </FadeInSection>
+          <FadeInSection>
             <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
               {/* Left: Text and Button */}
               <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
@@ -126,12 +211,7 @@ export default function DigitalEditing() {
                     <span>Subscribe with Apple Pay</span>
                   </Button>
                 </Link>
-                <div className="flex gap-4 mt-2">
-                  <FaYoutube className="h-8 w-8 text-red-500" />
-                  <FaTiktok className="h-8 w-8 text-black bg-white rounded-full p-1" />
-                  <FaInstagram className="h-8 w-8 text-pink-500" />
-                  <FaFacebook className="h-8 w-8 text-blue-600" />
-                </div>
+
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
                 <Sparkles className="w-full max-w-[260px] md:max-w-md h-auto text-purple-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
