@@ -40,7 +40,7 @@ const reviews = [
     img: "https://avatar.vercel.sh/heroblendz",
   },
   {
-    name: "Movito Investements",
+    name: "Movito EZInvest",
     body: "Joined the affiliate program thinking it was just some side hustle. Didn’t expect to actually make a couple hundred bucks a month with barely any effort. Pretty solid.",
     img: "https://avatar.vercel.sh/movitoinvestements",
   },
