@@ -3,18 +3,20 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, Sparkles, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import ReviewModal from "@/components/modals/review-modal"
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
+    const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
 
     useEffect(() => {
         setIsLoaded(true)
     }, [])
 
     return (
-        <main className=" text-white">
+        <main className="text-white">
             <div className="container mx-auto px-4 py-12 md:py-20">
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -60,7 +62,39 @@ export default function Home() {
                         isLoaded={isLoaded}
                     />
                 </div>
+
+                {/* Review Section */}
+                <div className="max-w-6xl mx-auto mt-16 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                        className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800/30 to-transparent z-0" />
+                        <div className="relative z-10">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4">Share Your Experience</h2>
+                            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                                Have you used our services? We'd love to hear about your experience and how we can improve.
+                            </p>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                onClick={() => setIsReviewModalOpen(true)}
+                                className="border-white/20 hover:bg-white/10"
+                            >
+                                <MessageSquare className="mr-2 h-5 w-5" />
+                                Write a Review
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
+
+            <ReviewModal 
+                isOpen={isReviewModalOpen}
+                onClose={() => setIsReviewModalOpen(false)}
+            />
         </main>
     )
 }

@@ -260,7 +260,7 @@ export default function EditingCourse() {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
                   <Mic className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
-                  <span>Live virtual Q&As with Hamza Syed whenever you need editing support</span>
+                  <span>Live virtual Q&As whenever you need editing support</span>
                 </motion.div>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function EditingCourse() {
                   </Button>
                 </Link>
                 <div className="text-sm text-gray-300 mt-4 max-w-md">
-                  <span className="font-semibold text-white">Get on the waitlist now before our prices increase, and be the first to know when we launch.</span><br />
+                  <span className="font-semibold text-white">Get on the waitlist now, and be the first to know when we launch.</span><br />
                   The $10 application fee will be credited toward your course fee upon enrollment.
                 </div>
               </div>
