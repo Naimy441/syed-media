@@ -46,7 +46,7 @@ export default function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-white">Share Your Experience</DialogTitle>
           <DialogDescription className="text-gray-400">
-            Help others by sharing your thoughts about the course
+            Help others by sharing your thoughts about Syed Media
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
