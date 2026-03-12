@@ -19,46 +19,95 @@ export default function Home() {
         <main className="text-white">
             <div className="container mx-auto px-4 py-12 md:py-20">
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {/* Innovative Marketing Membership */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Strategic Marketing */}
                     <ServiceCard
                         index={0}
-                        title="Innovative Marketing Membership"
+                        title="Strategic Marketing"
                         description="Perfect for profitable companies ready to amplify their social media presence"
-                        buttonText="Start scaling"
+                        buttonText="Learn more"
                         buttonLink="/services/innovative-marketing"
                         isAnimated={true}
                         isLoaded={isLoaded}
                     />
 
-                    {/* Syed Media Affiliate */}
+                    {/* Magic Editing Portal */}
                     <ServiceCard
                         index={1}
-                        title="Become a Syed Media Affiliate"
-                        description="Earn $150/month for every client you bring us. That's $1,500/month just for finding 10 businesses. Ready to start?"
-                        buttonText="Start earning"
-                        buttonLink="/services/media-affiliate"
+                        title="Magic Editing Portal"
+                        description="Turn your raw footage into tailored, polished, ready-to-watch cinema."
+                        buttonText="Learn more"
+                        buttonLink="/services/magic-editing-portal"
+                        isLoaded={isLoaded}
+                    />
+
+                    {/* Image Alchemy */}
+                    <ServiceCard
+                        index={2}
+                        title="Image Alchemy"
+                        description="Turn your thoughts into visual art- thumbnails, AI images, enhancements."
+                        buttonText="Learn more"
+                        buttonLink="/services/image-alchemy"
                         isLoaded={isLoaded}
                     />
 
                     {/* Personal Digital Editing */}
                     <ServiceCard
-                        index={2}
+                        index={3}
                         title="Personal Digital Editing"
                         description="Premium Video Editing Services, At Your Fingertips — 24/7 Access, worldwide."
-                        buttonText="Subscribe Now"
+                        buttonText="Learn more"
                         buttonLink="/services/digital-editing"
                         isLoaded={isLoaded}
                     />
 
-                    {/* Digital Editing Course */}
+                    {/* Affiliate Marketing */}
                     <ServiceCard
-                        index={3}
-                        title="Digital Editing Course"
-                        description="Learn to edit and immediately start earning money."
+                        index={4}
+                        title="Affiliate Marketing"
+                        description="Earn $150/month for every client you bring us. That's $1,500/month just for finding 10 businesses. Ready to start?"
                         buttonText="Learn more"
-                        buttonLink="/services/editing-course"
-                        isComingSoon={true}
+                        buttonLink="/services/media-affiliate"
+                        isLoaded={isLoaded}
+                    />
+
+                    {/* Architectural Design Studio */}
+                    <ServiceCard
+                        index={5}
+                        title="Architectural Design Studio"
+                        description="Pure Design. No Limits. Commercial buildings. Residential spaces. Brand environments."
+                        buttonText="Learn more"
+                        buttonLink="/services/architectural-design-studio"
+                        isLoaded={isLoaded}
+                    />
+
+                    {/* Passive Marketing */}
+                    <ServiceCard
+                        index={6}
+                        title="Passive Marketing"
+                        description="Automated content and ad strategies that work in the background while you scale."
+                        buttonText="Learn more"
+                        buttonLink="/services/passive-marketing"
+                        isLoaded={isLoaded}
+                    />
+
+                    {/* Sign Development */}
+                    <ServiceCard
+                        index={7}
+                        title="Sign Development"
+                        description="Custom signage designed and built to elevate your brand anywhere."
+                        buttonText="Learn more"
+                        buttonLink="/services/sign-development"
+                        isLoaded={isLoaded}
+                    />
+
+                    {/* Website Development */}
+                    <ServiceCard
+                        index={8}
+                        title="Website Development"
+                        description="High-converting websites built from scratch to grow your brand."
+                        buttonText="Learn more"
+                        buttonLink="/services/website-development"
                         isLoaded={isLoaded}
                     />
                 </div>

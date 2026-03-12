@@ -99,6 +99,43 @@ export default function CareerPage() {
         </>
       ),
     },
+    {
+      key: "marketing-strategist",
+      title: "MARKETING STRATEGIST",
+      image: "/career-videographer.png",
+      location: "Hybrid",
+      badge: "Hybrid",
+      bgPosition: 'center 40%',
+      content: (
+        <>
+          <p className="text-lg text-gray-300 mb-4">
+            We&apos;re looking for a creative and strategic marketing expert to help drive the next phase of growth at Syed Media. If you&apos;re passionate about innovative
+            campaigns, bold ideas, and building brands that stand out — this is your opportunity.
+          </p>
+          <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+            <li>Must be 18 years or older</li>
+            <li>Must have a degree in Marketing or a related field</li>
+            <li>Must have a portfolio or resume showcasing previous marketing projects or campaigns</li>
+            <li>Must be willing to sign an NDA</li>
+            <li>Must be willing to work behind the scenes with our team to develop and execute strategic marketing initiatives</li>
+          </ul>
+          <p className="text-gray-400 mb-4">
+            We&apos;re looking for someone who doesn&apos;t just follow trends — but creates them. Someone who can think outside the box, plan high-impact marketing stunts, and
+            help position Syed Media as a leader in the creative industry.
+          </p>
+          <p className="text-gray-400 mb-4">
+            If you&apos;re ready to build, innovate, and scale with a fast-growing media company — apply now and let&apos;s make moves.
+          </p>
+          <Button
+            size="lg"
+            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            onClick={() => setSelectedJob("Marketing Strategist")}
+          >
+            Apply Now
+          </Button>
+        </>
+      ),
+    },
   ]
 
   return (
@@ -324,6 +361,65 @@ export default function CareerPage() {
                 <img
                   src="/career-actor.png"
                   alt="On-Camera Actor Visual"
+                  className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
+                  style={{ minHeight: '260px' }}
+                />
+              </div>
+            </section>
+          </FadeInSection>
+
+          {/* Marketing Strategist Position */}
+          <FadeInSection>
+            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+              <div className="absolute top-4 right-4 z-10">
+                <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                  <span>Hybrid</span>
+                </div>
+              </div>
+              <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
+                <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+                  <img
+                    src="/career-videographer.png"
+                    alt="Marketing Strategist Visual"
+                    className="rounded-2xl w-32 h-32 md:w-48 md:h-48 object-cover shadow-xl md:hidden"
+                  />
+                  <div>
+                    <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
+                      <span className="text-lg font-semibold tracking-wide text-white">MARKETING STRATEGIST</span>
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Syed Media Growth Team</h2>
+                  </div>
+                </div>
+                <p className="text-lg text-gray-300 mb-4">
+                  We&apos;re looking for a creative and strategic marketing expert to help drive the next phase of growth at Syed Media. If you&apos;re passionate about innovative
+                  campaigns, bold ideas, and building brands that stand out — this is your opportunity.
+                </p>
+                <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                  <li>Must be 18 years or older</li>
+                  <li>Must have a degree in Marketing or a related field</li>
+                  <li>Must have a portfolio or resume showcasing previous marketing projects or campaigns</li>
+                  <li>Must be willing to sign an NDA</li>
+                  <li>Must be willing to work behind the scenes with our team to develop and execute strategic marketing initiatives</li>
+                </ul>
+                <p className="text-gray-400 mb-4">
+                  We&apos;re looking for someone who doesn&apos;t just follow trends — but creates them. Someone who can think outside the box, plan high-impact marketing stunts,
+                  and help position Syed Media as a leader in the creative industry.
+                </p>
+                <p className="text-gray-400 mb-4">
+                  If you&apos;re ready to build, innovate, and scale with a fast-growing media company — apply now and let&apos;s make moves.
+                </p>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setSelectedJob("Marketing Strategist")}
+                >
+                  Apply Now
+                </Button>
+              </div>
+              <div className="hidden md:flex flex-1 items-center justify-center p-4 md:p-8">
+                <img
+                  src="/career-videographer.png"
+                  alt="Marketing Strategist Visual"
                   className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
                   style={{ minHeight: '260px' }}
                 />

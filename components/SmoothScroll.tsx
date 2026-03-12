@@ -5,7 +5,8 @@ import Lenis from "@studio-freight/lenis"
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.8,
+      smoothWheel: true,
     })
 
     function raf(time: number) {

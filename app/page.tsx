@@ -49,7 +49,7 @@ export default function Home() {
                 href="/services"
                 className="inline-flex items-center bg-[#f25823] text-white px-8 py-4 font-bold tracking-wide hover:bg-orange-600 transition-colors group rounded-2xl shadow-lg"
               >
-                SEE ALL SERVICES <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                Start Creating <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </motion.div>

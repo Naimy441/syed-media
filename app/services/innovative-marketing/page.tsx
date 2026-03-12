@@ -1,23 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Sparkles, Video, Users, BarChart3, Mail, CreditCard } from "lucide-react"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { ArrowLeft, Sparkles, BarChart3 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
-import { ContactModal } from "@/components/modals/contact-modal"
 import { MarketingModal } from "@/components/modals/marketing-modal"
-import GlowingParticles from "@/components/GlowingParticles"
 
 export default function InnovativeMarketing() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isMarketingModalOpen, setIsMarketingModalOpen] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   return (
     <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
@@ -38,19 +30,7 @@ export default function InnovativeMarketing() {
           className="max-w-5xl mx-auto"
         >
           <div className="text-center mb-16 relative z-10">
-            <motion.div
-              animate={{
-                background: [
-                  "linear-gradient(90deg, #8b5cf6, #10b981)",
-                  "linear-gradient(180deg, #10b981, #8b5cf6)",
-                  "linear-gradient(270deg, #8b5cf6, #10b981)",
-                  "linear-gradient(0deg, #10b981, #8b5cf6)",
-                  "linear-gradient(90deg, #8b5cf6, #10b981)",
-                ],
-              }}
-              transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="inline-block px-4 py-2 rounded-full mb-6"
-            >
+            <motion.div className="inline-block px-4 py-2 rounded-full mb-6 bg-white/5 border border-white/10">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5" />
                 <span className="font-medium">Premium Service</span>
@@ -58,7 +38,7 @@ export default function InnovativeMarketing() {
             </motion.div>
 
             <h1 className="pb-2  text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
-              Innovative Marketing Membership
+              Strategic Marketing
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
@@ -66,215 +46,119 @@ export default function InnovativeMarketing() {
             </p>
           </div>
 
-          <FadeInSection className="relative z-10 p-8 md:p-10 rounded-xl">
+          <FadeInSection className="relative z-10 p-8 md:p-10 rounded-xl bg-slate-900/60 border border-slate-800">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Why you should buy</h2>
             <div className="text-gray-300 space-y-4">
               <p>
-                In today's digital landscape, strategic media marketing isn't a luxury — it's a necessity. 
-                Yet many businesses fall behind due to inconsistent, low-impact content. <span className="text-emerald-400 font-medium">Syed Media changes that.</span>
+                In today&apos;s digital landscape, strategic media marketing isn&apos;t a luxury — it&apos;s a necessity. Yet many businesses fall behind due to
+                inconsistent, low-impact marketing. <span className="text-emerald-400 font-medium">Syed Media changes that.</span>
               </p>
               <p>
-                We handle the entire brand scaling media process, delivering professionally edited, high-converting ads — 
-                including attention-grabbing comedy skits — tailored to elevate your brand.
+                We handle the entire brand scaling media process, delivering professionally edited, high-converting ads—including attention-grabbing comedy skits—strategically
+                crafted using proven creative frameworks and the latest trends to elevate your brand.
               </p>
               <p>
-                Our structured, platform-optimized posting strategy keeps your brand visible, relevant, and engaging across all major channels. 
-                Within just one month, your page will transform into a polished portfolio of impactful content.
+                Our structured, platform-optimized posting strategy keeps your brand visible, relevant, and engaging across all major channels. Within just one month, your page
+                will transform into a polished portfolio of impactful content.
               </p>
               <p className="font-medium text-white">
-                Expect measurable growth — in followers, engagement, and ultimately, in sales and brand recognition.
+                Expect measurable growth in followers, engagement, and ultimately, in sales and brand recognition.
               </p>
             </div>
           </FadeInSection>
 
-          <FadeInSection className="p-8 md:p-10 rounded-xl mb-12 relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Choose Your Plan</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Essential Plan */}
-              <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-white/50"
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              >
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2 text-white">Essential</h3>
-                  <div className="bg-gradient-to-r from-white/20 to-white/10 px-4 py-2 rounded-lg mb-4">
-                    <span className="text-2xl font-bold text-white">8</span>
-                    <span className="text-white ml-2">High-Quality Ads / Month</span>
-                  </div>
-                </div>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Video Shoot included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Thumbnails included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Captions included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Premium editing included</span>
-                  </li>
-                </ul>
-              </motion.div>
+          <FadeInSection className="mt-12 p-8 md:p-10 rounded-xl mb-12 relative z-10 bg-slate-900/60 border border-slate-800">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">What We Offer</h2>
+            <div className="space-y-4 text-gray-300">
+              <p>
+                We deliver high-impact ad campaigns across all major social media platforms, designed to generate measurable results—often within the first week. Our strategy
+                focuses on precision targeting so your content reaches the people most likely to convert.
+              </p>
+              <p>
+                We reach your ideal audience based on exact demographics, including age, gender, interests, and location. For example, if your brand is targeting customers in
+                Houston, Texas, your ads will be shown directly to users within that specific area across their social feeds and devices.
+              </p>
+            </div>
+          </FadeInSection>
 
-              {/* Extra Plan */}
-              <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-purple-500/50 relative"
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              >
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-sm font-bold px-4 py-1 rounded-full">
-                  Most Popular
-                </div>
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2 text-purple-400">Extra</h3>
-                  <div className="bg-gradient-to-r from-purple-500/30 to-purple-400/20 px-4 py-2 rounded-lg mb-4">
-                    <span className="text-2xl font-bold text-purple-400">12</span>
-                    <span className="text-purple-400 ml-2">High-Quality Ads / Month</span>
+          <FadeInSection className="mt-12 p-8 md:p-10 rounded-xl mb-12 relative z-10 bg-slate-900/60 border border-slate-800">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">How We Refine Your Audience</h2>
+            <p className="text-gray-300 mb-6 text-center max-w-2xl mx-auto">
+              A successful campaign starts with the right audience. We carefully define and optimize targeting so your budget is spent where it matters most.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                  <div>
+                    <div className="font-semibold text-white">Demographics</div>
+                    <p className="text-gray-300 text-sm md:text-base">
+                      We tailor campaigns to match your ideal customer profile, from income level to industry and more.
+                    </p>
                   </div>
                 </div>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Video Shoot included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Thumbnails included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Captions included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Premium editing included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Custom series for your brand</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Social media page management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Actors & Ideas provided for skits</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Premium Plan */}
-              <motion.div 
-                className="bg-slate-900/50 rounded-lg p-6 border border-yellow-500/50 relative"
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              >
-                {/* <GlowingParticles 
-                  count={24} 
-                  colors={{
-                    primary: "#fbbf24",
-                    secondary: "#d97706"
-                  }}
-                /> */}
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2 text-yellow-400">Premium</h3>
-                  <div className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-4 py-2 rounded-lg mb-4">
-                    <span className="text-2xl font-bold text-yellow-400">20</span>
-                    <span className="text-yellow-400 ml-2">High-Quality Ads / Month</span>
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                  <div>
+                    <div className="font-semibold text-white">Interests & Online Behavior</div>
+                    <p className="text-gray-300 text-sm md:text-base">
+                      We target based on what your audience actually watches, follows, and engages with online.
+                    </p>
                   </div>
                 </div>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Video Shoot included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Thumbnails included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Captions included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-white mr-2">•</span>
-                    <span className="text-white">Premium editing included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Custom series for your brand</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Social media page management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-400 mr-2">•</span>
-                    <span className="text-purple-400">Actors & Ideas provided for skits</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span className="text-yellow-400">Brand Collaborations arranged</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span className="text-yellow-400">
-                      <span className="bg-gradient-to-r from-yellow-500/30 to-yellow-400/20 px-2 py-0.5 rounded-md font-semibold">100,000+</span> views guaranteed in the first month
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span className="text-yellow-400">Web development & unlimited IT support</span>
-                  </li>
-                </ul>
-              </motion.div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                  <div>
+                    <div className="font-semibold text-white">Age & Gender</div>
+                    <p className="text-gray-300 text-sm md:text-base">
+                      We tailor creative and offers to resonate with the exact age and gender segments you want to reach.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                  <div>
+                    <div className="font-semibold text-white">Geographic Location</div>
+                    <p className="text-gray-300 text-sm md:text-base">
+                      We can narrow your reach to a precise mile radius or scale it across multiple cities or states—ensuring your brand is seen by the people most likely to
+                      convert.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </FadeInSection>
 
           <FadeInSection>
             <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl">
-              {/* Left: Text and Button */}
               <div className="flex-1 p-8 md:p-12 flex flex-col items-start justify-center">
                 <div className="mb-6">
                   <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                    <span className="text-lg font-semibold tracking-wide text-white">SYED MEDIA</span>
+                    <span className="text-lg font-semibold tracking-wide text-white">STRATEGIC MARKETING</span>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">READY TO SCALE?</h2>
+                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Ready to Scale Your Brand?</h2>
                 </div>
-                <div className="flex flex-col md:flex-row gap-4 w-full">
-                  <Button
-                    size="lg"
-                    className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
-                    onClick={() => setIsMarketingModalOpen(true)}
-                  >
-                    <CreditCard className="mr-2 h-5 w-5" />
-                    Start Scaling Now
-                  </Button>
-                </div>
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  onClick={() => setIsMarketingModalOpen(true)}
+                >
+                  Start Strategic Marketing
+                </Button>
               </div>
-              <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-                <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                  <Video className="w-full max-w-xs h-auto text-blue-500 bg-white/10 rounded-2xl p-8 shadow-xl" />
-                </div>
+              <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
+                <BarChart3 className="w-full max-w-xs h-auto text-emerald-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
               </div>
             </section>
           </FadeInSection>
         </motion.div>
       </div>
-
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
-
-      <MarketingModal 
-        isOpen={isMarketingModalOpen} 
-        onClose={() => setIsMarketingModalOpen(false)} 
+      <MarketingModal
+        isOpen={isMarketingModalOpen}
+        onClose={() => setIsMarketingModalOpen(false)}
+        serviceName="Strategic Marketing"
       />
     </main>
   )

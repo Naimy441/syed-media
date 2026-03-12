@@ -5,23 +5,17 @@ import { useForm, ValidationError } from "@formspree/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Mail, MessageSquare, Send, Loader2, User, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
 interface MarketingModalProps {
     isOpen: boolean
     onClose: () => void
+    serviceName?: string
 }
 
-export function MarketingModal({ isOpen, onClose }: MarketingModalProps) {
+export function MarketingModal({ isOpen, onClose, serviceName }: MarketingModalProps) {
     const [state, handleSubmit] = useForm("movdkbjj")
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [selectedPlan, setSelectedPlan] = useState("")
+    const effectiveService = serviceName || "General Marketing Inquiry"
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setIsSubmitting(true)
@@ -52,7 +46,7 @@ export function MarketingModal({ isOpen, onClose }: MarketingModalProps) {
                     >
                         <div className="p-6">
                             {/* Header */}
-                            <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center justify-between mb-2">
                                 <h2 className="text-2xl font-bold text-white">Start Your Marketing Journey</h2>
                                 <button
                                     onClick={onClose}
@@ -61,6 +55,10 @@ export function MarketingModal({ isOpen, onClose }: MarketingModalProps) {
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
+                            <p className="text-sm text-slate-400 mb-6">
+                                Service:&nbsp;
+                                <span className="font-semibold text-slate-100">{effectiveService}</span>
+                            </p>
 
                             {/* Success Message */}
                             {state.succeeded ? (
@@ -164,33 +162,11 @@ export function MarketingModal({ isOpen, onClose }: MarketingModalProps) {
                                         />
                                     </div>
 
-                                    <div>
-                                        <label
-                                            htmlFor="plan"
-                                            className="block text-sm font-medium text-slate-400 mb-2"
-                                        >
-                                            Select Plan
-                                        </label>
-                                        <Select
-                                            value={selectedPlan}
-                                            onValueChange={(value) => setSelectedPlan(value)}
-                                            required
-                                        >
-                                            <SelectTrigger className="w-full bg-slate-800/50 border-slate-700 text-white">
-                                                <SelectValue placeholder="Choose your plan" />
-                                            </SelectTrigger>
-                                            <SelectContent className="bg-slate-800 border-slate-700">
-                                                <SelectItem value="essential">Essential Plan</SelectItem>
-                                                <SelectItem value="extra">Extra Plan</SelectItem>
-                                                <SelectItem value="premium">Premium Plan</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                        <input
-                                            type="hidden"
-                                            name="plan"
-                                            value={selectedPlan}
-                                        />
-                                    </div>
+                                    <input
+                                        type="hidden"
+                                        name="service"
+                                        value={effectiveService}
+                                    />
 
                                     <div>
                                         <label

@@ -26,26 +26,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <SmoothScroll>
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {/* Persistent Background */}
-          <div className="fixed inset-0 bg-black z-0 pointer-events-none">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0a2a66_0%,_#050530_40%,_black_100%)]" />
-          </div>
-          <AnimatedBackground />
+          <SmoothScroll>
+            {/* Persistent Background */}
+            <div className="fixed inset-0 bg-black z-0 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0a2a66_0%,_#050530_40%,_black_100%)]" />
+            </div>
+            <AnimatedBackground />
 
-          {/* Page Layout */}
-          <main className="flex flex-col relative z-20 w-full flex-1">
-            <Header />
-            
+            {/* Page Layout */}
+            <main className="flex flex-col relative z-20 w-full flex-1">
+              <Header />
               {children}
-          </main>
-          <Copyright />
+            </main>
+            <Copyright />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
-    </SmoothScroll>
   )
 }
