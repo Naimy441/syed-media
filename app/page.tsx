@@ -34,7 +34,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
             className="w-fit mr-auto relative z-30 bg-black/20 backdrop-blur-sm p-8 rounded-3xl"
           >
-            <h2 className="text-white text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">
+            <h2 className="text-white text-5xl md:text-6xl font-bold leading-[1.15] tracking-[-0.02em] mb-6 drop-shadow-lg">
               Where Ideas Meet Reality.
             </h2>
             <p className="text-gray-100 text-xl mb-8 drop-shadow-md">
