@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { MessageSquare } from "lucide-react"
@@ -90,6 +90,20 @@ function PortalHeroVisual() {
 
 export default function ServicesPage() {
   const [reviewOpen, setReviewOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
 
   return (
     <div className="text-white" style={{ backgroundColor: "#090e11" }}>
@@ -97,18 +111,18 @@ export default function ServicesPage() {
         <div className="pointer-events-none absolute inset-0 z-0 h-full w-full">
           <Particles
             particleColors={["#ffffff"]}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.03}
-            particleBaseSize={100}
+            particleCount={isMobile ? 300 : 200}
+            particleSpread={isMobile ? 8.5 : 10}
+            speed={isMobile ? 0.03 : 0.03}
+            particleBaseSize={isMobile ? 90 : 100}
             moveParticlesOnHover={false}
             alphaParticles={false}
-            disableRotation={false}
-            pixelRatio={1}
+            disableRotation={isMobile}
+            pixelRatio={isMobile ? 0.75 : 1}
             className="h-full w-full"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 z-10 bg-[#090e11]/65" />
+        <div className={`pointer-events-none absolute inset-0 z-10 ${isMobile ? "bg-[#090e11]/45" : "bg-[#090e11]/65"}`} />
         <div className="relative z-20 mx-auto max-w-6xl px-6 py-20 md:py-28">
           <h2 className="text-center text-3xl font-semibold md:text-4xl">
             <GradientText as="span" className="uppercase">Our services</GradientText>
@@ -375,12 +389,19 @@ export default function ServicesPage() {
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
-            { src: "/new-images/image_alchemy/thumbnail.PNG", alt: "Thumbnail sample one" },
+            { src: "/new-images/image_alchemy/thumbnail1.PNG", alt: "Thumbnail sample one" },
             { src: "/new-images/image_alchemy/thumbnail2.PNG", alt: "Thumbnail sample two" },
             { src: "/new-images/image_alchemy/thumbnail3.PNG", alt: "Thumbnail sample three" },
           ].map((img) => (
             <div key={img.src} className="overflow-hidden border border-white/10 bg-[#090e11]">
-              <Image src={img.src} alt={img.alt} width={400} height={520} className="h-auto w-full object-cover" />
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={400}
+                height={520}
+                unoptimized
+                className="h-auto w-full object-cover"
+              />
             </div>
           ))}
         </div>

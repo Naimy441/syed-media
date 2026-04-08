@@ -30,9 +30,18 @@ function GradientText({
 
 export default function Home() {
   const [isBoxOpen, setIsBoxOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     setIsBoxOpen(false)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    onResize()
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
   }, [])
 
   return (
@@ -43,19 +52,19 @@ export default function Home() {
       <div className="relative h-full w-full overflow-hidden">
         <div className="absolute inset-0" style={{ backgroundColor: BG }}>
           <Galaxy
-            mouseRepulsion
-            mouseInteraction
-            density={1}
-            glowIntensity={0.35}
-            saturation={0.15}
+            mouseRepulsion={!isMobile}
+            mouseInteraction={!isMobile}
+            density={isMobile ? 0.55 : 1}
+            glowIntensity={isMobile ? 0.22 : 0.35}
+            saturation={isMobile ? 0.08 : 0.15}
             hueShift={140}
-            twinkleIntensity={0.3}
+            twinkleIntensity={isMobile ? 0.12 : 0.3}
             rotationSpeed={0.1}
-            repulsionStrength={2}
+            repulsionStrength={isMobile ? 1 : 2}
             autoCenterRepulsion={0}
-            starSpeed={0.5}
-            speed={1}
-            className="opacity-95"
+            starSpeed={isMobile ? 0.25 : 0.5}
+            speed={isMobile ? 0.6 : 1}
+            className={isMobile ? "opacity-70" : "opacity-95"}
           />
         </div>
 
