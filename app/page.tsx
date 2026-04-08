@@ -289,7 +289,7 @@ export default function Home() {
           >
             {/* Mobile / tablet: flat panel */}
             <div
-              className={`relative w-full border border-[#00ffff]/40 bg-[#090e11]/30 px-4 py-4 backdrop-blur-sm sm:px-6 sm:py-5 lg:hidden ${
+              className={`relative w-full select-none border border-[#00ffff]/40 bg-[#090e11]/30 px-4 py-4 backdrop-blur-sm [-webkit-touch-callout:none] [touch-action:manipulation] sm:px-6 sm:py-5 lg:hidden ${
                 isMobile ? "shadow-[0_0_22px_rgba(0,255,255,0.045)]" : "shadow-[0_0_48px_rgba(0,255,255,0.08)]"
               }`}
             >
@@ -304,7 +304,7 @@ export default function Home() {
                 className="shrink-0 overflow-visible"
               >
                 <CardBody
-                  className={`relative flex aspect-square !h-auto w-[min(30rem,calc(100vw-7rem),min(90dvh,90vw))] shrink-0 flex-col justify-center overflow-visible rounded-none border border-[#00ffff]/40 bg-[#090e11]/30 px-6 py-5 shadow-[0_0_48px_rgba(0,255,255,0.08)] backdrop-blur-sm [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]`}
+                  className={`relative flex aspect-square !h-auto w-[min(30rem,calc(100vw-7rem),min(90dvh,90vw))] shrink-0 select-none flex-col justify-center overflow-visible rounded-none border border-[#00ffff]/40 bg-[#090e11]/30 px-6 py-5 shadow-[0_0_48px_rgba(0,255,255,0.08)] backdrop-blur-sm [-webkit-touch-callout:none] [touch-action:manipulation] [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]`}
                 >
                   <HeroCorners />
                   <HeroInner use3d isBoxOpen={isBoxOpen} />

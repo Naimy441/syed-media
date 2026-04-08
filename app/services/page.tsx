@@ -224,7 +224,13 @@ export default function ServicesPage() {
   }, [])
 
   return (
-    <div className="text-white" style={{ backgroundColor: "#090e11" }}>
+    <motion.div
+      className="text-white"
+      style={{ backgroundColor: "#090e11" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+    >
       <section id="our-services" className="relative isolate overflow-hidden border-t border-white/5 scroll-mt-24">
         {!isMobile && (
           <div className="pointer-events-none absolute inset-0 z-0 h-full w-full">
@@ -256,9 +262,11 @@ export default function ServicesPage() {
                 title: "Strategic Marketing",
                 desc: "Perfect for profitable companies ready to amplify their social media presence.",
                 id: "strategic-marketing",
+                featured: true,
               },
               {
                 title: "Magic Editing Portal",
+                badge: "New",
                 desc: "Turn your raw footage into tailored, polished, ready-to-watch cinema.",
                 id: "magic-editing-portal",
               },
@@ -293,18 +301,48 @@ export default function ServicesPage() {
               <li key={s.id}>
                 <a
                   href={`#${s.id}`}
-                  className="group flex h-full flex-col border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-[#00ffff]/40"
+                  className={`group relative flex h-full flex-col border bg-white/[0.02] p-6 transition-colors ${
+                    s.featured
+                      ? "overflow-hidden border-[#00ffff]/35 shadow-[0_0_36px_rgba(0,255,255,0.12)] hover:border-[#00ffff]/70"
+                      : "border-white/10 hover:border-[#00ffff]/40"
+                  }`}
                 >
+                  {s.featured && (
+                    <>
+                      <div
+                        className="pointer-events-none absolute inset-0 opacity-90"
+                        style={{
+                          background:
+                            "linear-gradient(145deg, rgba(0,255,255,0.12) 0%, transparent 45%, rgba(217,102,255,0.08) 100%)",
+                        }}
+                        aria-hidden
+                      />
+                      <div className="pointer-events-none absolute -right-12 -top-14 h-40 w-40 rounded-full bg-[#00ffff]/12 blur-3xl" aria-hidden />
+                    </>
+                  )}
                   <div className="flex items-baseline justify-between gap-2">
-                    <span className="text-lg font-semibold text-white group-hover:text-[#00ffff]">{s.title}</span>
+                    <span
+                      className={`relative text-lg font-semibold ${
+                        s.featured ? "text-white" : "text-white group-hover:text-[#00ffff]"
+                      }`}
+                    >
+                      {s.title}
+                    </span>
                     {s.badge && (
-                      <span className="rounded-none border border-[#d966ff]/50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#d966ff]">
+                      <span className="relative rounded-none border border-[#d966ff]/50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#d966ff]">
                         {s.badge}
                       </span>
                     )}
+                    {s.featured && (
+                      <span className="relative rounded-none border border-[#00ffff]/40 bg-[#00ffff]/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#00ffff]">
+                        Main
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-white/65">{s.desc}</p>
-                  <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-[#00ffff]">View details →</span>
+                  <p className="relative mt-3 flex-1 text-sm leading-relaxed text-white/65">{s.desc}</p>
+                  <span className="relative mt-4 text-xs font-semibold uppercase tracking-wider text-[#00ffff]">
+                    View details →
+                  </span>
                 </a>
               </li>
             ))}
@@ -761,6 +799,6 @@ export default function ServicesPage() {
         serviceName={marketingService}
       />
       <AffiliateModal isOpen={affiliateOpen} onClose={() => setAffiliateOpen(false)} />
-            </div>
+    </motion.div>
     )
 }

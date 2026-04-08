@@ -15,7 +15,7 @@ export default function CareerPage() {
       key: "editor",
       title: "VIDEO EDITOR",
       image: "/career-editor.png",
-      location: "Remote",
+      location: "",
       badge: "Work from Home",
       bgPosition: 'center 40%',
       content: (
@@ -140,7 +140,7 @@ export default function CareerPage() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden text-white" style={{ backgroundColor: "#090e11" }}>
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-20 px-6 py-16 md:gap-24 md:py-24">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 px-6 py-12 md:gap-20 md:py-20">
         {/* Hero Section */}
         <FadeInSection className="text-center max-w-4xl mx-auto">
           <div className="mb-6 inline-block border border-white/10 bg-white/[0.04] px-4 py-2">
@@ -161,33 +161,53 @@ export default function CareerPage() {
         {/* Job Cards (Mobile) */}
         <div className="flex flex-col gap-8 md:hidden">
           {jobs.map((job) => (
-            <div key={job.key} className="relative">
-              <motion.div
-                layout
-                initial={{ borderRadius: 24 }}
-                className="relative cursor-pointer overflow-hidden rounded-none border border-white/15 bg-[#090e11] shadow-none transition-colors duration-300 active:border-[#00ffff]/35"
+            <div key={job.key} className="border border-white/12 bg-white/[0.02]">
+              <button
+                type="button"
                 onClick={() => setExpanded(expanded === job.key ? null : job.key)}
-                style={{ minHeight: 220, transition: 'min-height 0.3s' }}
+                className="flex w-full items-start justify-between gap-4 p-5 text-left"
               >
-                <div
-                  className="absolute inset-0 w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${job.image})`, filter: 'brightness(0.7)', backgroundPosition: job.bgPosition || 'center 60%',}}
-                />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,255,255,0.14)_0%,rgba(217,102,255,0.08)_35%,transparent_65%)]" />
-
-                {/* Absolutely centered job title */}
-                <span className="absolute inset-0 flex items-center justify-center text-3xl font-extrabold text-white drop-shadow-lg text-center w-full pointer-events-none select-none" style={{ lineHeight: 1.1, zIndex: 20 }}>{job.title}</span>
-
-                {/* Absolutely positioned location badge */}
-                <span className="absolute bottom-4 right-4 z-20 flex items-center gap-2 border border-white/15 bg-[#090e11]/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#00ffff]">
-                  {job.location === 'Remote' ? (
-                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                  ) : (
-                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" /><circle cx="12" cy="9" r="2.5" /></svg>
-                  )}
-                  {job.badge}
+                <div className="flex min-w-0 items-start gap-4">
+                  <div className="shrink-0">
+                    <div className="h-14 w-14 overflow-hidden border border-white/10 bg-[#090e11]">
+                      <img
+                        src={job.image}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        style={{ objectPosition: job.bgPosition || "center 60%" }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-mono uppercase tracking-[0.22em] text-white/55">Open role</p>
+                    <h3 className="mt-2 text-xl font-semibold leading-snug text-white">{job.title}</h3>
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      {!job.location ? (
+                        <span className="border border-[#00ffff]/35 bg-[#00ffff]/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#00ffff]">
+                          {job.badge}
+                        </span>
+                      ) : job.badge?.toLowerCase() === job.location?.toLowerCase() ? (
+                        <span className="border border-[#00ffff]/35 bg-[#00ffff]/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#00ffff]">
+                          {job.badge}
+                        </span>
+                      ) : (
+                        <>
+                          <span className="border border-[#00ffff]/35 bg-[#00ffff]/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#00ffff]">
+                            {job.badge}
+                          </span>
+                          <span className="border border-white/10 bg-[#090e11] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/70">
+                            {job.location}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <span className="mt-1 shrink-0 text-xs font-semibold uppercase tracking-wider text-[#00ffff]">
+                  {expanded === job.key ? "Close" : "View"}
                 </span>
-              </motion.div>
+              </button>
               <AnimatePresence initial={false}>
                 {expanded === job.key && (
                   <motion.div
@@ -196,7 +216,7 @@ export default function CareerPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-2 border border-t-0 border-white/10 bg-white/[0.03] p-5"
+                    className="border-t border-white/10 bg-white/[0.02] p-5"
                   >
                     {job.content}
                   </motion.div>
@@ -210,7 +230,7 @@ export default function CareerPage() {
         <div className="hidden md:flex flex-col gap-20">
           {/* Video Editor Position */}
           <FadeInSection>
-            <section className="relative mb-8 mt-8 flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
+            <section className="relative flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
               <div className="absolute top-4 right-4 z-10">
                 <div className="flex items-center border border-[#00ffff]/50 bg-[#00ffff]/15 px-3 py-1.5 text-sm font-bold text-[#00ffff]">
                   <span>Work from Home</span>

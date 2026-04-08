@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import FadeInSection from "@/components/FadeInSection"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion"
 import { Sparkles, Send, BicepsFlexed, CreditCard, Mail, Copyright } from "lucide-react"
 import { ContactModal } from "@/components/modals/contact-modal"
 import { MarketingModal } from "@/components/modals/marketing-modal"
@@ -62,11 +63,11 @@ export default function MissionPage() {
           </p>
           <div className="mx-auto mt-10 max-w-xl border border-white/10 bg-white/[0.02] px-8 py-8 text-center">
               <span className="bg-gradient-to-r from-[#00ffff] to-[#d966ff] bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
-                <AnimatedCounter target={240000} duration={2.5} />
+                <AnimatedCounter target={1000000} duration={2.5} />
               </span>
               <div className="mt-3 text-sm uppercase tracking-wider text-[#00ffff]/80">Client impact</div>
               <p className="mt-4 text-base text-white/70">
-                Total views accumulated for one of our clients&apos; TikTok pages in a single month.
+                Total views accumulated for one of our clients&apos; Instagram pages in a single month.
               </p>
           </div>
         </FadeInSection>
@@ -199,21 +200,6 @@ export default function MissionPage() {
               </div>
             </a>
 
-            <a
-              href="https://www.tiktok.com/@syedmedia_?_t=ZT-8w9DbvgVnsB&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-[#00ffff]/40">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center border border-white/10 bg-white/[0.06] transition-colors group-hover:border-[#00ffff]/35">
-                  <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                  </svg>
-                </div>
-                <span className="text-lg font-semibold text-white">TikTok</span>
-              </div>
-            </a>
           </div>
         </FadeInSection>
 
@@ -240,7 +226,35 @@ export default function MissionPage() {
             </div>
             <div className="flex flex-1 items-center justify-center p-4 md:p-8">
               <div className="hidden flex-1 items-center justify-center p-4 md:flex md:p-8">
-                <BicepsFlexed className="h-auto w-full max-w-xs border border-white/10 bg-white/[0.05] p-8 text-[#d966ff]" />
+                <div className="relative w-full max-w-xs">
+                  <motion.div
+                    className="pointer-events-none absolute -inset-10 rounded-none blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle_at_50%_40%, rgba(0,255,255,0.38) 0%, rgba(217,102,255,0.26) 35%, transparent 70%)",
+                    }}
+                    animate={{ opacity: [0.6, 1, 0.6], scale: [0.98, 1.04, 0.98] }}
+                    transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                    aria-hidden
+                  />
+                  <div className="relative p-[2px] bg-gradient-to-r from-[#00ffff] via-[#d966ff] to-[#00ffff] shadow-[0_0_70px_rgba(0,255,255,0.28),0_0_110px_rgba(217,102,255,0.14)]">
+                    <div className="relative overflow-hidden bg-[#090e11]/85 p-8">
+                      <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(145deg, rgba(0,255,255,0.22) 0%, rgba(217,102,255,0.14) 30%, transparent 62%)",
+                        }}
+                        aria-hidden
+                      />
+                      <div className="relative p-[2px] bg-gradient-to-r from-[#00ffff]/70 via-[#d966ff]/60 to-[#00ffff]/70">
+                        <div className="bg-[#090e11]/85 p-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_0_50px_rgba(0,255,255,0.16)]">
+                          <BicepsFlexed className="mx-auto h-auto w-full max-w-[11rem] text-white drop-shadow-[0_0_26px_rgba(0,255,255,0.42)]" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -270,7 +284,35 @@ export default function MissionPage() {
               </Button>
             </div>
             <div className="hidden flex-1 items-center justify-center p-4 md:flex md:p-8">
-              <Send className="h-auto w-full max-w-xs border border-white/10 bg-white/[0.05] p-8 text-[#00ffff]" />
+              <div className="relative w-full max-w-xs">
+                <motion.div
+                  className="pointer-events-none absolute -inset-10 rounded-none blur-3xl"
+                  style={{
+                    background:
+                      "radial-gradient(circle_at_50%_40%, rgba(0,255,255,0.44) 0%, rgba(0,163,255,0.24) 38%, transparent 72%)",
+                  }}
+                  animate={{ opacity: [0.55, 1, 0.55], scale: [0.98, 1.05, 0.98] }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                  aria-hidden
+                />
+                <div className="relative p-[2px] bg-gradient-to-r from-[#00ffff] via-[#00a3ff] to-[#00ffff] shadow-[0_0_74px_rgba(0,255,255,0.3),0_0_110px_rgba(0,163,255,0.16)]">
+                  <div className="relative overflow-hidden bg-[#090e11]/85 p-8">
+                    <div
+                      className="pointer-events-none absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(145deg, rgba(0,255,255,0.24) 0%, rgba(0,163,255,0.14) 34%, transparent 64%)",
+                      }}
+                      aria-hidden
+                    />
+                    <div className="relative p-[2px] bg-gradient-to-r from-[#00ffff]/70 via-[#00a3ff]/65 to-[#00ffff]/70">
+                      <div className="bg-[#090e11]/85 p-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_0_54px_rgba(0,255,255,0.18)]">
+                        <Send className="mx-auto h-auto w-full max-w-[11rem] text-white drop-shadow-[0_0_28px_rgba(0,255,255,0.5)]" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* <div className="flex-1 flex items-center justify-center p-4 md:p-8">
               <img

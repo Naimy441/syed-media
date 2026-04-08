@@ -146,18 +146,23 @@ export const CardItem = ({
       typeof translateZ === "number"
         ? translateZ + (isMouseEntered ? hoverBoostZ : 0)
         : translateZ;
-    const base = `translateX(${asLen(translateX)}) translateY(${asLen(translateY)}) translateZ(${asLen(zVal)})`;
-    if (isMouseEntered) {
-      ref.current.style.transform = `${base} rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
-    } else {
-      ref.current.style.transform = base;
-    }
+    // Always keep the same transform function list (including rotateX/Y/Z)
+    // to avoid GPU/compositing glitches in prod builds on some browsers.
+    const rx = isMouseEntered ? rotateX : 0;
+    const ry = isMouseEntered ? rotateY : 0;
+    const rz = isMouseEntered ? rotateZ : 0;
+    ref.current.style.transform = `translateX(${asLen(translateX)}) translateY(${asLen(
+      translateY
+    )}) translateZ(${asLen(zVal)}) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
   };
 
   return (
     <Tag
       ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear", className)}
+      className={cn(
+        "w-fit [backface-visibility:hidden] will-change-transform transition duration-200 ease-linear",
+        className
+      )}
       {...rest}
     >
       {children}

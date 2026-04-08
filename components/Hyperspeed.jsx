@@ -47,6 +47,21 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
   const appRef = useRef(null);
 
   useEffect(() => {
+    const containerEl = hyperspeed.current;
+    if (!containerEl) return;
+
+    // If WebGL is unavailable/blocked, don't attempt to create the scene.
+    const testCanvas = document.createElement('canvas');
+    const testGl =
+      testCanvas.getContext('webgl2', { alpha: true }) ||
+      testCanvas.getContext('webgl', { alpha: true }) ||
+      testCanvas.getContext('experimental-webgl', { alpha: true });
+    if (!testGl) {
+      containerEl.style.background =
+        'radial-gradient(1200px 800px at 50% 40%, rgba(248,112,23,0.18), transparent 55%), radial-gradient(900px 700px at 65% 55%, rgba(0,163,255,0.12), transparent 55%), #000';
+      return;
+    }
+
     if (appRef.current) {
       appRef.current.dispose();
       appRef.current = null;
@@ -360,9 +375,18 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
           antialias: false,
           alpha: true
         });
+        // Guard: in some prod-only cases the context can be lost/null during init.
+        // If that happens, skip postprocessing to avoid runtime crashes.
+        this._hasContextAttributes = !!(
+          this.renderer &&
+          this.renderer.getContext &&
+          this.renderer.getContext() &&
+          this.renderer.getContext().getContextAttributes &&
+          this.renderer.getContext().getContextAttributes()
+        );
         this.renderer.setSize(initW, initH, false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.composer = new EffectComposer(this.renderer);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        this.composer = this._hasContextAttributes ? new EffectComposer(this.renderer) : null;
         container.append(this.renderer.domElement);
 
         this.camera = new THREE.PerspectiveCamera(options.fov, initW / initH, 0.1, 10000);
@@ -440,6 +464,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       }
 
       initPasses() {
+        if (!this.composer || !this._hasContextAttributes) return;
         this.renderPass = new RenderPass(this.scene, this.camera);
         this.bloomPass = new EffectPass(
           this.camera,
@@ -461,9 +486,13 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         this.renderPass.renderToScreen = false;
         this.bloomPass.renderToScreen = false;
         smaaPass.renderToScreen = true;
-        this.composer.addPass(this.renderPass);
-        this.composer.addPass(this.bloomPass);
-        this.composer.addPass(smaaPass);
+        try {
+          this.composer.addPass(this.renderPass);
+          this.composer.addPass(this.bloomPass);
+          this.composer.addPass(smaaPass);
+        } catch (e) {
+          this.composer = null;
+        }
       }
 
       loadAssets() {
@@ -581,7 +610,11 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       }
 
       render(delta) {
-        this.composer.render(delta);
+        if (this.composer) {
+          this.composer.render(delta);
+        } else {
+          this.renderer.render(this.scene, this.camera);
+        }
       }
 
       dispose() {
@@ -634,7 +667,11 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
           this.hasValidSize = false;
           return;
         }
-        this.composer.setSize(width, height, updateStyles);
+        if (this.composer) {
+          this.composer.setSize(width, height, updateStyles);
+        } else {
+          this.renderer.setSize(width, height, updateStyles);
+        }
         this.hasValidSize = true;
       }
 
@@ -648,7 +685,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
             this.renderer.setSize(w, h, false);
             this.camera.aspect = w / h;
             this.camera.updateProjectionMatrix();
-            this.composer.setSize(w, h);
+            if (this.composer) this.composer.setSize(w, h);
             this.hasValidSize = true;
           } else {
             requestAnimationFrame(this.tick);
