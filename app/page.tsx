@@ -4,11 +4,10 @@ import { useEffect, useState, type ElementType, type ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import Galaxy from "@/components/Galaxy"
+import Galaxy from "@/components/Galaxy.jsx"
 
 const BG = "#090e11"
-/** Main is below fixed header (~logo + padding); keeps landing in one viewport without page scroll */
-const LANDING_MAIN_H = "calc(100dvh - 6.5rem)"
+const SAFARI_BG = "#000000"
 
 function GradientText({
   children,
@@ -31,6 +30,7 @@ function GradientText({
 export default function Home() {
   const [isBoxOpen, setIsBoxOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isSafari, setIsSafari] = useState(false)
 
   useEffect(() => {
     setIsBoxOpen(false)
@@ -44,45 +44,57 @@ export default function Home() {
     return () => window.removeEventListener("resize", onResize)
   }, [])
 
+  useEffect(() => {
+    if (typeof navigator === "undefined") return
+    const ua = navigator.userAgent
+    const safari = /Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Edg|OPR|Firefox|FxiOS|Android/i.test(ua)
+    setIsSafari(safari)
+  }, [])
+
+  const pageBg = isSafari ? SAFARI_BG : BG
+
   return (
     <div
-      className="text-white overflow-hidden"
-      style={{ backgroundColor: BG, height: LANDING_MAIN_H, maxHeight: LANDING_MAIN_H }}
+      className="overflow-hidden text-white"
+      style={{
+        backgroundColor: pageBg,
+        height: "100dvh",
+        maxHeight: "100dvh",
+      }}
     >
       <div className="relative h-full w-full overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundColor: BG }}>
+        <div className="absolute inset-0" style={{ backgroundColor: pageBg }}>
           <Galaxy
-            mouseRepulsion={!isMobile}
-            mouseInteraction={!isMobile}
-            density={isMobile ? 0.55 : 1}
-            glowIntensity={isMobile ? 0.22 : 0.35}
-            saturation={isMobile ? 0.08 : 0.15}
+            mouseRepulsion
+            mouseInteraction
+            density={1}
+            glowIntensity={isSafari ? 0.15 : 0.3}
+            saturation={0}
             hueShift={140}
-            twinkleIntensity={isMobile ? 0.12 : 0.3}
+            twinkleIntensity={0.3}
             rotationSpeed={0.1}
-            repulsionStrength={isMobile ? 1 : 2}
+            repulsionStrength={2}
             autoCenterRepulsion={0}
-            starSpeed={isMobile ? 0.25 : 0.5}
-            speed={isMobile ? 0.6 : 1}
-            pointScale={isMobile ? 0.5 : 1}
-            portraitMode={isMobile}
-            className={isMobile ? "opacity-70" : "opacity-95"}
+            starSpeed={0.4}
+            speed={1}
+            className={isSafari ? "opacity-80" : (isMobile ? "opacity-80" : "opacity-95")}
           />
         </div>
 
-        <div className="relative z-10 flex h-full min-h-0 flex-col items-center justify-center px-4 py-2 sm:px-6">
+        <div className="relative z-10 flex h-full min-h-0 translate-y-[4vh] flex-col items-center justify-center px-4 py-2 sm:px-6 md:translate-y-[2.2vh]">
           <motion.div
-            initial={{ scaleY: 0.05, opacity: 0.35 }}
-            animate={{ scaleY: 1, opacity: 1 }}
+            initial={{ clipPath: "inset(48% 0 48% 0)", opacity: 0.35 }}
+            animate={{ clipPath: "inset(0% 0 0% 0)", opacity: 1 }}
             transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: "center center" }}
             onAnimationComplete={() => {
               if (!isBoxOpen) {
                 setIsBoxOpen(true)
                 window.dispatchEvent(new CustomEvent("landing-hero-opened"))
               }
             }}
-            className="relative w-full max-w-[min(100%,22rem)] border border-[#00ffff]/40 bg-[#090e11]/50 px-4 py-4 shadow-[0_0_48px_rgba(0,255,255,0.08)] backdrop-blur-md sm:max-w-md sm:px-6 sm:py-5"
+            className={`relative w-full max-w-[min(100%,22rem)] border border-[#00ffff]/40 bg-[#090e11]/30 px-4 py-4 backdrop-blur-sm sm:max-w-md sm:px-6 sm:py-5 ${
+              isMobile ? "shadow-[0_0_22px_rgba(0,255,255,0.045)]" : "shadow-[0_0_48px_rgba(0,255,255,0.08)]"
+            }`}
           >
             <div className="pointer-events-none absolute -left-px -top-px h-4 w-4 border-l-2 border-t-2 border-[#00ffff] sm:h-5 sm:w-5" />
             <div className="pointer-events-none absolute -right-px -top-px h-4 w-4 border-r-2 border-t-2 border-[#00ffff] sm:h-5 sm:w-5" />

@@ -41,7 +41,7 @@ export default function RootLayout({
           <SmoothScroll>
             <div
               className="fixed inset-0 z-0 pointer-events-none"
-              style={{ backgroundColor: "#090e11" }}
+              style={{ backgroundColor: "#020304" }}
               aria-hidden
             />
 

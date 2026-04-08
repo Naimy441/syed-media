@@ -42,7 +42,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between items-center px-6 pt-6 relative z-10">
+      <header
+        className={`flex justify-between items-center px-6 pt-6 z-30 ${
+          pathname === "/" ? "absolute inset-x-0 top-0" : "relative"
+        }`}
+      >
         {/* Logo on left */}
         <motion.div
           initial={{ opacity: 0 }}

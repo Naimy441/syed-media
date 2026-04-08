@@ -18,6 +18,8 @@ export type GalaxyProps = {
   speed?: number
   pointScale?: number
   portraitMode?: boolean
+  verticalSpeedBoost?: number
+  orbitSpeedBoost?: number
   className?: string
 }
 
@@ -38,6 +40,8 @@ uniform float uAutoCenterRepulsion;
 uniform float uMouseRepulsion;
 uniform float uMouseInteraction;
 uniform float uPointScale;
+uniform float uVerticalSpeedBoost;
+uniform float uOrbitSpeedBoost;
 
 varying vec3 vColor;
 varying float vTwinkle;
@@ -45,12 +49,13 @@ varying float vTwinkle;
 void main() {
   vec3 pos = position;
 
-  float drift = uTime * uStarSpeed * 0.15;
+  float yNorm = clamp(abs(pos.y) / 4.8, 0.0, 1.0);
+  float drift = uTime * uStarSpeed * 0.15 * (1.0 + yNorm * uVerticalSpeedBoost);
   pos.x += sin(drift + aRandom.x * 6.28318) * 0.04;
   pos.y += cos(drift * 0.8 + aRandom.y * 6.28318) * 0.04;
   pos.z += sin(drift * 0.6 + aRandom.z * 6.28318) * 0.04;
 
-  float rot = uTime * uRotationSpeed;
+  float rot = uTime * uRotationSpeed * (1.0 + yNorm * uOrbitSpeedBoost);
   float c = cos(rot);
   float s = sin(rot);
   pos.xz = mat2(c, -s, s, c) * pos.xz;
@@ -132,6 +137,8 @@ export function Galaxy({
   speed = 1,
   pointScale = 1,
   portraitMode = false,
+  verticalSpeedBoost = 0,
+  orbitSpeedBoost = 0,
   className = "",
 }: GalaxyProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -167,7 +174,7 @@ export function Galaxy({
       const disk = Math.pow(Math.random(), portraitMode ? 0.52 : 0.35)
       const angle = Math.random() * Math.PI * 2
       const spreadY = portraitMode
-        ? (Math.random() - 0.5) * 3.9 * (0.55 + Math.random() * 0.65)
+        ? (Math.random() - 0.5) * 5.4 * (0.7 + Math.random() * 0.8)
         : (Math.random() - 0.5) * 2.2 * (0.4 + Math.random() * 0.6)
       const r = disk * (portraitMode ? 4.4 : 5.5)
       positions[i * 3] = Math.cos(angle) * r * (portraitMode ? 0.68 : 1) + (Math.random() - 0.5) * 0.4
@@ -198,6 +205,8 @@ export function Galaxy({
         uMouseRepulsion: { value: mouseRepulsion ? 1.0 : 0.0 },
         uMouseInteraction: { value: mouseInteraction ? 1.0 : 0.0 },
         uPointScale: { value: pointScale },
+        uVerticalSpeedBoost: { value: verticalSpeedBoost },
+        uOrbitSpeedBoost: { value: orbitSpeedBoost },
         uGlow: { value: glowIntensity },
         uSaturation: { value: saturation },
         uHueShift: { value: hueShift },
@@ -255,6 +264,8 @@ export function Galaxy({
       program.uniforms.uMouseRepulsion.value = mouseRepulsion ? 1.0 : 0.0
       program.uniforms.uMouseInteraction.value = mouseInteraction ? 1.0 : 0.0
       program.uniforms.uPointScale.value = pointScale
+      program.uniforms.uVerticalSpeedBoost.value = verticalSpeedBoost
+      program.uniforms.uOrbitSpeedBoost.value = orbitSpeedBoost
 
       renderer.render({ scene, camera })
     }
@@ -284,6 +295,8 @@ export function Galaxy({
     speed,
     pointScale,
     portraitMode,
+    verticalSpeedBoost,
+    orbitSpeedBoost,
   ])
 
   return (
