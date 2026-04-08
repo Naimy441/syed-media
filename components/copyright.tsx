@@ -2,10 +2,12 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export function Copyright() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const checkMobile = () => {
@@ -17,6 +19,10 @@ export function Copyright() {
     
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
+
+  if (pathname === "/") {
+    return null
+  }
 
   return (
     <motion.div

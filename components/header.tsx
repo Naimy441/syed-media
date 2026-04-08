@@ -21,47 +21,39 @@ export default function Header() {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (pathname !== "/") {
-      setIsLoaded(true)
-      return
-    }
+    setIsLoaded(true)
+  }, [])
 
-    setIsLoaded(false)
-
-    const reveal = () => setIsLoaded(true)
-    window.addEventListener("landing-hero-opened", reveal)
-
-    // Fallback for edge cases where the landing event is missed.
-    const fallback = window.setTimeout(reveal, 1700)
-
-    return () => {
-      window.removeEventListener("landing-hero-opened", reveal)
-      window.clearTimeout(fallback)
-    }
-  }, [pathname])
+  if (pathname === "/") {
+    return null
+  }
 
   return (
     <>
       <header
         className="absolute inset-x-0 top-0 z-30 flex items-center justify-between px-6 pt-6"
       >
-        {/* Logo on left */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isLoaded ? 1 : 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-40 overflow-hidden"
-        >
-          <Link href="/" aria-label="Home">
-            <img
-              src="/logo.png"
-              alt="Syed Media Logo"
-              width={120}
-              height={60}
-              className="object-contain object-left"
-            />
-          </Link>
-        </motion.div>
+        {/* Logo on left (hidden on home page) */}
+        {pathname === "/" ? (
+          <div className="w-40" aria-hidden />
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isLoaded ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-40 overflow-hidden"
+          >
+            <Link href="/" aria-label="Home">
+              <img
+                src="/logo.png"
+                alt="Syed Media Logo"
+                width={120}
+                height={60}
+                className="object-contain object-left"
+              />
+            </Link>
+          </motion.div>
+        )}
 
         {/* Desktop menu with animation */}
         <motion.nav
