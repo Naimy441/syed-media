@@ -35,6 +35,8 @@ uniform float uRepulsionStrength;
 uniform float uMouseActiveFactor;
 uniform float uAutoCenterRepulsion;
 uniform bool uTransparent;
+/** 1.0 = premultiply RGB by alpha for canvases / blend issues (e.g. Chrome on macOS). */
+uniform float uPremultiplyAlpha;
 
 varying vec2 vUv;
 
@@ -72,10 +74,12 @@ vec3 hsv2rgb(vec3 c) {
 float Star(vec2 uv, float flare) {
   float d = max(length(uv), 1e-4);
   float m = (0.05 * uGlowIntensity) / d;
-  float rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
+  float crossGlow = 1.0 - abs(uv.x * uv.y * 820.0);
+  float rays = smoothstep(0.08, 1.0, crossGlow);
   m += rays * flare * uGlowIntensity;
   uv *= MAT45;
-  rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
+  crossGlow = 1.0 - abs(uv.x * uv.y * 820.0);
+  rays = smoothstep(0.08, 1.0, crossGlow);
   m += rays * 0.3 * flare * uGlowIntensity;
   m *= smoothstep(1.0, 0.2, d);
   return m;
@@ -161,9 +165,16 @@ void main() {
 
   if (uTransparent) {
     float alpha = length(col);
-    alpha = smoothstep(0.0, 0.3, alpha);
+    // Slightly wider smoothstep reduces stepped “boxy” alpha on drivers that quantize (some Mac + Chrome).
+    alpha = smoothstep(0.02, 0.38, alpha);
+    alpha = pow(clamp(alpha, 0.0, 1.0), 0.92);
     alpha = min(alpha, 1.0);
-    gl_FragColor = vec4(col, alpha);
+    vec3 rgb = col;
+    if (uPremultiplyAlpha > 0.5) {
+      gl_FragColor = vec4(rgb * alpha, alpha);
+    } else {
+      gl_FragColor = vec4(rgb, alpha);
+    }
   } else {
     gl_FragColor = vec4(col, 1.0);
   }
@@ -205,27 +216,44 @@ export default function Galaxy({
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
+
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+    const platform = typeof navigator !== 'undefined' ? navigator.platform || '' : '';
+    const isMacOS = /Mac OS X|Macintosh/i.test(ua) || platform.toUpperCase().includes('MAC');
+    const isChromeFamily = /Chrome/i.test(ua) && !/Edg|OPR|Opera\/|Opera Mini/i.test(ua);
+    /**
+     * Chrome on macOS (ANGLE → Metal) often shows tiled / “boxed” translucent quads with straight-alpha
+     * blending and can be slower on WebGL2. WebGL1 + premultiplied canvas alpha + ONE/1−SA fixes most cases.
+     */
+    const macChromeWorkaround = isMacOS && isChromeFamily;
+    const effectiveWebGL = macChromeWorkaround ? 1 : webgl;
+    const usePremultipliedCanvas = transparent && macChromeWorkaround;
+
     /**
      * DPR & pixel budget: the star shader is fill-rate heavy (4 layers × nested loops per pixel).
-     * devicePixelRatio=2 at 1920×1080 = ~4× the fragment work vs 1× — use a soft cap + megapixel ceiling.
+     * Tighter budget when we already take the slower compatibility path.
      */
-    const MAX_BUFFER_PIXELS = 2_200_000;
+    const MAX_BUFFER_PIXELS = macChromeWorkaround ? 900_000 : 2_200_000;
 
     const renderer = new Renderer({
       alpha: transparent,
-      premultipliedAlpha: false,
+      premultipliedAlpha: usePremultipliedCanvas,
       dpr: 1,
       depth: false,
       stencil: false,
       antialias: false,
       powerPreference: 'default',
-      webgl,
+      webgl: effectiveWebGL,
     });
     const gl = renderer.gl;
 
     if (transparent) {
       gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      if (usePremultipliedCanvas) {
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+      } else {
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      }
       gl.clearColor(0, 0, 0, 0);
     } else {
       gl.clearColor(0, 0, 0, 1);
@@ -238,7 +266,7 @@ export default function Galaxy({
       const w = Math.max(1, Math.round(ctn.clientWidth));
       const h = Math.max(1, Math.round(ctn.clientHeight));
       const ratio = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
-      let dpr = Math.min(ratio, 1.35);
+      let dpr = macChromeWorkaround ? 1 : Math.min(ratio, 1.35);
       const px = w * h * dpr * dpr;
       if (px > MAX_BUFFER_PIXELS) dpr = Math.sqrt(MAX_BUFFER_PIXELS / (w * h));
       dpr = Math.max(1, Math.min(dpr, ratio));
@@ -292,7 +320,8 @@ export default function Galaxy({
         uRepulsionStrength: { value: repulsionStrength },
         uMouseActiveFactor: { value: 0.0 },
         uAutoCenterRepulsion: { value: autoCenterRepulsion },
-        uTransparent: { value: transparent }
+        uTransparent: { value: transparent },
+        uPremultiplyAlpha: { value: usePremultipliedCanvas ? 1 : 0 },
       }
     });
 
@@ -390,7 +419,7 @@ export default function Galaxy({
     autoCenterRepulsion,
     transparent,
     trackWindowMouse,
-    webgl
+    webgl,
   ]);
 
   return <div ref={ctnDom} className={`galaxy-container ${className}`.trim()} {...rest} />;
