@@ -333,11 +333,6 @@ export default function ServicesPage() {
                         {s.badge}
                       </span>
                     )}
-                    {s.featured && (
-                      <span className="relative rounded-none border border-[#00ffff]/40 bg-[#00ffff]/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#00ffff]">
-                        Main
-                      </span>
-                    )}
                   </div>
                   <p className="relative mt-3 flex-1 text-sm leading-relaxed text-white/65">{s.desc}</p>
                   <span className="relative mt-4 text-xs font-semibold uppercase tracking-wider text-[#00ffff]">
