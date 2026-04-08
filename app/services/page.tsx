@@ -108,20 +108,22 @@ export default function ServicesPage() {
   return (
     <div className="text-white" style={{ backgroundColor: "#090e11" }}>
       <section id="our-services" className="relative isolate overflow-hidden border-t border-white/5 scroll-mt-24">
-        <div className="pointer-events-none absolute inset-0 z-0 h-full w-full">
-          <Particles
-            particleColors={["#ffffff"]}
-            particleCount={isMobile ? 300 : 200}
-            particleSpread={isMobile ? 8.5 : 10}
-            speed={isMobile ? 0.03 : 0.03}
-            particleBaseSize={isMobile ? 90 : 100}
-            moveParticlesOnHover={false}
-            alphaParticles={false}
-            disableRotation={isMobile}
-            pixelRatio={isMobile ? 0.75 : 1}
-            className="h-full w-full"
-          />
-        </div>
+        {!isMobile && (
+          <div className="pointer-events-none absolute inset-0 z-0 h-full w-full">
+            <Particles
+              particleColors={["#ffffff"]}
+              particleCount={200}
+              particleSpread={10}
+              speed={0.03}
+              particleBaseSize={100}
+              moveParticlesOnHover={false}
+              alphaParticles={false}
+              disableRotation={false}
+              pixelRatio={1}
+              className="h-full w-full"
+            />
+          </div>
+        )}
         <div className={`pointer-events-none absolute inset-0 z-10 ${isMobile ? "bg-[#090e11]/45" : "bg-[#090e11]/65"}`} />
         <div className="relative z-20 mx-auto max-w-6xl px-6 py-20 md:py-28">
           <h2 className="text-center text-3xl font-semibold md:text-4xl">

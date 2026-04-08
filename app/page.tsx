@@ -64,6 +64,8 @@ export default function Home() {
             autoCenterRepulsion={0}
             starSpeed={isMobile ? 0.25 : 0.5}
             speed={isMobile ? 0.6 : 1}
+            pointScale={isMobile ? 0.5 : 1}
+            portraitMode={isMobile}
             className={isMobile ? "opacity-70" : "opacity-95"}
           />
         </div>

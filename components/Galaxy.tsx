@@ -16,6 +16,8 @@ export type GalaxyProps = {
   autoCenterRepulsion?: number
   starSpeed?: number
   speed?: number
+  pointScale?: number
+  portraitMode?: boolean
   className?: string
 }
 
@@ -35,6 +37,7 @@ uniform float uRepulsionStrength;
 uniform float uAutoCenterRepulsion;
 uniform float uMouseRepulsion;
 uniform float uMouseInteraction;
+uniform float uPointScale;
 
 varying vec3 vColor;
 varying float vTwinkle;
@@ -68,7 +71,7 @@ void main() {
   gl_Position = projectionMatrix * mv;
 
   float dist = max(0.1, -mv.z);
-  gl_PointSize = (4.0 + aRandom.x * 10.0) * (180.0 / dist);
+  gl_PointSize = (4.0 + aRandom.x * 10.0) * (180.0 / dist) * uPointScale;
 
   vColor = vec3(aRandom);
   vTwinkle = aRandom.y * 12.0;
@@ -127,6 +130,8 @@ export function Galaxy({
   autoCenterRepulsion = 0,
   starSpeed = 0.5,
   speed = 1,
+  pointScale = 1,
+  portraitMode = false,
   className = "",
 }: GalaxyProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -149,8 +154,8 @@ export function Galaxy({
     gl.canvas.style.height = "100%"
     gl.canvas.style.display = "block"
 
-    const camera = new Camera(gl, { fov: 50, near: 0.1, far: 120 })
-    camera.position.z = 6.2
+    const camera = new Camera(gl, { fov: portraitMode ? 58 : 50, near: 0.1, far: 120 })
+    camera.position.z = portraitMode ? 7.4 : 6.2
 
     const scene = new Transform()
 
@@ -159,13 +164,16 @@ export function Galaxy({
     const randoms = new Float32Array(count * 3)
 
     for (let i = 0; i < count; i++) {
-      const disk = Math.pow(Math.random(), 0.35)
+      const disk = Math.pow(Math.random(), portraitMode ? 0.52 : 0.35)
       const angle = Math.random() * Math.PI * 2
-      const spreadY = (Math.random() - 0.5) * 2.2 * (0.4 + Math.random() * 0.6)
-      const r = disk * 5.5
-      positions[i * 3] = Math.cos(angle) * r + (Math.random() - 0.5) * 0.4
+      const spreadY = portraitMode
+        ? (Math.random() - 0.5) * 3.9 * (0.55 + Math.random() * 0.65)
+        : (Math.random() - 0.5) * 2.2 * (0.4 + Math.random() * 0.6)
+      const r = disk * (portraitMode ? 4.4 : 5.5)
+      positions[i * 3] = Math.cos(angle) * r * (portraitMode ? 0.68 : 1) + (Math.random() - 0.5) * 0.4
       positions[i * 3 + 1] = spreadY
-      positions[i * 3 + 2] = Math.sin(angle) * r * 0.85 + (Math.random() - 0.5) * 0.9
+      positions[i * 3 + 2] =
+        Math.sin(angle) * r * (portraitMode ? 0.6 : 0.85) + (Math.random() - 0.5) * (portraitMode ? 0.7 : 0.9)
 
       randoms[i * 3] = Math.random()
       randoms[i * 3 + 1] = Math.random()
@@ -189,6 +197,7 @@ export function Galaxy({
         uAutoCenterRepulsion: { value: autoCenterRepulsion },
         uMouseRepulsion: { value: mouseRepulsion ? 1.0 : 0.0 },
         uMouseInteraction: { value: mouseInteraction ? 1.0 : 0.0 },
+        uPointScale: { value: pointScale },
         uGlow: { value: glowIntensity },
         uSaturation: { value: saturation },
         uHueShift: { value: hueShift },
@@ -245,6 +254,7 @@ export function Galaxy({
       program.uniforms.uAutoCenterRepulsion.value = autoCenterRepulsion
       program.uniforms.uMouseRepulsion.value = mouseRepulsion ? 1.0 : 0.0
       program.uniforms.uMouseInteraction.value = mouseInteraction ? 1.0 : 0.0
+      program.uniforms.uPointScale.value = pointScale
 
       renderer.render({ scene, camera })
     }
@@ -272,6 +282,8 @@ export function Galaxy({
     autoCenterRepulsion,
     starSpeed,
     speed,
+    pointScale,
+    portraitMode,
   ])
 
   return (
