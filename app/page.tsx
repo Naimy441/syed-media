@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import Galaxy from "@/components/Galaxy.jsx"
 import { CardBody, CardContainer, CardItem, useMouseEnter } from "@/components/ui/3d-card"
 
@@ -51,17 +52,33 @@ function HeroLayer({
 function SystemLine() {
   return (
     <motion.p
-      className="mb-3 text-center font-mono text-[9px] uppercase tracking-[0.26em] text-[#00ffff]/70 sm:mb-4 sm:text-[10px] sm:tracking-[0.32em]"
+      className="mb-3 text-center font-mono text-[9px] uppercase tracking-[0.26em] text-white/60 sm:mb-4 sm:text-[10px] sm:tracking-[0.32em]"
       animate={{ opacity: [0.82, 0.6, 0.82] }}
       transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
     >
       <motion.span
-        className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[#00ffff] shadow-[0_0_8px_#00ffff] sm:h-1.5 sm:w-1.5"
-        animate={{ opacity: [0.9, 0.45, 0.9], scale: [1, 0.9, 1] }}
+        className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[#22c55e] shadow-[0_0_10px_#4ade80,0_0_18px_rgba(74,222,128,0.45)] sm:h-1.5 sm:w-1.5"
+        animate={{ opacity: [0.85, 1, 0.85], scale: [1, 0.92, 1] }}
         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden
       />
-      System online
+      <span className="text-[#4ade80]/90">System online</span>
     </motion.p>
+  )
+}
+
+function HeroCtaLink() {
+  return (
+    <Link
+      href="/services"
+      className="group inline-flex w-full max-w-[18rem] items-center justify-center gap-2.5 border-2 border-[#00ffff]/60 bg-[#090e11] px-5 py-3 text-center text-xs font-semibold tracking-[0.1em] text-white transition-colors duration-200 hover:border-[#00ffff] hover:text-[#00ffff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00ffff] sm:max-w-xs sm:py-3.5 sm:text-sm sm:tracking-[0.12em]"
+    >
+      <span>Start Creating</span>
+      <ArrowRight
+        className="h-3.5 w-3.5 shrink-0 text-[#00ffff] transition-transform duration-200 group-hover:translate-x-0.5 sm:h-4 sm:w-4"
+        aria-hidden
+      />
+    </Link>
   )
 }
 
@@ -111,17 +128,12 @@ function HeroMainBlock({ isBoxOpen }: { isBoxOpen: boolean }) {
 
       <div className="mt-5 flex flex-col items-center gap-2.5 sm:mt-6 sm:gap-3.5">
         <motion.div
-          whileHover={{ y: -2, scale: 1.02 }}
-          whileTap={{ y: 0, scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 380, damping: 24 }}
-          className="w-full max-w-[14rem] sm:max-w-xs"
+          whileHover={{ y: -1 }}
+          whileTap={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 400, damping: 28 }}
+          className="flex w-full justify-center"
         >
-          <Link
-            href="/services"
-            className="inline-flex w-full items-center justify-center border-2 border-[#00ffff] bg-[#00ffff] px-5 py-2.5 text-center text-xs font-semibold tracking-wide text-[#090e11] transition-all duration-300 hover:bg-[#33ffff] hover:border-[#33ffff] hover:shadow-[0_0_22px_rgba(0,255,255,0.45)] rounded-none sm:py-3 sm:text-sm"
-          >
-            Start Creating
-          </Link>
+          <HeroCtaLink />
         </motion.div>
         <p className="text-center text-[10px] font-mono uppercase tracking-[0.2em] text-white/45 sm:text-xs sm:tracking-[0.25em]">
           Video · AI · Web · Media
@@ -163,17 +175,12 @@ function HeroInner({ use3d, isBoxOpen }: { use3d: boolean; isBoxOpen: boolean })
         <HeroLayer use3d z={175} className="mt-5 w-full sm:mt-6 lg:mt-5">
           <div className="flex flex-col items-center gap-2.5 sm:gap-3.5">
             <motion.div
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ y: 0, scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 380, damping: 24 }}
-              className="w-full max-w-[14rem] sm:max-w-xs"
+              whileHover={{ y: -1 }}
+              whileTap={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 400, damping: 28 }}
+              className="flex w-full justify-center"
             >
-              <Link
-                href="/services"
-                className="inline-flex w-full items-center justify-center border-2 border-[#00ffff] bg-[#00ffff] px-5 py-2.5 text-center text-xs font-semibold tracking-wide text-[#090e11] transition-all duration-300 hover:bg-[#33ffff] hover:border-[#33ffff] hover:shadow-[0_0_22px_rgba(0,255,255,0.45)] rounded-none sm:py-3 sm:text-sm"
-              >
-                Start Creating
-              </Link>
+              <HeroCtaLink />
             </motion.div>
             <p className="text-center text-[10px] font-mono uppercase tracking-[0.2em] text-white/45 sm:text-xs sm:tracking-[0.25em]">
               Video · AI · Web · Media
@@ -221,17 +228,18 @@ export default function Home() {
       }}
     >
       <div className="relative h-full w-full overflow-x-hidden overflow-y-hidden lg:overflow-visible">
-        <div className="absolute inset-0" style={{ backgroundColor: pageBg }}>
+        <div className="absolute inset-0 z-0" style={{ backgroundColor: pageBg }}>
           <Galaxy
             mouseRepulsion
             mouseInteraction
+            trackWindowMouse
             density={1}
             glowIntensity={isSafari ? 0.15 : 0.3}
             saturation={0}
             hueShift={140}
             twinkleIntensity={0.3}
             rotationSpeed={0.1}
-            repulsionStrength={2}
+            repulsionStrength={0.55}
             autoCenterRepulsion={0}
             starSpeed={0.4}
             speed={1}
@@ -239,7 +247,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 flex h-full min-h-0 translate-y-[4vh] flex-col items-center justify-center overflow-x-hidden overflow-y-hidden px-4 py-2 sm:px-6 md:translate-y-[2.2vh] lg:overflow-visible">
+        <div className="pointer-events-none relative z-10 flex h-full min-h-0 translate-y-[4vh] flex-col items-center justify-center overflow-x-hidden overflow-y-hidden px-4 py-2 sm:px-6 md:translate-y-[2.2vh] lg:overflow-visible">
           <motion.div
             initial={{ clipPath: "inset(48% 0 48% 0)", opacity: 0.35 }}
             animate={{ clipPath: "inset(0% 0 0% 0)", opacity: 1 }}
@@ -250,7 +258,7 @@ export default function Home() {
                 window.dispatchEvent(new CustomEvent("landing-hero-opened"))
               }
             }}
-            className="flex w-full max-w-[min(100%,22rem)] flex-col items-center justify-center overflow-x-hidden overflow-y-hidden sm:max-w-md lg:max-w-none lg:overflow-visible"
+            className="pointer-events-auto flex w-full max-w-[min(100%,22rem)] flex-col items-center justify-center overflow-x-hidden overflow-y-hidden sm:max-w-md lg:max-w-none lg:overflow-visible"
           >
             {/* Mobile / tablet: flat panel */}
             <div

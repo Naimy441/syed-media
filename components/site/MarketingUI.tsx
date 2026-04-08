@@ -78,22 +78,36 @@ export function SectionShell({
   )
 }
 
-export function RectButton({
-  href,
-  children,
-  variant = "primary",
-  className = "",
-}: {
-  href: string
+type RectButtonProps = {
   children: ReactNode
   variant?: "primary" | "outline"
   className?: string
-}) {
+} & (
+  | { href: string; onClick?: never; type?: never }
+  | { href?: undefined; onClick: () => void; type?: "button" | "submit" }
+)
+
+export function RectButton({
+  href,
+  onClick,
+  type = "button",
+  children,
+  variant = "primary",
+  className = "",
+}: RectButtonProps) {
   const styles = variant === "primary" ? cyanButtonClass : cyanButtonOutlineClass
+  const cls = `${styles} ${className}`
+  if (href != null && href !== "") {
+    return (
+      <Link href={href} className={cls}>
+        {children}
+      </Link>
+    )
+  }
   return (
-    <Link href={href} className={`${styles} ${className}`}>
+    <button type={type} onClick={onClick} className={cls}>
       {children}
-    </Link>
+    </button>
   )
 }
 

@@ -138,7 +138,7 @@ void main() {
     vec2 mousePosUV = (uMouse * uResolution.xy - focalPx) / uResolution.y;
     float mouseDist = length(uv - mousePosUV);
     vec2 repulsion = normalize(uv - mousePosUV) * (uRepulsionStrength / (mouseDist + 0.1));
-    uv += repulsion * 0.05 * uMouseActiveFactor;
+    uv += repulsion * 0.028 * uMouseActiveFactor;
   } else {
     vec2 mouseOffset = mouseNorm * 0.1 * uMouseActiveFactor;
     uv += mouseOffset;
@@ -188,6 +188,8 @@ export default function Galaxy({
   autoCenterRepulsion = 0,
   transparent = true,
   className = '',
+  /** When true, mouse position follows the whole viewport (e.g. hero has overlapping UI). */
+  trackWindowMouse = false,
   ...rest
 }) {
   const ctnDom = useRef(null);
@@ -284,29 +286,51 @@ export default function Galaxy({
     animateId = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
 
-    function handleMouseMove(e) {
+    function setMouseFromClientXY(clientX, clientY) {
       const rect = ctn.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = 1.0 - (e.clientY - rect.top) / rect.height;
+      const x = (clientX - rect.left) / Math.max(rect.width, 1);
+      const y = 1.0 - (clientY - rect.top) / Math.max(rect.height, 1);
       targetMousePos.current = { x, y };
       targetMouseActive.current = 1.0;
+    }
+
+    function handleMouseMove(e) {
+      setMouseFromClientXY(e.clientX, e.clientY);
     }
 
     function handleMouseLeave() {
       targetMouseActive.current = 0.0;
     }
 
+    function handleWindowMouseMove(e) {
+      setMouseFromClientXY(e.clientX, e.clientY);
+    }
+
+    function handleWindowMouseLeave() {
+      targetMouseActive.current = 0.0;
+    }
+
     if (mouseInteraction) {
-      ctn.addEventListener('mousemove', handleMouseMove);
-      ctn.addEventListener('mouseleave', handleMouseLeave);
+      if (trackWindowMouse) {
+        window.addEventListener('mousemove', handleWindowMouseMove);
+        window.addEventListener('mouseleave', handleWindowMouseLeave);
+      } else {
+        ctn.addEventListener('mousemove', handleMouseMove);
+        ctn.addEventListener('mouseleave', handleMouseLeave);
+      }
     }
 
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
       if (mouseInteraction) {
-        ctn.removeEventListener('mousemove', handleMouseMove);
-        ctn.removeEventListener('mouseleave', handleMouseLeave);
+        if (trackWindowMouse) {
+          window.removeEventListener('mousemove', handleWindowMouseMove);
+          window.removeEventListener('mouseleave', handleWindowMouseLeave);
+        } else {
+          ctn.removeEventListener('mousemove', handleMouseMove);
+          ctn.removeEventListener('mouseleave', handleMouseLeave);
+        }
       }
       ctn.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
@@ -327,7 +351,8 @@ export default function Galaxy({
     rotationSpeed,
     repulsionStrength,
     autoCenterRepulsion,
-    transparent
+    transparent,
+    trackWindowMouse
   ]);
 
   return <div ref={ctnDom} className={`galaxy-container ${className}`.trim()} {...rest} />;

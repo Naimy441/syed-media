@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { MessageSquare } from "lucide-react"
+import { Check, MessageSquare, Sparkles, Video } from "lucide-react"
+import { AffiliateModal } from "@/components/modals/affiliate-modal"
+import { MarketingModal } from "@/components/modals/marketing-modal"
 import ReviewModal from "@/components/modals/review-modal"
 import Particles from "@/components/Particles"
 import {
@@ -12,6 +14,114 @@ import {
   SectionShell,
   cyanButtonOutlineClass,
 } from "@/components/site/MarketingUI"
+
+type Plan = {
+  name: string
+  tag: string
+  price: string
+  items: string[]
+  premium?: boolean
+}
+
+function PremiumPlanSparkles() {
+  const dots = [
+    { t: "10%", l: "12%", d: 0 },
+    { t: "22%", l: "88%", d: 0.35 },
+    { t: "45%", l: "6%", d: 0.7 },
+    { t: "58%", l: "78%", d: 0.2 },
+    { t: "72%", l: "24%", d: 0.55 },
+    { t: "86%", l: "62%", d: 0.1 },
+    { t: "34%", l: "44%", d: 0.9 },
+    { t: "18%", l: "52%", d: 0.45 },
+  ]
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+      {dots.map((p, i) => (
+        <motion.span
+          key={i}
+          className="absolute h-1 w-1 rounded-full bg-[#00ffff] shadow-[0_0_8px_#00ffff,0_0_16px_rgba(217,102,255,0.45)]"
+          style={{ top: p.t, left: p.l }}
+          animate={{ opacity: [0.35, 1, 0.35], scale: [0.8, 1.35, 0.8] }}
+          transition={{
+            duration: 2.2 + (i % 4) * 0.25,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: p.d,
+          }}
+        />
+      ))}
+      <motion.div
+        className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-[#00ffff]/25 to-transparent blur-3xl"
+        animate={{ opacity: [0.35, 0.65, 0.35], scale: [1, 1.12, 1] }}
+        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute -bottom-8 -left-6 h-36 w-36 rounded-full bg-gradient-to-tr from-[#d966ff]/18 to-transparent blur-3xl"
+        animate={{ opacity: [0.3, 0.55, 0.3] }}
+        transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+      />
+    </div>
+  )
+}
+
+function PlanCard({ plan }: { plan: Plan }) {
+  if (plan.premium) {
+    return (
+      <div className="relative isolate flex min-h-full flex-col overflow-hidden border-2 border-[#00ffff]/45 bg-[#060a0d]/95 p-6 shadow-[0_0_48px_rgba(0,255,255,0.2),0_0_96px_rgba(217,102,255,0.08),inset_0_0_72px_rgba(0,255,255,0.04)] md:-mt-1 md:mb-1 md:scale-[1.02]">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-90"
+          style={{
+            background:
+              "linear-gradient(145deg, rgba(0,255,255,0.12) 0%, transparent 42%, rgba(217,102,255,0.08) 100%)",
+          }}
+        />
+        <PremiumPlanSparkles />
+        <div className="relative flex flex-wrap items-center gap-2">
+          <Sparkles className="h-4 w-4 text-[#00ffff]" aria-hidden />
+          <h4 className="bg-gradient-to-r from-[#00ffff] via-white to-[#d966ff] bg-clip-text text-lg font-semibold text-transparent">
+            {plan.name}
+          </h4>
+          <span className="rounded-none border border-[#d966ff]/55 bg-[#d966ff]/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#e9a8ff]">
+            Flagship
+          </span>
+        </div>
+        <p className="relative mt-2 text-sm text-white/70">{plan.tag}</p>
+        <ul className="relative mt-6 flex-1 space-y-2 text-sm text-white/85">
+          {plan.items.map((x) => (
+            <li key={x} className="flex gap-2">
+              <span className="text-[#00ffff]">▸</span>
+              <span>{x}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="relative mt-8 border-t border-[#00ffff]/20 pt-6">
+          <p className="bg-gradient-to-r from-white via-[#00ffff] to-[#d966ff] bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
+            {plan.price}
+          </p>
+          <p className="mt-1 text-xs font-medium uppercase tracking-wider text-[#00ffff]/80">
+            Full-funnel creative + web + support
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col border border-white/10 bg-[#090e11]/80 p-6">
+      <h4 className="text-lg font-semibold text-[#00ffff]">{plan.name}</h4>
+      <p className="mt-2 text-sm text-white/65">{plan.tag}</p>
+      <ul className="mt-6 flex-1 space-y-2 text-sm text-white/80">
+        {plan.items.map((x) => (
+          <li key={x} className="flex gap-2">
+            <span className="text-[#00ffff]">▸</span>
+            <span>{x}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-8 text-2xl font-bold text-white">{plan.price}</p>
+    </div>
+  )
+}
 
 function PortalHeroVisual() {
   return (
@@ -90,7 +200,15 @@ function PortalHeroVisual() {
 
 export default function ServicesPage() {
   const [reviewOpen, setReviewOpen] = useState(false)
+  const [marketingOpen, setMarketingOpen] = useState(false)
+  const [marketingService, setMarketingService] = useState("General Marketing Inquiry")
+  const [affiliateOpen, setAffiliateOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+
+  const openMarketing = (serviceName: string) => {
+    setMarketingService(serviceName)
+    setMarketingOpen(true)
+  }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -231,6 +349,7 @@ export default function ServicesPage() {
             },
             {
               name: "Premium",
+              premium: true,
               tag: "For brands serious about scaling, automation, and full digital presence.",
               price: "$2,999 / month",
               items: [
@@ -245,19 +364,7 @@ export default function ServicesPage() {
               ],
             },
           ].map((plan) => (
-            <div key={plan.name} className="flex flex-col border border-white/10 bg-[#090e11]/80 p-6">
-              <h4 className="text-lg font-semibold text-[#00ffff]">{plan.name}</h4>
-              <p className="mt-2 text-sm text-white/65">{plan.tag}</p>
-              <ul className="mt-6 flex-1 space-y-2 text-sm text-white/80">
-                {plan.items.map((x) => (
-                  <li key={x} className="flex gap-2">
-                    <span className="text-[#00ffff]">▸</span>
-                    <span>{x}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-8 text-2xl font-bold text-white">{plan.price}</p>
-            </div>
+            <PlanCard key={plan.name} plan={plan as Plan} />
           ))}
         </div>
         <p className="mt-8 text-sm text-white/60">
@@ -323,8 +430,8 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-10">
-          <RectButton href="/services/innovative-marketing" variant="outline">
-            More on Strategic Marketing
+          <RectButton variant="outline" onClick={() => openMarketing("Strategic Marketing")}>
+            Get started — Strategic Marketing
           </RectButton>
         </div>
       </SectionShell>
@@ -345,7 +452,9 @@ export default function ServicesPage() {
               <li>Receive a fully edited, high-quality production—ready to post and perform</li>
             </ol>
             <div className="mt-8 flex flex-wrap gap-4">
-              <RectButton href="/services/magic-editing-portal">Start your project — Get a custom quote</RectButton>
+              <RectButton onClick={() => openMarketing("Magic Editing Portal")}>
+                Start your project — Get a custom quote
+              </RectButton>
             </div>
           </div>
           <PortalHeroVisual />
@@ -365,12 +474,53 @@ export default function ServicesPage() {
           detail so you can focus on delivering your message with confidence. No retakes stress. No guesswork. Just a
           seamless, professional shoot with same-day content delivery.
         </p>
-        <div className="mt-10 border border-[#00ffff]/30 bg-[#090e11] p-8">
-          <h3 className="text-lg font-semibold text-[#00ffff]">Pricing</h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/80">
-            <li>$350 per shoot (includes 1 professionally produced video)</li>
-            <li>Additional videos: $200 each (captured during the same session)</li>
-          </ul>
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="relative overflow-hidden border border-[#00ffff]/35 bg-gradient-to-br from-[#090e11] via-[#090e11] to-[#0a1418] p-8 shadow-[0_0_40px_rgba(0,255,255,0.08)]">
+            <div className="pointer-events-none absolute -right-16 top-0 h-40 w-40 rounded-full bg-[#00ffff]/10 blur-3xl" aria-hidden />
+            <div className="flex items-center gap-2 text-[#00ffff]">
+              <Video className="h-5 w-5 shrink-0" aria-hidden />
+              <h3 className="text-lg font-semibold text-white">On-location session</h3>
+            </div>
+            <p className="mt-4 bg-gradient-to-r from-white via-[#00ffff] to-white/90 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
+              $350
+              <span className="ml-1 text-lg font-semibold tracking-normal text-white/50 md:text-xl">/ shoot</span>
+            </p>
+            <p className="mt-2 text-sm text-white/65">One polished video, full crew, professional audio & lighting.</p>
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
+              {[
+                "Directed on-site shoot at your location",
+                "Pro camera, lighting & audio",
+                "1 hero edit included, delivery-ready",
+                "Same-day media handoff when schedule allows",
+              ].map((line) => (
+                <li key={line} className="flex gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffff]" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-between border border-white/12 bg-white/[0.02] p-8">
+            <div>
+              <h3 className="text-lg font-semibold text-[#d966ff]">Add more from the same day</h3>
+              <p className="mt-2 text-3xl font-bold text-white md:text-4xl">
+                $200
+                <span className="ml-1 text-base font-medium text-white/45">each extra video</span>
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/65">
+                Capture multiple angles or formats in one visit—additional edits are billed per finished piece, not per
+                hour of idle time.
+              </p>
+            </div>
+            <p className="mt-8 border-t border-white/10 pt-6 text-xs font-mono uppercase tracking-wider text-white/45">
+              Bundle Tip · Ask about pairing with a Strategic Marketing plan for bundled shoot credits.
+            </p>
+          </div>
+        </div>
+        <div className="mt-8">
+          <RectButton variant="outline" onClick={() => openMarketing("Video Shooting")}>
+            Book a video shoot
+          </RectButton>
         </div>
       </SectionShell>
 
@@ -431,8 +581,8 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="mt-8">
-          <RectButton href="/services/image-alchemy" variant="outline">
-            Learn about Image Alchemy
+          <RectButton variant="outline" onClick={() => openMarketing("Image Alchemy")}>
+            Get started — Image Alchemy
           </RectButton>
         </div>
       </SectionShell>
@@ -442,10 +592,21 @@ export default function ServicesPage() {
           <GradientText as="span" className="uppercase">Syed Media Affiliate Program</GradientText>
         </h2>
         <p className="mt-4 text-lg text-white/75">Turn your network into income.</p>
-        <p className="mt-2 text-xl font-semibold text-white">
-          Earn <span className="text-[#00ffff]">$150</span> for every client you bring to Syed Media—simple, direct, and
-          scalable.
-        </p>
+
+        <div className="relative mt-8 overflow-hidden border border-[#00ffff]/25 bg-gradient-to-r from-[#00ffff]/10 via-[#090e11] to-[#d966ff]/10 p-8 md:p-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(0,255,255,0.14),transparent)]" aria-hidden />
+          <p className="relative text-center text-sm font-semibold uppercase tracking-[0.2em] text-[#00ffff]/80">
+            Commission per closed deal
+          </p>
+          <p className="relative mt-2 text-center text-5xl font-bold tracking-tight md:text-6xl">
+            <span className="bg-gradient-to-r from-[#00ffff] via-white to-[#d966ff] bg-clip-text text-transparent">
+              $150
+            </span>
+          </p>
+          <p className="relative mx-auto mt-3 max-w-xl text-center text-sm text-white/70">
+            Flat payout for every referred client we onboard—no tiers to unlock, no fine print on the base commission.
+          </p>
+        </div>
 
         <h3 className="mt-12 text-sm font-semibold uppercase tracking-wider text-[#00ffff]">How It Works</h3>
         <p className="mt-2 text-sm text-white/65">A straightforward referral system designed for fast payouts:</p>
@@ -455,30 +616,52 @@ export default function ServicesPage() {
           <li>You earn $150 per client—no hassle, no extra work</li>
         </ol>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="border border-white/10 p-6">
-            <h3 className="font-semibold text-white">Earning Potential</h3>
-            <p className="mt-3 text-sm text-white/70">The more you connect, the more you earn:</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/85">
-              <li>Bring 5 clients = $750</li>
-              <li>Bring 10 clients = $1,500</li>
-              <li>No limits. No cap.</li>
-            </ul>
+        <div className="mt-10">
+          <h3 className="text-lg font-semibold text-white">Earning snapshots</h3>
+          <p className="mt-2 text-sm text-white/60">Same $150 per referral—see how it stacks:</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {[
+              { label: "5 referrals", sub: "Side hustle pace", total: "$750" },
+              { label: "10 referrals", sub: "Strong quarter", total: "$1,500", highlight: true },
+              { label: "25 referrals", sub: "Network builder", total: "$3,750" },
+            ].map((tier) => (
+              <div
+                key={tier.label}
+                className={`relative flex flex-col border p-6 transition-colors ${
+                  tier.highlight
+                    ? "border-[#00ffff]/50 bg-gradient-to-b from-[#00ffff]/8 to-transparent shadow-[0_0_32px_rgba(0,255,255,0.12)]"
+                    : "border-white/10 bg-white/[0.02]"
+                }`}
+              >
+                {tier.highlight && (
+                  <span className="mb-3 inline-flex w-fit rounded-none border border-[#00ffff]/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#00ffff]">
+                    Popular milestone
+                  </span>
+                )}
+                <span className="text-sm font-medium text-white/80">{tier.label}</span>
+                <span className="mt-1 text-xs text-white/45">{tier.sub}</span>
+                <span className="mt-4 bg-gradient-to-r from-white to-[#00ffff]/90 bg-clip-text text-2xl font-bold text-transparent">
+                  {tier.total}
+                </span>
+                <span className="mt-1 text-[11px] text-white/50">at $150 × closed deals</span>
+              </div>
+            ))}
           </div>
-          <div className="border border-white/10 p-6">
-            <h3 className="font-semibold text-white">Why It Works</h3>
-            <p className="mt-3 text-sm text-white/70">
-              New businesses are launching every day—and most of them need high-quality marketing to grow. You simply
-              connect the right people to the right service—we handle the rest.
-            </p>
-          </div>
+        </div>
+
+        <div className="mt-10 border border-white/10 bg-[#090e11]/80 p-6">
+          <h3 className="font-semibold text-white">Why It Works</h3>
+          <p className="mt-3 text-sm text-white/70">
+            New businesses are launching every day—and most of them need high-quality marketing to grow. You simply
+            connect the right people to the right service—we handle the rest.
+          </p>
         </div>
 
         <div className="mt-10">
           <p className="text-sm font-semibold text-white">Get Started</p>
           <p className="mt-2 text-sm text-white/70">Know a business that needs better content, ads, or branding?</p>
           <div className="mt-4">
-            <RectButton href="/services/media-affiliate">Start earning today</RectButton>
+            <RectButton onClick={() => setAffiliateOpen(true)}>Start earning today</RectButton>
           </div>
         </div>
       </SectionShell>
@@ -507,8 +690,8 @@ export default function ServicesPage() {
           <p className="mt-2 text-sm text-white/55">Get in early. Build visibility now. Scale with us.</p>
         </div>
         <div className="mt-8">
-          <RectButton href="/services/passive-marketing" variant="outline">
-            Learn about Passive Marketing
+          <RectButton variant="outline" onClick={() => openMarketing("Passive Marketing")}>
+            Get started — Passive Marketing (beta)
           </RectButton>
         </div>
       </SectionShell>
@@ -546,8 +729,8 @@ export default function ServicesPage() {
           <p className="mt-6 text-sm font-medium text-white/90">Built to impress. Engineered to convert.</p>
         </div>
         <div className="mt-8">
-          <RectButton href="/services/website-development" variant="outline">
-            Website Development details
+          <RectButton variant="outline" onClick={() => openMarketing("Website Development")}>
+            Get started — Website Development
           </RectButton>
         </div>
       </SectionShell>
@@ -572,6 +755,12 @@ export default function ServicesPage() {
       </SectionShell>
 
       <ReviewModal isOpen={reviewOpen} onClose={() => setReviewOpen(false)} />
+      <MarketingModal
+        isOpen={marketingOpen}
+        onClose={() => setMarketingOpen(false)}
+        serviceName={marketingService}
+      />
+      <AffiliateModal isOpen={affiliateOpen} onClose={() => setAffiliateOpen(false)} />
     </div>
   )
 }
