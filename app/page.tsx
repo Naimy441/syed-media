@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect, useState, type ReactNode } from "react"
+import { useEffect, useMemo, useState, type ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import Galaxy from "@/components/Galaxy.jsx"
+import Hyperspeed from "@/components/Hyperspeed.jsx"
 import { CardBody, CardContainer, CardItem, useMouseEnter } from "@/components/ui/3d-card"
 
 const BG = "#090e11"
@@ -197,6 +197,47 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false)
   const [isSafari, setIsSafari] = useState(false)
 
+  const hyperspeedOptions = useMemo(
+    () => ({
+      onSpeedUp: () => {},
+      onSlowDown: () => {},
+      distortion: "turbulentDistortion",
+      length: 400,
+      roadWidth: 10,
+      islandWidth: 2,
+      lanesPerRoad: 3,
+      fov: 90,
+      fovSpeedUp: 150,
+      speedUp: 2,
+      carLightsFade: 0.4,
+      totalSideLightSticks: 20,
+      lightPairsPerRoadWay: 40,
+      shoulderLinesWidthPercentage: 0.05,
+      brokenLinesWidthPercentage: 0.1,
+      brokenLinesLengthPercentage: 0.5,
+      lightStickWidth: [0.12, 0.5],
+      lightStickHeight: [1.3, 1.7],
+      movingAwaySpeed: [60, 80],
+      movingCloserSpeed: [-120, -160],
+      carLightsLength: [12, 80],
+      carLightsRadius: [0.05, 0.14],
+      carWidthPercentage: [0.3, 0.5],
+      carShiftX: [-0.8, 0.8],
+      carFloorSeparation: [0, 5],
+      colors: {
+        roadColor: 526344,
+        islandColor: 657930,
+        background: 0,
+        shoulderLines: 1250072,
+        brokenLines: 1250072,
+        leftCars: [14177983, 6770850, 12732332],
+        rightCars: [242627, 941733, 3294549],
+        sticks: 242627,
+      },
+    }),
+    [],
+  )
+
   useEffect(() => {
     setIsBoxOpen(false)
   }, [])
@@ -229,22 +270,7 @@ export default function Home() {
     >
       <div className="relative h-full w-full overflow-x-hidden overflow-y-hidden lg:overflow-visible">
         <div className="absolute inset-0 z-0" style={{ backgroundColor: pageBg }}>
-          <Galaxy
-            mouseRepulsion
-            mouseInteraction
-            trackWindowMouse
-            density={1}
-            glowIntensity={isSafari ? 0.15 : 0.3}
-            saturation={0}
-            hueShift={140}
-            twinkleIntensity={0.3}
-            rotationSpeed={0.1}
-            repulsionStrength={0.55}
-            autoCenterRepulsion={0}
-            starSpeed={0.4}
-            speed={1}
-            className={isSafari ? "opacity-80" : isMobile ? "opacity-80" : "opacity-95"}
-          />
+          <Hyperspeed effectOptions={hyperspeedOptions} />
         </div>
 
         <div className="pointer-events-none relative z-10 flex h-full min-h-0 translate-y-[4vh] flex-col items-center justify-center overflow-x-hidden overflow-y-hidden px-4 py-2 sm:px-6 md:translate-y-[2.2vh] lg:overflow-visible">

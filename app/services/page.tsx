@@ -34,7 +34,7 @@ function PremiumPlanSparkles() {
     { t: "34%", l: "44%", d: 0.9 },
     { t: "18%", l: "52%", d: 0.45 },
   ]
-  return (
+    return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
       {dots.map((p, i) => (
         <motion.span
@@ -59,8 +59,8 @@ function PremiumPlanSparkles() {
         className="absolute -bottom-8 -left-6 h-36 w-36 rounded-full bg-gradient-to-tr from-[#d966ff]/18 to-transparent blur-3xl"
         animate={{ opacity: [0.3, 0.55, 0.3] }}
         transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-      />
-    </div>
+                    />
+                </div>
   )
 }
 
@@ -101,8 +101,8 @@ function PlanCard({ plan }: { plan: Plan }) {
           <p className="mt-1 text-xs font-medium uppercase tracking-wider text-[#00ffff]/80">
             Full-funnel creative + web + support
           </p>
-        </div>
-      </div>
+                </div>
+            </div>
     )
   }
 
@@ -124,7 +124,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 function PortalHeroVisual() {
-  return (
+    return (
     <div className="relative mx-auto flex w-full justify-center py-4 md:py-8">
       <div className="relative w-full max-w-[min(94vw,22rem)] sm:max-w-[min(90vw,28rem)] md:max-w-[min(88vw,34rem)] lg:max-w-[min(52vw,42rem)] xl:max-w-[44rem]">
         {/* Glow layers — fade in when section enters view */}
@@ -173,8 +173,8 @@ function PortalHeroVisual() {
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <motion.div
-              animate={{
+                    <motion.div
+                        animate={{
                 filter: [
                   "drop-shadow(0 0 32px rgba(0,255,255,0.55)) drop-shadow(0 0 64px rgba(217,102,255,0.28)) drop-shadow(0 0 100px rgba(0,255,255,0.12))",
                   "drop-shadow(0 0 48px rgba(217,102,255,0.45)) drop-shadow(0 0 80px rgba(0,255,255,0.35)) drop-shadow(0 0 120px rgba(217,102,255,0.15))",
@@ -761,6 +761,6 @@ export default function ServicesPage() {
         serviceName={marketingService}
       />
       <AffiliateModal isOpen={affiliateOpen} onClose={() => setAffiliateOpen(false)} />
-    </div>
-  )
+            </div>
+    )
 }
