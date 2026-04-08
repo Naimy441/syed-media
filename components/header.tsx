@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="absolute inset-x-0 top-0 z-30 flex items-center justify-between px-6 pt-6"
+        className="absolute inset-x-0 top-0 z-30 flex items-center justify-between bg-[#090e11] px-4 pb-2 pt-4 backdrop-blur-sm sm:px-6 sm:pt-6 lg:bg-transparent lg:pb-0 lg:backdrop-blur-none"
       >
         {/* Logo on left (hidden on home page) */}
         {pathname === "/" ? (
@@ -97,12 +97,15 @@ export default function Header() {
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-[#00ffff] p-2 rounded-none border border-[#00ffff]/40 bg-transparent hover:bg-[#00ffff]/10 transition-colors"
+          className="lg:hidden text-[#00ffff] p-2 rounded-none border border-[#00ffff]/40 bg-[#090e11] hover:bg-[#00ffff]/10 transition-colors"
           aria-label="Menu"
         >
           <Menu size={24} />
         </motion.button>
       </header>
+
+      {/* Mobile/tablet offset so absolute header doesn't overlap page content */}
+      <div className="h-16 sm:h-20 lg:hidden" aria-hidden />
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -112,7 +115,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:hidden absolute top-0 left-0 right-0 bg-transparent border border-white/10 rounded-none z-40 mt-28 mx-4"
+            className="lg:hidden absolute top-0 left-0 right-0 bg-[#090e11] backdrop-blur-md border border-white/10 rounded-none z-40 mt-24 mx-4"
           >
             <nav className="flex flex-col p-4 text-[0.82em]">
               {navItems.map((item) => (

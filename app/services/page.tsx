@@ -432,7 +432,7 @@ export default function ServicesPage() {
         </div>
         <div className="mt-8">
           <RectButton href="/services/image-alchemy" variant="outline">
-            Image Alchemy service page
+            Learn about Image Alchemy
           </RectButton>
         </div>
       </SectionShell>
