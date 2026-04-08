@@ -16,11 +16,11 @@ export default function DigitalEditing() {
   }, [])
 
   return (
-    <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
+    <main className="min-h-screen bg-[#090e11] text-white overflow-x-hidden pb-20">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
+            <Button variant="outline" className="mb-8 rounded-none border-2 border-[#00ffff] bg-transparent text-[#00ffff] hover:bg-[#00ffff]/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -45,7 +45,7 @@ export default function DigitalEditing() {
                 ],
               }}
               transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="inline-block px-4 py-2 rounded-full mb-6"
+              className="inline-block px-4 py-2 rounded-none mb-6 border border-white/10 bg-white/[0.04]"
             >
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5" />
@@ -53,7 +53,7 @@ export default function DigitalEditing() {
               </div>
             </motion.div>
 
-            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-blue-500">
+            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#d966ff]">
               Premium Video Editing Services, At Your Fingertips
             </h1>
 
@@ -63,13 +63,13 @@ export default function DigitalEditing() {
           </div>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Clock className="inline w-6 h-6 text-purple-400" /> 24/7 Access & On-Demand Editing</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Clock className="inline w-6 h-6 text-[#d966ff]" /> 24/7 Access & On-Demand Editing</h2>
             <ul className="text-left space-y-4 text-lg">
               <li>• Your subscription unlocks on-demand, premium editing services — fully tailored to your vision and schedule.</li>
               <li>• Enjoy industry-leading turnaround times and the most responsive client support team in the business.</li>
               <li>• Empower your content with platform-ready videos, exactly the way you envision, with just a few clicks.</li>
             </ul>
-            <div className="mt-6 bg-slate-900/50 border border-slate-700/50 rounded-lg p-4">
+            <div className="mt-6 border border-white/10 bg-white/[0.03] rounded-none p-4">
               <div className="text-sm text-gray-300">
                 <span className="font-medium text-white">Please note:</span> Each project is billed separately. The subscription gives you priority access to professional editing whenever you need it.
               </div>
@@ -77,31 +77,31 @@ export default function DigitalEditing() {
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Sparkles className="inline w-6 h-6 text-emerald-400" /> Unlock More Than Just an Editor</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Sparkles className="inline w-6 h-6 text-[#00ffff]" /> Unlock More Than Just an Editor</h2>
             <div className="space-y-6 text-lg">
               <div className="flex items-start gap-3">
-                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <CheckCircle className="text-[#00ffff] w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium">24/7 Access to Your Personal Editor</div>
                   <div className="text-gray-300 mt-1">No delays. No time zones. Your editor is always within reach—ready when you are.</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <CheckCircle className="text-[#00ffff] w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium">Unlimited Revisions</div>
                   <div className="text-gray-300 mt-1">We don't stop until it's perfect. Refine your project as many times as needed until you're 100% satisfied.</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <CheckCircle className="text-[#00ffff] w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium">Direct & Consistent Communication</div>
                   <div className="text-gray-300 mt-1">Stay in the loop at every stage. Enjoy open, consistent updates and a collaborative editing process that puts you in control.</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="text-emerald-400 w-5 h-5 mt-1 flex-shrink-0" />
+                <CheckCircle className="text-[#00ffff] w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-medium">Vision-Driven Editing</div>
                   <div className="text-gray-300 mt-1">Your style. Your vision. Your ideas. Work with an editor who gets it—and makes it even better.</div>
@@ -214,7 +214,7 @@ export default function DigitalEditing() {
 
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Sparkles className="w-full max-w-[260px] md:max-w-md h-auto text-purple-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
+                <Sparkles className="w-full max-w-[260px] md:max-w-md h-auto text-[#d966ff] border border-white/10 bg-white/[0.05] rounded-none p-8 shadow-xl" />
               </div>
             </section>
           </FadeInSection>

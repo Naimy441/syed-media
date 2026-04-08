@@ -53,7 +53,7 @@ export function Copyright() {
                 ease: "easeInOut"
               }}
             >
-              © 2025 Syed Media. All rights reserved.
+              © 2026 Syed Media. All rights reserved.
             </motion.span>
           ) : (
             <motion.span
@@ -66,7 +66,7 @@ export function Copyright() {
                 ease: "easeInOut"
               }}
             >
-              © 2025
+              © 2026
             </motion.span>
           )}
         </AnimatePresence>

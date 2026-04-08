@@ -16,11 +16,11 @@ export default function EditingCourse() {
   }, [])
 
   return (
-    <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
+    <main className="min-h-screen bg-[#090e11] text-white overflow-x-hidden pb-20">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
+            <Button variant="outline" className="mb-8 rounded-none border-2 border-[#00ffff] bg-transparent text-[#00ffff] hover:bg-[#00ffff]/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -45,7 +45,7 @@ export default function EditingCourse() {
                 ],
               }}
               transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="inline-block px-4 py-2 rounded-full mb-6"
+              className="inline-block px-4 py-2 rounded-none mb-6 border border-white/10 bg-white/[0.04]"
             >
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5" />
@@ -53,7 +53,7 @@ export default function EditingCourse() {
               </div>
             </motion.div>
 
-            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-purple-400">
+            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#d966ff]">
               Digital Editing Course
               <span className="inline-flex items-center align-top ml-2 mt-4 md:mt-0">
                 <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
@@ -72,8 +72,8 @@ export default function EditingCourse() {
           </div>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Laptop className="inline w-6 h-6 text-purple-400" /> What's Included</h2>
-            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Laptop className="inline w-6 h-6 text-[#d966ff]" /> What's Included</h2>
+            <div className="border border-white/10 bg-white/[0.03] rounded-none p-6">
               <div className="space-y-4 text-lg">
                 <motion.div 
                   initial={{ opacity: 0 }}
@@ -89,7 +89,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Video className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Video className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Step-by-step video tutorials using the exact tools Syed Media relies on</span>
                 </motion.div>
                 <motion.div 
@@ -106,7 +106,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Wrench className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Wrench className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Learn to edit from scratch — no experience needed</span>
                 </motion.div>
                 <motion.div 
@@ -123,7 +123,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Image className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Image className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Master thumbnail design that drives views</span>
                 </motion.div>
                 <motion.div 
@@ -140,7 +140,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Phone className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Phone className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Proven cold-call script to land your first client</span>
                 </motion.div>
                 <motion.div 
@@ -157,7 +157,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <TrendingUp className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <TrendingUp className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Strategy to scale your editing skills to $10K+/month</span>
                 </motion.div>
                 <motion.div 
@@ -174,7 +174,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Lock className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Lock className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Exclusive member-only video drops</span>
                 </motion.div>
                 <motion.div 
@@ -191,7 +191,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <RefreshCw className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <RefreshCw className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Regular updates to match evolving trends</span>
                 </motion.div>
                 <motion.div 
@@ -208,7 +208,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Briefcase className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Briefcase className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Work with real brands to build your portfolio</span>
                 </motion.div>
                 <motion.div 
@@ -225,7 +225,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <CheckCircle className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Opportunity to join Syed Media's editing team</span>
                 </motion.div>
                 <motion.div 
@@ -242,7 +242,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Users className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Users className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Access to a thriving editor & entrepreneur community</span>
                 </motion.div>
                 <motion.div 
@@ -259,7 +259,7 @@ export default function EditingCourse() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                   />
-                  <Mic className="text-purple-400 w-5 h-5 mt-1 flex-shrink-0" />
+                  <Mic className="text-[#d966ff] w-5 h-5 mt-1 flex-shrink-0" />
                   <span>Live virtual Q&As whenever you need editing support</span>
                 </motion.div>
               </div>
@@ -267,7 +267,7 @@ export default function EditingCourse() {
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-emerald-400" /> Why This Course?</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-[#00ffff]" /> Why This Course?</h2>
             <div className="text-gray-300 space-y-4 text-lg">
               <p>Unlock the skills to turn editing into a real income stream. Whether you're starting from zero or looking to sharpen your craft, this course gives you everything you need to succeed.</p>
               <p>If you want a real course that gets straight to the point, exposes all the shortcuts, and takes you from beginner to seasoned editor, this is the right place to be. You've hit a jackpot.</p>
@@ -287,7 +287,7 @@ export default function EditingCourse() {
                 <Link href="https://buy.stripe.com/cN27tkfascJ8gxy8wx" className="w-full md:w-auto">
                   <Button
                     size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                    className="w-full text-lg h-14 rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] font-semibold shadow-none"
                   >
                     Reserve Now — $10
                   </Button>

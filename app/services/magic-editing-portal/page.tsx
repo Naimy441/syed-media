@@ -17,11 +17,11 @@ export default function MagicEditingPortal() {
   }, [])
 
   return (
-    <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
+    <main className="min-h-screen bg-[#090e11] text-white overflow-x-hidden pb-20">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
+            <Button variant="outline" className="mb-8 rounded-none border-2 border-[#00ffff] bg-transparent text-[#00ffff] hover:bg-[#00ffff]/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -35,14 +35,14 @@ export default function MagicEditingPortal() {
           className="max-w-5xl mx-auto"
         >
           <div className="text-center mb-16 relative z-10">
-            <motion.div className="inline-block px-4 py-2 rounded-full mb-6 bg-white/5 border border-white/10">
+            <motion.div className="inline-block px-4 py-2 rounded-none mb-6 border border-white/10 bg-white/[0.04]">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5" />
                 <span className="font-medium">Magic Editing Portal</span>
               </div>
             </motion.div>
 
-            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#00ffff] to-[#d966ff] bg-clip-text text-transparent">
               Turn Raw Footage Into Ready-to-Watch Cinema
             </h1>
 
@@ -51,9 +51,9 @@ export default function MagicEditingPortal() {
             </p>
           </div>
 
-          <FadeInSection className="relative z-10 p-8 md:p-10 rounded-xl bg-slate-900/60 border border-slate-800">
+          <FadeInSection className="relative z-10 p-8 md:p-10 rounded-none border border-white/10 bg-white/[0.02]">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center justify-center gap-2">
-              <Clock className="h-6 w-6 text-emerald-400" />
+              <Clock className="h-6 w-6 text-[#00ffff]" />
               Why You Should Buy
             </h2>
             <div className="text-gray-300 space-y-4 text-lg">
@@ -75,16 +75,16 @@ export default function MagicEditingPortal() {
             </div>
           </FadeInSection>
 
-          <FadeInSection className="mt-12 p-8 md:p-10 rounded-xl mb-12 relative z-10 bg-slate-900/60 border border-slate-800">
+          <FadeInSection className="mt-12 p-8 md:p-10 rounded-none mb-12 relative z-10 border border-white/10 bg-white/[0.02]">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center justify-center gap-2">
-              <Film className="h-6 w-6 text-purple-400" />
+              <Film className="h-6 w-6 text-[#d966ff]" />
               What We Offer
             </h2>
             <p className="text-gray-300 mb-8 text-center max-w-2xl mx-auto">
               We take your raw footage and transform it into a fully edited, platform-ready video within the same day. Every project includes:
             </p>
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-slate-900/70 border border-slate-700/70 rounded-2xl p-6 space-y-3">
+              <div className="border border-white/10 bg-[#090e11]/80 rounded-none p-6 space-y-3">
                 <p className="text-gray-100 font-medium">Core Edit</p>
                 <ul className="space-y-2 text-gray-300 text-sm md:text-base">
                   <li>• Professional cuts and pacing</li>
@@ -92,7 +92,7 @@ export default function MagicEditingPortal() {
                   <li>• Captioning (if requested)</li>
                 </ul>
               </div>
-              <div className="bg-slate-900/70 border border-slate-700/70 rounded-2xl p-6 space-y-3">
+              <div className="border border-white/10 bg-[#090e11]/80 rounded-none p-6 space-y-3">
                 <p className="text-gray-100 font-medium">Polish & Platform</p>
                 <ul className="space-y-2 text-gray-300 text-sm md:text-base">
                   <li>• Sound design and music integration</li>
@@ -106,9 +106,9 @@ export default function MagicEditingPortal() {
             </p>
           </FadeInSection>
 
-          <FadeInSection className="mt-12 p-8 md:p-10 rounded-xl mb-12 relative z-10 bg-slate-900/60 border border-slate-800">
+          <FadeInSection className="mt-12 p-8 md:p-10 rounded-none mb-12 relative z-10 border border-white/10 bg-white/[0.02]">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center justify-center gap-2">
-              <MessageCircle className="h-6 w-6 text-emerald-400" />
+              <MessageCircle className="h-6 w-6 text-[#00ffff]" />
               How We Bring Your Vision to Life
             </h2>
             <p className="text-gray-300 mb-6 text-center max-w-2xl mx-auto">
@@ -136,14 +136,14 @@ export default function MagicEditingPortal() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="w-full md:w-auto text-lg h-14 rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] font-semibold shadow-none"
                   onClick={() => setIsMarketingModalOpen(true)}
                 >
                   Start Your Edit
                 </Button>
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Film className="w-full max-w-xs h-auto text-purple-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
+                <Film className="w-full max-w-xs h-auto text-[#d966ff] border border-white/10 bg-white/[0.05] rounded-none p-8 shadow-xl" />
               </div>
             </section>
           </FadeInSection>

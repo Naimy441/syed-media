@@ -118,7 +118,15 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #090e11;
+    font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-syne), var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   }
 }
 

@@ -17,11 +17,11 @@ export default function MediaAffiliate() {
   }, [])
 
   return (
-    <main className="bg-gradient-to-br text-white overflow-x-hidden pb-20">
+    <main className="min-h-screen bg-[#090e11] text-white overflow-x-hidden pb-20">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="relative z-10">
           <Link href="/services" className="inline-block">
-            <Button variant="outline" className="mb-8 border-white bg-transparent hover:bg-white/10">
+            <Button variant="outline" className="mb-8 rounded-none border-2 border-[#00ffff] bg-transparent text-[#00ffff] hover:bg-[#00ffff]/10">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
             </Button>
@@ -46,7 +46,7 @@ export default function MediaAffiliate() {
                 ],
               }}
               transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="inline-block px-4 py-2 rounded-full mb-6"
+              className="inline-block px-4 py-2 rounded-none mb-6 border border-white/10 bg-white/[0.04]"
             >
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5" />
@@ -54,7 +54,7 @@ export default function MediaAffiliate() {
               </div>
             </motion.div>
 
-            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-orange-400">
+            <h1 className="pb-2 text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#00ffff] to-[#d966ff] bg-clip-text text-transparent">
               Become a Syed Media Affiliate
             </h1>
 
@@ -64,20 +64,20 @@ export default function MediaAffiliate() {
           </div>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-emerald-400" /> How It Works</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><DollarSign className="inline w-6 h-6 text-[#00ffff]" /> How It Works</h2>
             <p className="text-lg text-gray-300 mb-6">A passive income referral program that you can trust — in 3 easy steps.</p>
-            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+            <div className="border border-white/10 bg-white/[0.03] rounded-none p-6">
               <div className="space-y-4 text-lg">
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
                   <span>1. Refer a business to us.</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
-                  <span>2. If we close the deal, you earn <span className="text-emerald-400 font-semibold">$150/month</span> for each active client — every single month they stay subscribed.</span>
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
+                  <span>2. If we close the deal, you earn <span className="text-[#00ffff] font-semibold">$150/month</span> for each active client — every single month they stay subscribed.</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
                   <span>3. Our current cancellation rate is <span className="text-orange-400 font-semibold">0%</span>, which means long-term, recurring income for you.</span>
                 </div>
               </div>
@@ -85,20 +85,20 @@ export default function MediaAffiliate() {
           </FadeInSection>
 
           <FadeInSection className="p-8 mb-8 relative z-10">
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><CheckCircle className="inline w-6 h-6 text-emerald-400" /> Earning Potential</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><CheckCircle className="inline w-6 h-6 text-[#00ffff]" /> Earning Potential</h2>
             <p className="text-lg text-gray-300 mb-6">Take it seriously and the numbers add up quickly.</p>
-            <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+            <div className="border border-white/10 bg-white/[0.03] rounded-none p-6">
               <div className="space-y-4 text-lg">
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
-                  <span>Bring 5 clients = <span className="text-emerald-400 font-semibold">$750/month</span></span>
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
+                  <span>Bring 5 clients = <span className="text-[#00ffff] font-semibold">$750/month</span></span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
-                  <span>Bring 10 clients = <span className="text-emerald-400 font-semibold">$1,500/month</span></span>
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
+                  <span>Bring 10 clients = <span className="text-[#00ffff] font-semibold">$1,500/month</span></span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-emerald-400 w-5 h-5" />
+                  <CheckCircle className="text-[#00ffff] w-5 h-5" />
                   <span><span className="text-orange-400 font-semibold">No cap</span> on your earnings</span>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function MediaAffiliate() {
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Users className="inline w-6 h-6 text-orange-400" /> Why Now?</h2>
             <div className="text-gray-300 space-y-4 text-lg">
               <p>Every day, 50–100 new brands are launched in Houston, TX alone — and many of them need exactly what we offer.</p>
-              <p>Some of our current affiliates are earning <span className="text-emerald-400 font-semibold">$1,500+ per month</span> in <span className="font-semibold">PASSIVE income</span> as a side hustle.</p>
+              <p>Some of our current affiliates are earning <span className="text-[#00ffff] font-semibold">$1,500+ per month</span> in <span className="font-semibold">PASSIVE income</span> as a side hustle.</p>
               <p className="font-medium text-white">Get in early. Ride the wave.</p>
             </div>
           </FadeInSection>
@@ -126,7 +126,7 @@ export default function MediaAffiliate() {
                 </div>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="w-full md:w-auto text-lg h-14 rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] font-semibold shadow-none"
                   onClick={() => setIsAffiliateModalOpen(true)}
                 >
                   <CreditCard className="mr-2 h-5 w-5" />
@@ -134,7 +134,7 @@ export default function MediaAffiliate() {
                 </Button>
               </div>
               <div className="flex-1 hidden md:flex items-center justify-center p-4 md:p-8">
-                <Users className="w-full max-w-xs h-auto text-orange-400 bg-white/10 rounded-2xl p-8 shadow-xl" />
+                <Users className="w-full max-w-xs h-auto text-orange-400 border border-white/10 bg-white/[0.05] rounded-none p-8 shadow-xl" />
               </div>
             </section>
           </FadeInSection>

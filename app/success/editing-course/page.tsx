@@ -135,7 +135,7 @@ export default function SuccessPage() {
                         transition={{ duration: 0.6, delay: 1.4 }}
                     >
                         <Link href="/">
-                            <Button className="bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-lg px-8 py-6">
+                            <Button className="rounded-none border-2 border-[#00ffff] bg-[#00ffff] px-8 py-6 text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff]">
                                 Return Home
                             </Button>
                         </Link>

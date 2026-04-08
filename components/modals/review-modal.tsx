@@ -1,9 +1,18 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+"use client"
+
+import { useState } from "react"
+import { Star } from "lucide-react"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Star } from "lucide-react"
-import { useState } from "react"
+import { cn } from "@/lib/utils"
+import {
+  cyanButtonClass,
+  cyanButtonOutlineClass,
+  GradientText,
+  modalDialogContentClass,
+  modalFormLabelClass,
+} from "@/components/site/MarketingUI"
 
 interface ReviewModalProps {
   isOpen: boolean
@@ -40,72 +49,84 @@ export default function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
     }
   }
 
+  const fieldClass =
+    "rounded-none border-white/15 bg-[#090e11] text-white placeholder:text-white/40 focus-visible:border-[#00ffff]/50 focus-visible:ring-[#00ffff]/45"
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-slate-900 border-slate-700">
+    <Dialog
+      open={isOpen}
+      onOpenChange={(next) => {
+        if (!next) onClose()
+      }}
+    >
+      <DialogContent className={cn(modalDialogContentClass, "sm:max-w-[425px]")}>
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-white">Share Your Experience</DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogTitle className="font-display text-xl font-semibold leading-[1.5] text-white">
+            <GradientText as="span">Share Your Experience</GradientText>
+          </DialogTitle>
+          <DialogDescription className="text-white/65">
             Help others by sharing your thoughts about Syed Media
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">Rating</label>
+            <span className={modalFormLabelClass}>Rating</span>
             <div className="flex gap-1">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
                   key={star}
                   type="button"
                   onClick={() => setRating(star)}
-                  className="focus:outline-none"
+                  className="rounded-none p-0.5 text-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ffff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090e11]"
                 >
                   <Star
-                    className={`w-6 h-6 ${
-                      star <= rating ? "text-yellow-400 fill-yellow-400" : "text-gray-400"
-                    }`}
+                    className={cn(
+                      "h-6 w-6",
+                      star <= rating ? "fill-[#00ffff] text-[#00ffff]" : "text-white/25",
+                    )}
                   />
                 </button>
               ))}
             </div>
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">Name</label>
+            <label htmlFor="review-name" className={modalFormLabelClass}>
+              Name
+            </label>
             <Input
+              id="review-name"
               name="name"
               placeholder="Your name"
-              className="bg-slate-800 border-slate-700 text-white"
+              className={fieldClass}
               required
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">Review</label>
+            <label htmlFor="review-text" className={modalFormLabelClass}>
+              Review
+            </label>
             <Textarea
+              id="review-text"
               name="review"
               placeholder="Share your experience..."
-              className="bg-slate-800 border-slate-700 text-white min-h-[100px]"
+              className={cn(fieldClass, "min-h-[100px]")}
               required
             />
           </div>
-          <div className="flex justify-end gap-3 pt-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={onClose}
-              className="border-slate-700 text-gray-300 hover:bg-slate-800"
-            >
+          <div className="flex flex-col-reverse justify-end gap-3 pt-4 sm:flex-row">
+            <button type="button" onClick={onClose} className={cn(cyanButtonOutlineClass, "w-full sm:w-auto")}>
               Cancel
-            </Button>
-            <Button
+            </button>
+            <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600"
+              className={cn(cyanButtonClass, "w-full sm:w-auto disabled:opacity-50")}
             >
-              {isSubmitting ? "Submitting..." : "Submit Review"}
-            </Button>
+              {isSubmitting ? "Submitting…" : "Submit Review"}
+            </button>
           </div>
         </form>
       </DialogContent>
     </Dialog>
   )
-} 
+}

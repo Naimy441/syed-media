@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button"
 import FadeInSection from "@/components/FadeInSection"
-import { AnimatedBackground } from "@/components/AnimatedBackground"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { CareerModal } from "@/components/modals/career-modal"
+import { GradientText } from "@/components/site/MarketingUI"
 
 export default function CareerPage() {
   const [expanded, setExpanded] = useState<string | null>(null)
@@ -20,20 +20,20 @@ export default function CareerPage() {
       bgPosition: 'center 40%',
       content: (
         <>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white/75 mb-4">
             We're looking for skilled and experienced video editors to join our fast-growing creative team. If you're passionate about storytelling through visuals and can match the high-energy, high-impact style of Syed Media, we want to hear from you.
           </p>
-          <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+          <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
             <li>Proven editing experience with a strong portfolio to showcase your work</li>
             <li>Ability to replicate or align with Syed Media's signature editing style</li>
             <li>In-depth knowledge of transitions, video effects, and motion graphics</li>
             <li>Up-to-date with the latest editing trends, tools, and terminology</li>
             <li>Must be able to work efficiently and meet quick turnaround times</li>
           </ul>
-          <p className="text-gray-400 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
+          <p className="text-white/60 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
           <Button
             size="lg"
-            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
             onClick={() => setSelectedJob("Video Editor")}
           >
             Apply Now
@@ -50,19 +50,19 @@ export default function CareerPage() {
       bgPosition: 'center 25%',
       content: (
         <>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white/75 mb-4">
             We're looking for skilled and dependable videographers to join the Syed Media team and help us capture dynamic, high-quality content for our growing list of clients.
           </p>
-          <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+          <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
             <li>Must be 18 years or older</li>
             <li>Must have a portfolio or resume showcasing previous videography work</li>
             <li>Must have experience using a DJI stabilizer or similar camera equipment</li>
             <li>Strong understanding of framing, lighting, and visual storytelling is a plus</li>
           </ul>
-          <p className="text-gray-400 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
+          <p className="text-white/60 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
           <Button
             size="lg"
-            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
             onClick={() => setSelectedJob("Videographer")}
           >
             Apply Now
@@ -79,19 +79,19 @@ export default function CareerPage() {
       bgPosition: 'center 30%',
       content: (
         <>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white/75 mb-4">
             Syed Media is looking for confident, charismatic individuals to star in skits, ads, and branded content across social media platforms.
           </p>
-          <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+          <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
             <li>Must be 18 years or older</li>
             <li>Must be presentable and comfortable on camera</li>
             <li>Strong verbal communication skills and a natural speaking presence</li>
             <li>Prior acting or public speaking experience is a plus, but not required</li>
           </ul>
-          <p className="text-gray-400 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
+          <p className="text-white/60 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
           <Button
             size="lg"
-            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
             onClick={() => setSelectedJob("On-Camera Actor")}
           >
             Apply Now
@@ -108,27 +108,27 @@ export default function CareerPage() {
       bgPosition: 'center 40%',
       content: (
         <>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white/75 mb-4">
             We&apos;re looking for a creative and strategic marketing expert to help drive the next phase of growth at Syed Media. If you&apos;re passionate about innovative
             campaigns, bold ideas, and building brands that stand out — this is your opportunity.
           </p>
-          <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+          <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
             <li>Must be 18 years or older</li>
             <li>Must have a degree in Marketing or a related field</li>
             <li>Must have a portfolio or resume showcasing previous marketing projects or campaigns</li>
             <li>Must be willing to sign an NDA</li>
             <li>Must be willing to work behind the scenes with our team to develop and execute strategic marketing initiatives</li>
           </ul>
-          <p className="text-gray-400 mb-4">
+          <p className="text-white/60 mb-4">
             We&apos;re looking for someone who doesn&apos;t just follow trends — but creates them. Someone who can think outside the box, plan high-impact marketing stunts, and
             help position Syed Media as a leader in the creative industry.
           </p>
-          <p className="text-gray-400 mb-4">
+          <p className="text-white/60 mb-4">
             If you&apos;re ready to build, innovate, and scale with a fast-growing media company — apply now and let&apos;s make moves.
           </p>
           <Button
             size="lg"
-            className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+            className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
             onClick={() => setSelectedJob("Marketing Strategist")}
           >
             Apply Now
@@ -139,29 +139,23 @@ export default function CareerPage() {
   ]
 
   return (
-    <main className="relative min-h-screen text-white overflow-x-hidden">
-      <AnimatedBackground />
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col gap-20">
+    <main className="relative min-h-screen overflow-x-hidden text-white" style={{ backgroundColor: "#090e11" }}>
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-20 px-6 py-16 md:gap-24 md:py-24">
         {/* Hero Section */}
         <FadeInSection className="text-center max-w-4xl mx-auto">
-          <motion.div
-            animate={{
-              background: [
-                "linear-gradient(90deg, #8b5cf6, #10b981)",
-                "linear-gradient(180deg, #10b981, #8b5cf6)",
-                "linear-gradient(270deg, #8b5cf6, #10b981)",
-                "linear-gradient(0deg, #10b981, #8b5cf6)",
-                "linear-gradient(90deg, #8b5cf6, #10b981)",
-              ],
-            }}
-            transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            className="inline-block px-4 py-2 rounded-full mb-6"
-          >
-            <span className="font-medium py-1">Career</span>
-          </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-emerald-400">
+          <div className="mb-6 inline-block border border-white/10 bg-white/[0.04] px-4 py-2">
+            <span className="py-1 text-sm font-medium uppercase tracking-wider text-[#00ffff]">Career</span>
+          </div>
+          <h1 className="bg-gradient-to-r from-[#00ffff] to-[#d966ff] bg-clip-text text-4xl font-bold text-transparent md:text-6xl">
             Help Create, Capture, and Elevate Content for Brands and Creators Worldwide
           </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/70">
+            Join a fast-moving creative team building{" "}
+            <GradientText as="span" className="font-medium">
+              high-impact media
+            </GradientText>{" "}
+            for brands that want to stand out.
+          </p>
         </FadeInSection>
 
         {/* Job Cards (Mobile) */}
@@ -171,7 +165,7 @@ export default function CareerPage() {
               <motion.div
                 layout
                 initial={{ borderRadius: 24 }}
-                className="rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] relative cursor-pointer"
+                className="relative cursor-pointer overflow-hidden rounded-none border border-white/15 bg-[#090e11] shadow-none transition-colors duration-300 active:border-[#00ffff]/35"
                 onClick={() => setExpanded(expanded === job.key ? null : job.key)}
                 style={{ minHeight: 220, transition: 'min-height 0.3s' }}
               >
@@ -179,13 +173,13 @@ export default function CareerPage() {
                   className="absolute inset-0 w-full h-full bg-cover bg-center"
                   style={{ backgroundImage: `url(${job.image})`, filter: 'brightness(0.7)', backgroundPosition: job.bgPosition || 'center 60%',}}
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#2563eb_0%,_#1e40af_5%,_transparent_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,255,255,0.14)_0%,rgba(217,102,255,0.08)_35%,transparent_65%)]" />
 
                 {/* Absolutely centered job title */}
                 <span className="absolute inset-0 flex items-center justify-center text-3xl font-extrabold text-white drop-shadow-lg text-center w-full pointer-events-none select-none" style={{ lineHeight: 1.1, zIndex: 20 }}>{job.title}</span>
 
                 {/* Absolutely positioned location badge */}
-                <span className="absolute bottom-4 right-4 bg-slate-800/80 text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-2 z-20">
+                <span className="absolute bottom-4 right-4 z-20 flex items-center gap-2 border border-white/15 bg-[#090e11]/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#00ffff]">
                   {job.location === 'Remote' ? (
                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                   ) : (
@@ -202,7 +196,7 @@ export default function CareerPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-black/60 rounded-b-2xl p-4 mt-2"
+                    className="mt-2 border border-t-0 border-white/10 bg-white/[0.03] p-5"
                   >
                     {job.content}
                   </motion.div>
@@ -216,9 +210,9 @@ export default function CareerPage() {
         <div className="hidden md:flex flex-col gap-20">
           {/* Video Editor Position */}
           <FadeInSection>
-            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <section className="relative mb-8 mt-8 flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
               <div className="absolute top-4 right-4 z-10">
-                <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <div className="flex items-center border border-[#00ffff]/50 bg-[#00ffff]/15 px-3 py-1.5 text-sm font-bold text-[#00ffff]">
                   <span>Work from Home</span>
                 </div>
               </div>
@@ -227,29 +221,29 @@ export default function CareerPage() {
                   <img
                     src="/career-editor.png"
                     alt="Video Editor Visual"
-                    className="rounded-2xl w-32 h-32 md:w-48 md:h-48 object-cover shadow-xl md:hidden"
+                    className="h-32 w-32 border border-white/10 object-cover md:hidden md:h-48 md:w-48"
                   />
                   <div>
-                    <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                      <span className="text-lg font-semibold tracking-wide text-white">VIDEO EDITOR</span>
+                    <div className="mb-4 inline-block border border-white/10 bg-white/[0.05] px-4 py-2">
+                      <span className="text-lg font-semibold tracking-wide text-[#00ffff]">VIDEO EDITOR</span>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Syed Media Team</h2>
                   </div>
                 </div>
-                <p className="text-lg text-gray-300 mb-4">
+                <p className="text-lg text-white/75 mb-4">
                   We're looking for skilled and experienced video editors to join our fast-growing creative team. If you're passionate about storytelling through visuals and can match the high-energy, high-impact style of Syed Media, we want to hear from you.
                 </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
                   <li>Proven editing experience with a strong portfolio to showcase your work</li>
                   <li>Ability to replicate or align with Syed Media's signature editing style</li>
                   <li>In-depth knowledge of transitions, video effects, and motion graphics</li>
                   <li>Up-to-date with the latest editing trends, tools, and terminology</li>
                   <li>Must be able to work efficiently and meet quick turnaround times</li>
                 </ul>
-                <p className="text-gray-400 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
+                <p className="text-white/60 mb-4">We're looking for someone who doesn't just edit — but elevates content.</p>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
                   onClick={() => setSelectedJob("Video Editor")}
                 >
                   Apply Now
@@ -259,7 +253,7 @@ export default function CareerPage() {
                 <img
                   src="/career-editor.png"
                   alt="Video Editor Visual"
-                  className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
+                  className="w-full max-w-lg border border-white/10 object-cover"
                   style={{ minHeight: '260px' }}
                 />
               </div>
@@ -268,9 +262,9 @@ export default function CareerPage() {
 
           {/* Videographer Position */}
           <FadeInSection>
-            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <section className="relative mb-8 mt-8 flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
               <div className="absolute top-4 right-4 z-10">
-                <div className="bg-purple-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <div className="flex items-center border border-[#d966ff]/50 bg-[#d966ff]/15 px-3 py-1.5 text-sm font-bold text-[#d966ff]">
                   <span>On Site</span>
                 </div>
               </div>
@@ -279,28 +273,28 @@ export default function CareerPage() {
                   <img
                     src="/career-videographer.png"
                     alt="Videographer Visual"
-                    className="rounded-2xl w-32 h-32 md:w-48 md:h-48 object-cover shadow-xl md:hidden"
+                    className="h-32 w-32 border border-white/10 object-cover md:hidden md:h-48 md:w-48"
                   />
                   <div>
-                    <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                      <span className="text-lg font-semibold tracking-wide text-white">VIDEOGRAPHER</span>
+                    <div className="mb-4 inline-block border border-white/10 bg-white/[0.05] px-4 py-2">
+                      <span className="text-lg font-semibold tracking-wide text-[#00ffff]">VIDEOGRAPHER</span>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Syed Media Crew</h2>
                   </div>
                 </div>
-                <p className="text-lg text-gray-300 mb-4">
+                <p className="text-lg text-white/75 mb-4">
                   We're looking for skilled and dependable videographers to join the Syed Media team and help us capture dynamic, high-quality content for our growing list of clients.
                 </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
                   <li>Must be 18 years or older</li>
                   <li>Must have a portfolio or resume showcasing previous videography work</li>
                   <li>Must have experience using a DJI stabilizer or similar camera equipment</li>
                   <li>Strong understanding of framing, lighting, and visual storytelling is a plus</li>
                 </ul>
-                <p className="text-gray-400 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
+                <p className="text-white/60 mb-4">If you're passionate about creating content, working with brands, and being part of a fast-moving media company — this is your chance. Apply now and let's shoot something great.</p>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
                   onClick={() => setSelectedJob("Videographer")}
                 >
                   Apply Now
@@ -310,7 +304,7 @@ export default function CareerPage() {
                 <img
                   src="/career-videographer.png"
                   alt="Videographer Visual"
-                  className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
+                  className="w-full max-w-lg border border-white/10 object-cover"
                   style={{ minHeight: '260px' }}
                 />
               </div>
@@ -319,9 +313,9 @@ export default function CareerPage() {
 
           {/* On-Camera Actor Position */}
           <FadeInSection>
-            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <section className="relative mb-8 mt-8 flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
               <div className="absolute top-4 right-4 z-10">
-                <div className="bg-purple-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <div className="flex items-center border border-[#d966ff]/50 bg-[#d966ff]/15 px-3 py-1.5 text-sm font-bold text-[#d966ff]">
                   <span>On Site</span>
                 </div>
               </div>
@@ -330,28 +324,28 @@ export default function CareerPage() {
                   <img
                     src="/career-actor.png"
                     alt="On-Camera Actor Visual"
-                    className="rounded-2xl w-32 h-32 md:w-48 md:h-48 object-cover shadow-xl md:hidden"
+                    className="h-32 w-32 border border-white/10 object-cover md:hidden md:h-48 md:w-48"
                   />
                   <div>
-                    <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                      <span className="text-lg font-semibold tracking-wide text-white">ON-CAMERA ACTOR</span>
+                    <div className="mb-4 inline-block border border-white/10 bg-white/[0.05] px-4 py-2">
+                      <span className="text-lg font-semibold tracking-wide text-[#00ffff]">ON-CAMERA ACTOR</span>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Be the Face of Syed Media Content</h2>
                   </div>
                 </div>
-                <p className="text-lg text-gray-300 mb-4">
+                <p className="text-lg text-white/75 mb-4">
                   Syed Media is looking for confident, charismatic individuals to star in skits, ads, and branded content across social media platforms.
                 </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
                   <li>Must be 18 years or older</li>
                   <li>Must be presentable and comfortable on camera</li>
                   <li>Strong verbal communication skills and a natural speaking presence</li>
                   <li>Prior acting or public speaking experience is a plus, but not required</li>
                 </ul>
-                <p className="text-gray-400 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
+                <p className="text-white/60 mb-4">If you've got the personality and presence to connect with audiences and bring stories to life, we want you on set. Apply now and start building your on-camera portfolio with Syed Media.</p>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
                   onClick={() => setSelectedJob("On-Camera Actor")}
                 >
                   Apply Now
@@ -361,7 +355,7 @@ export default function CareerPage() {
                 <img
                   src="/career-actor.png"
                   alt="On-Camera Actor Visual"
-                  className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
+                  className="w-full max-w-lg border border-white/10 object-cover"
                   style={{ minHeight: '260px' }}
                 />
               </div>
@@ -370,9 +364,9 @@ export default function CareerPage() {
 
           {/* Marketing Strategist Position */}
           <FadeInSection>
-            <section className="mt-8 mb-8 rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1833] via-[#2d1e3c] to-[#0a2a66] flex flex-col md:flex-row items-center shadow-2xl relative">
+            <section className="relative mb-8 mt-8 flex flex-col items-center overflow-hidden rounded-none border border-white/15 bg-[#090e11] transition-colors duration-300 hover:border-[#00ffff]/25 md:flex-row">
               <div className="absolute top-4 right-4 z-10">
-                <div className="bg-emerald-500 text-white text-sm font-bold px-3 py-1.5 rounded-full flex items-center">
+                <div className="flex items-center border border-[#00ffff]/50 bg-[#00ffff]/15 px-3 py-1.5 text-sm font-bold text-[#00ffff]">
                   <span>Hybrid</span>
                 </div>
               </div>
@@ -381,36 +375,36 @@ export default function CareerPage() {
                   <img
                     src="/career-videographer.png"
                     alt="Marketing Strategist Visual"
-                    className="rounded-2xl w-32 h-32 md:w-48 md:h-48 object-cover shadow-xl md:hidden"
+                    className="h-32 w-32 border border-white/10 object-cover md:hidden md:h-48 md:w-48"
                   />
                   <div>
-                    <div className="bg-white/10 px-4 py-2 rounded-md mb-4 inline-block">
-                      <span className="text-lg font-semibold tracking-wide text-white">MARKETING STRATEGIST</span>
+                    <div className="mb-4 inline-block border border-white/10 bg-white/[0.05] px-4 py-2">
+                      <span className="text-lg font-semibold tracking-wide text-[#00ffff]">MARKETING STRATEGIST</span>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Join the Syed Media Growth Team</h2>
                   </div>
                 </div>
-                <p className="text-lg text-gray-300 mb-4">
+                <p className="text-lg text-white/75 mb-4">
                   We&apos;re looking for a creative and strategic marketing expert to help drive the next phase of growth at Syed Media. If you&apos;re passionate about innovative
                   campaigns, bold ideas, and building brands that stand out — this is your opportunity.
                 </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                <ul className="list-disc list-inside text-white/75 space-y-2 mb-4">
                   <li>Must be 18 years or older</li>
                   <li>Must have a degree in Marketing or a related field</li>
                   <li>Must have a portfolio or resume showcasing previous marketing projects or campaigns</li>
                   <li>Must be willing to sign an NDA</li>
                   <li>Must be willing to work behind the scenes with our team to develop and execute strategic marketing initiatives</li>
                 </ul>
-                <p className="text-gray-400 mb-4">
+                <p className="text-white/60 mb-4">
                   We&apos;re looking for someone who doesn&apos;t just follow trends — but creates them. Someone who can think outside the box, plan high-impact marketing stunts,
                   and help position Syed Media as a leader in the creative industry.
                 </p>
-                <p className="text-gray-400 mb-4">
+                <p className="text-white/60 mb-4">
                   If you&apos;re ready to build, innovate, and scale with a fast-growing media company — apply now and let&apos;s make moves.
                 </p>
                 <Button
                   size="lg"
-                  className="w-full md:w-auto text-lg h-14 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 shadow-lg shadow-purple-500/20"
+                  className="h-14 w-full rounded-none border-2 border-[#00ffff] bg-[#00ffff] text-lg text-[#090e11] hover:bg-[#33ffff] hover:border-[#33ffff] md:w-auto"
                   onClick={() => setSelectedJob("Marketing Strategist")}
                 >
                   Apply Now
@@ -420,7 +414,7 @@ export default function CareerPage() {
                 <img
                   src="/career-videographer.png"
                   alt="Marketing Strategist Visual"
-                  className="rounded-2xl w-full max-w-lg object-cover shadow-xl"
+                  className="w-full max-w-lg border border-white/10 object-cover"
                   style={{ minHeight: '260px' }}
                 />
               </div>

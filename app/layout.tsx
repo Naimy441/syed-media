@@ -1,15 +1,24 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Outfit, Syne } from "next/font/google"
 import { ThemeProvider } from "@/components/ThemeProvider"
-import { AnimatedBackground } from "@/components/AnimatedBackground"
 import Header from "@/components/header"
 import SmoothScroll from "@/components/SmoothScroll"
 import { CreatorHeart } from "@/components/3ata-heart"
 import { Copyright } from "@/components/copyright"
 
-const inter = Inter({ subsets: ["latin"] })
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+})
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Syed Media - Where Ideas Meet Reality",
@@ -27,14 +36,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${outfit.className} ${outfit.variable} ${syne.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <SmoothScroll>
-            {/* Persistent Background */}
-            <div className="fixed inset-0 bg-black z-0 pointer-events-none">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0a2a66_0%,_#050530_40%,_black_100%)]" />
-            </div>
-            <AnimatedBackground />
+            <div
+              className="fixed inset-0 z-0 pointer-events-none"
+              style={{ backgroundColor: "#090e11" }}
+              aria-hidden
+            />
 
             {/* Page Layout */}
             <main className="flex flex-col relative z-20 w-full flex-1">

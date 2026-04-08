@@ -4,7 +4,19 @@ import { useState } from "react"
 import { useForm, ValidationError } from "@formspree/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Mail, MessageSquare, Send, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import {
+  cyanButtonClass,
+  GradientText,
+  modalBackdropClass,
+  modalCloseButtonClass,
+  modalInputClass,
+  modalInsetCalloutClass,
+  modalLabelClass,
+  modalPanelClass,
+  modalSuccessIconWrapClass,
+  modalTextareaClass,
+} from "@/components/site/MarketingUI"
 
 interface ContactModalProps {
     isOpen: boolean
@@ -31,7 +43,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                        className={modalBackdropClass}
                     />
 
                     {/* Modal */}
@@ -40,17 +52,21 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ duration: 0.2 }}
-                        className="relative w-full max-w-lg bg-slate-900 rounded-xl border border-slate-800 shadow-2xl mx-4"
+                        className={modalPanelClass}
                     >
                         <div className="p-6">
                             {/* Header */}
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-2xl font-bold text-white">Contact Us</h2>
+                            <div className="mb-6 flex items-center justify-between gap-3">
+                                <h2 className="font-display text-2xl font-semibold leading-[1.5] text-white">
+                                    <GradientText as="span">Contact Us</GradientText>
+                                </h2>
                                 <button
+                                    type="button"
                                     onClick={onClose}
-                                    className="text-slate-400 hover:text-white transition-colors"
+                                    className={modalCloseButtonClass}
+                                    aria-label="Close"
                                 >
-                                    <X className="w-6 h-6" />
+                                    <X className="h-6 w-6 shrink-0" />
                                 </button>
                             </div>
 
@@ -61,28 +77,27 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     animate={{ opacity: 1, y: 0 }}
                                     className="text-center py-8"
                                 >
-                                    <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <Mail className="w-8 h-8 text-emerald-500" />
+                                    <div className={modalSuccessIconWrapClass}>
+                                        <Mail className="h-8 w-8" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
-                                    <p className="text-slate-400">
+                                    <h3 className="mb-2 text-xl font-semibold text-white">Message Sent!</h3>
+                                    <p className="text-white/65">
                                         Thank you for reaching out. We'll get back to you soon.
                                     </p>
-                                    <Button
-                                        onClick={onClose}
-                                        className="mt-6 bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600"
-                                    >
+                                    <button type="button" onClick={onClose} className={cn(cyanButtonClass, "mt-6 w-full")}>
                                         Close
-                                    </Button>
+                                    </button>
                                 </motion.div>
                             ) : (
                                 /* Contact Form */
                                 <form onSubmit={handleFormSubmit} className="space-y-4">
+                                    <div className={modalInsetCalloutClass}>
+                                        <p className="text-sm leading-relaxed text-white/70">
+                                            Tell us what you are trying to build and we will recommend the best next step.
+                                        </p>
+                                    </div>
                                     <div>
-                                        <label
-                                            htmlFor="email"
-                                            className="block text-sm font-medium text-slate-400 mb-2"
-                                        >
+                                        <label htmlFor="email" className={modalLabelClass}>
                                             Email Address
                                         </label>
                                         <div className="relative">
@@ -91,10 +106,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 type="email"
                                                 name="email"
                                                 required
-                                                className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
+                                                className={cn(modalInputClass, "pr-11")}
                                                 placeholder="Enter your email"
                                             />
-                                            <Mail className="w-5 h-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2" />
+                                            <Mail className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-white/40" />
                                         </div>
                                         <ValidationError
                                             prefix="Email"
@@ -105,10 +120,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     </div>
 
                                     <div>
-                                        <label
-                                            htmlFor="message"
-                                            className="block text-sm font-medium text-slate-400 mb-2"
-                                        >
+                                        <label htmlFor="message" className={modalLabelClass}>
                                             Message
                                         </label>
                                         <div className="relative">
@@ -117,10 +129,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                 name="message"
                                                 required
                                                 rows={4}
-                                                className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all resize-none"
+                                                className={cn(modalTextareaClass, "min-h-[7rem] pr-11")}
                                                 placeholder="How can we help you?"
                                             />
-                                            <MessageSquare className="w-5 h-5 text-slate-400 absolute right-3 top-3" />
+                                            <MessageSquare className="pointer-events-none absolute right-3 top-3 h-5 w-5 text-white/40" />
                                         </div>
                                         <ValidationError
                                             prefix="Message"
@@ -130,23 +142,23 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         />
                                     </div>
 
-                                    <Button
+                                    <button
                                         type="submit"
                                         disabled={state.submitting || isSubmitting}
-                                        className="w-full bg-gradient-to-r from-purple-500 to-emerald-500 hover:from-purple-600 hover:to-emerald-600 text-white py-3 rounded-lg transition-all flex items-center justify-center gap-2"
+                                        className={cn(cyanButtonClass, "w-full py-3.5 disabled:opacity-50")}
                                     >
                                         {state.submitting || isSubmitting ? (
                                             <>
-                                                <Loader2 className="w-5 h-5 animate-spin" />
+                                                <Loader2 className="h-5 w-5 animate-spin" />
                                                 Sending...
                                             </>
                                         ) : (
                                             <>
-                                                <Send className="w-5 h-5" />
+                                                <Send className="h-5 w-5" />
                                                 Send Message
                                             </>
                                         )}
-                                    </Button>
+                                    </button>
                                 </form>
                             )}
                         </div>

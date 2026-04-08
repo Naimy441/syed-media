@@ -21,8 +21,24 @@ export default function Header() {
   const pathname = usePathname()
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    if (pathname !== "/") {
+      setIsLoaded(true)
+      return
+    }
+
+    setIsLoaded(false)
+
+    const reveal = () => setIsLoaded(true)
+    window.addEventListener("landing-hero-opened", reveal)
+
+    // Fallback for edge cases where the landing event is missed.
+    const fallback = window.setTimeout(reveal, 1700)
+
+    return () => {
+      window.removeEventListener("landing-hero-opened", reveal)
+      window.clearTimeout(fallback)
+    }
+  }, [pathname])
 
   return (
     <>
@@ -52,20 +68,20 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="hidden lg:flex items-center gap-8"
         >
-          <div className="flex gap-8 text-sm bg-black/20 backdrop-blur-sm px-8 py-4 rounded-full">
+          <div className="flex gap-8 text-sm border border-white/10 bg-[#090e11]/70 backdrop-blur-sm px-8 py-4 rounded-none">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-white hover:text-orange-400 transition-colors relative pb-1 font-medium ${
-                  pathname === item.href ? "text-orange-500" : ""
+                className={`text-white/90 hover:text-[#00ffff] transition-colors relative pb-1 font-medium ${
+                  pathname === item.href ? "text-[#00ffff]" : ""
                 }`}
               >
                 {item.name}
                 {pathname === item.href && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-orange-500"
+                    className="absolute bottom-0 left-0 w-full h-[2px] bg-[#00ffff]"
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   />
                 )}
@@ -74,7 +90,7 @@ export default function Header() {
           </div>
           <button
             onClick={() => setIsContactModalOpen(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-[#f25823] hover:bg-orange-600 text-white rounded-full transition-colors font-medium shadow-lg shadow-orange-500/20"
+            className="flex items-center gap-2 px-6 py-3 border-2 border-[#00ffff] bg-transparent text-[#00ffff] rounded-none transition-colors font-medium hover:bg-[#00ffff] hover:text-[#090e11]"
           >
             <Mail className="w-4 h-4" />
             Contact Us
@@ -87,7 +103,7 @@ export default function Header() {
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-white p-2 rounded-full bg-orange-500/20 backdrop-blur-sm hover:bg-orange-500/30 transition-colors"
+          className="lg:hidden text-[#00ffff] p-2 rounded-none border border-[#00ffff]/40 bg-[#090e11]/60 backdrop-blur-sm hover:bg-[#00ffff]/10 transition-colors"
           aria-label="Menu"
         >
           <Menu size={24} />
@@ -102,7 +118,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:hidden absolute top-0 left-0 right-0 bg-gray-900/70 backdrop-blur-md rounded-xl z-40 mt-28 mx-4"
+            className="lg:hidden absolute top-0 left-0 right-0 bg-[#090e11]/95 backdrop-blur-md border border-white/10 rounded-none z-40 mt-28 mx-4"
           >
             <nav className="flex flex-col p-4 text-[0.82em]">
               {navItems.map((item) => (
@@ -110,8 +126,8 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-white py-4 px-4 hover:bg-orange-500/10 rounded-md transition-colors ${
-                    pathname === item.href ? "bg-orange-500/10" : ""
+                  className={`text-white py-4 px-4 hover:bg-[#00ffff]/10 rounded-none transition-colors ${
+                    pathname === item.href ? "bg-[#00ffff]/10 text-[#00ffff]" : ""
                   }`}
                 >
                   {item.name}
@@ -122,7 +138,7 @@ export default function Header() {
                   setIsMenuOpen(false)
                   setIsContactModalOpen(true)
                 }}
-                className="flex items-center gap-2 py-4 px-4 mt-2 bg-[#f25823] hover:bg-orange-600 text-white rounded-md transition-colors font-medium"
+                className="flex items-center gap-2 py-4 px-4 mt-2 border-2 border-[#00ffff] bg-[#00ffff] text-[#090e11] rounded-none transition-colors font-medium hover:bg-[#33ffff] hover:border-[#33ffff]"
               >
                 <Mail className="w-4 h-4" />
                 Contact Us
