@@ -70,7 +70,7 @@ vec3 hsv2rgb(vec3 c) {
 }
 
 float Star(vec2 uv, float flare) {
-  float d = length(uv);
+  float d = max(length(uv), 1e-4);
   float m = (0.05 * uGlowIntensity) / d;
   float rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
   m += rays * flare * uGlowIntensity;
@@ -190,6 +190,10 @@ export default function Galaxy({
   className = '',
   /** When true, mouse position follows the whole viewport (e.g. hero has overlapping UI). */
   trackWindowMouse = false,
+  /**
+   * WebGL2 has sharper star math but some integrated GPUs botch blending/viewport; try 1 if you see tile/box artifacts.
+   */
+  webgl = 2,
   ...rest
 }) {
   const ctnDom = useRef(null);
@@ -201,9 +205,21 @@ export default function Galaxy({
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
+    /**
+     * DPR & pixel budget: the star shader is fill-rate heavy (4 layers × nested loops per pixel).
+     * devicePixelRatio=2 at 1920×1080 = ~4× the fragment work vs 1× — use a soft cap + megapixel ceiling.
+     */
+    const MAX_BUFFER_PIXELS = 2_200_000;
+
     const renderer = new Renderer({
       alpha: transparent,
-      premultipliedAlpha: false
+      premultipliedAlpha: false,
+      dpr: 1,
+      depth: false,
+      stencil: false,
+      antialias: false,
+      powerPreference: 'default',
+      webgl,
     });
     const gl = renderer.gl;
 
@@ -217,18 +233,37 @@ export default function Galaxy({
 
     let program;
 
+    let resizeRaf = 0;
     function resize() {
-      const scale = 1;
-      renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
+      const w = Math.max(1, Math.round(ctn.clientWidth));
+      const h = Math.max(1, Math.round(ctn.clientHeight));
+      const ratio = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+      let dpr = Math.min(ratio, 1.35);
+      const px = w * h * dpr * dpr;
+      if (px > MAX_BUFFER_PIXELS) dpr = Math.sqrt(MAX_BUFFER_PIXELS / (w * h));
+      dpr = Math.max(1, Math.min(dpr, ratio));
+      renderer.dpr = dpr;
+      renderer.setSize(w, h);
       if (program) {
         program.uniforms.uResolution.value = new Color(
           gl.canvas.width,
           gl.canvas.height,
-          gl.canvas.width / gl.canvas.height
+          gl.canvas.width / Math.max(gl.canvas.height, 1)
         );
       }
     }
-    window.addEventListener('resize', resize, false);
+
+    function scheduleResize() {
+      cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => {
+        resizeRaf = 0;
+        resize();
+      });
+    }
+
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(scheduleResize) : null;
+    ro?.observe(ctn);
+    window.addEventListener('resize', scheduleResize, false);
     resize();
 
     const geometry = new Triangle(gl);
@@ -322,7 +357,9 @@ export default function Galaxy({
 
     return () => {
       cancelAnimationFrame(animateId);
-      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(resizeRaf);
+      ro?.disconnect();
+      window.removeEventListener('resize', scheduleResize);
       if (mouseInteraction) {
         if (trackWindowMouse) {
           window.removeEventListener('mousemove', handleWindowMouseMove);
@@ -352,7 +389,8 @@ export default function Galaxy({
     repulsionStrength,
     autoCenterRepulsion,
     transparent,
-    trackWindowMouse
+    trackWindowMouse,
+    webgl
   ]);
 
   return <div ref={ctnDom} className={`galaxy-container ${className}`.trim()} {...rest} />;

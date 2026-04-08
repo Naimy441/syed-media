@@ -20,6 +20,8 @@ declare module "@/components/Galaxy.jsx" {
     transparent?: boolean
     /** Follow pointer anywhere on the page (for overlapping hero UI). */
     trackWindowMouse?: boolean
+    /** 2 default; use `1` on machines with broken WebGL2 star/glow compositing (tile/box artifacts). */
+    webgl?: 1 | 2
     className?: string
   } & Omit<HTMLAttributes<HTMLDivElement>, "children">
 
