@@ -198,6 +198,67 @@ function PortalHeroVisual() {
   )
 }
 
+function RealEstateVisual() {
+  return (
+    <div className="relative mx-auto flex w-full justify-center py-4 md:py-8">
+      <div className="relative w-full max-w-[min(94vw,22rem)] sm:max-w-[min(90vw,28rem)] md:max-w-[min(88vw,34rem)] lg:max-w-[min(52vw,42rem)] xl:max-w-[44rem]">
+        <motion.div
+          className="pointer-events-none absolute inset-[-8%] md:inset-[-14%]"
+          initial={{ opacity: 0, scale: 0.75 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.22 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.div
+            className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_45%,rgba(0,255,255,0.35)_0%,rgba(217,102,255,0.12)_35%,transparent_65%)] blur-3xl"
+            animate={{ scale: [1, 1.08, 1], opacity: [0.65, 1, 0.65] }}
+            transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+            aria-hidden
+          />
+          <motion.div
+            className="absolute inset-[6%] rounded-full border border-[#00ffff]/35 shadow-[0_0_50px_rgba(0,255,255,0.25),0_0_100px_rgba(217,102,255,0.12)]"
+            animate={{ scale: [1, 1.04, 1], opacity: [0.5, 0.85, 0.5] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+            aria-hidden
+          />
+        </motion.div>
+
+        <motion.div
+          className="relative z-10"
+          initial={{ opacity: 0, scale: 0.78, y: 36 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.28, margin: "-60px 0px" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <motion.div
+              animate={{
+                filter: [
+                  "drop-shadow(0 0 32px rgba(0,255,255,0.55)) drop-shadow(0 0 64px rgba(217,102,255,0.28)) drop-shadow(0 0 100px rgba(0,255,255,0.12))",
+                  "drop-shadow(0 0 48px rgba(217,102,255,0.45)) drop-shadow(0 0 80px rgba(0,255,255,0.35)) drop-shadow(0 0 120px rgba(217,102,255,0.15))",
+                  "drop-shadow(0 0 32px rgba(0,255,255,0.55)) drop-shadow(0 0 64px rgba(217,102,255,0.28)) drop-shadow(0 0 100px rgba(0,255,255,0.12))",
+                ],
+              }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src="/new-images/real-estate.PNG"
+                alt="Real Estate Package"
+                width={880}
+                height={880}
+                className="h-auto w-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+
 export default function ServicesPage() {
   const [reviewOpen, setReviewOpen] = useState(false)
   const [marketingOpen, setMarketingOpen] = useState(false)
@@ -269,6 +330,11 @@ export default function ServicesPage() {
                 badge: "New",
                 desc: "Turn your raw footage into tailored, polished, ready-to-watch cinema.",
                 id: "magic-editing-portal",
+              },
+              {
+                title: "Real Estate Package",
+                desc: "Built for real estate developers and agents looking to elevate their brand and stand out in a competitive market.",
+                id: "real-estate-package",
               },
               {
                 title: "Video Shooting",
@@ -491,6 +557,43 @@ export default function ServicesPage() {
             </div>
           </div>
           <PortalHeroVisual />
+        </div>
+      </SectionShell>
+
+      <SectionShell id="real-estate-package" className="bg-white/[0.02]">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16">
+          <div>
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              <GradientText as="span" className="uppercase">Real Estate Package</GradientText>
+            </h2>
+            <p className="mt-4 text-lg text-white/75">
+              Built for real estate developers and agents looking to elevate their brand and stand out in a competitive
+              market.
+            </p>
+
+            <h3 className="mt-10 text-sm font-semibold uppercase tracking-wider text-[#00ffff]">What We Offer</h3>
+            <div className="mt-4 space-y-4">
+              <div className="border border-white/10 bg-white/[0.02] p-5">
+                <h4 className="text-base font-semibold text-white">Drone Footage Video + Premium Editing</h4>
+                <p className="mt-2 text-sm text-white/70">
+                  Cinematic aerial shots combined with high-end editing to showcase properties with clarity, scale, and
+                  impact.
+                </p>
+              </div>
+              <div className="border border-white/10 bg-white/[0.02] p-5">
+                <h4 className="text-base font-semibold text-white">Property Explanation Video</h4>
+                <p className="mt-2 text-sm text-white/70">
+                  Engaging, on-camera walkthroughs designed to highlight key features, build trust, and convert viewers
+                  into buyers.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <RectButton onClick={() => openMarketing("Real Estate Package")}>Start Creating →</RectButton>
+            </div>
+          </div>
+          <RealEstateVisual />
         </div>
       </SectionShell>
 

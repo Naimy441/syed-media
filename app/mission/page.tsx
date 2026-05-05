@@ -169,7 +169,7 @@ export default function MissionPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a
-              href="https://youtube.com/@hamzasyedd?si=DQVwrybKM5ghBBlZ"
+              href="https://youtube.com/@syed_media?si=K-uYuw78fKQrw-aH"
               target="_blank"
               rel="noopener noreferrer"
               className="group"
